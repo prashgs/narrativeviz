@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <!-- Create a button to trigger the transition -->
+    <button onclick="triggerTransitionDelay()">Trigger transition</button>
+
+    <!-- Create a svg area-->
+    <svg id="dataviz_delay" width="400px" height="320px"></svg>
+    <script>
+      // Position of the circles on the X axis
+      var position = [50, 100, 150, 200, 250, 300, 350];
+
+      // Add circles at the top
+      var circles = d3
+        .select("#dataviz_delay")
+        .selectAll("mycircles")
+        .data(position)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+          return d;
+        })
+        .attr("cy", 40)
+        .attr("r", 10)
+        .transition()
+        .duration(2000)
+        .delay(function (i) {
+          return i * 10;
+        })
+        .on("start", function repeat() {
+          d3.active(this)
+            .attr("cy", 300)
+            .transition()
+            .attr("cy", 40)
+            .transition()
+            .on("start", repeat);
+        });
+
+      // // Animation: put them down one by one:
+      // function triggerTransitionDelay() {
+      //   circles
+      //     .transition()
+      //     .duration(2000)
+      //     .attr("cy", 300)
+      //     .delay(function (i) {
+      //       return i * 10;
+      //     });
+      // }
+    </script>
+  </body>
+</html>

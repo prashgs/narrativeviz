@@ -1,1 +1,207 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Narrative Visualization-Fatal Shots</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="text/javascript" src="libraries/d3.v4.js"></script>
+  <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif;
+    }
+
+    .w3-bar,
+    h1,
+    button {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+      font-size: 200px;
+    }
+
+    .grids {
+      display: none;
+    }
+  </style>
+</head>
+
+<body onload="">
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-blue-grey w3-left-align w3-large">
+      <br>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-container w3-gray w3-center grids w3-animate-opacity">
+    <h1 class="w3-jumbo">
+      FATAL SHOTS
+    </h1>
+    <h3>By US Law Enforcement</h3>
+    <div class="w3-text-light-grey">
+      In 2019, <span class="w3-jumbo">998</span> people were killed.
+    </div>
+    <svg id="dataviz_delay" width="100" height="25"></svg>
+    <script type="text/javascript" src="libraries/header.js"></script>
+  </header>
+
+
+  <!-- First Grid -->
+  <div class="w3-container w3-center grids w3-animate-opacity" style="display: none;" id="first-grid">
+    <h1 class="w3-jumbo">
+      STEADY NUMBER
+    </h1>
+    <div class="w3-content">
+      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
+        <!-- <h1>STEADY NUMBER</h1> -->
+        <h5 class="w3-padding-32">
+          Over the past few years, number of people killed by police has
+          stayed steady.
+        </h5>
+        <p class="w3-text-grey">
+          The average number fatal shooting stands at <b>984</b> between 2015 and 2019.
+          This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
+        </p>
+      </div>
+      <div class="w3-twothird w3-center" id="first_dataViz"></div>
+    </div>
+  </div>
+
+  <!-- Second Grid -->
+  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="second-grid">
+    <h1 class="w3-jumbo">
+      NUMBERS BY STATE
+    </h1>
+    <div class="w3-content">
+      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+        <!-- <h1>NUMBERS BY STATE</h1> -->
+        <h5 class="w3-padding-32">
+          California, Texas, Florida and Arizona are states that have the highest number of deaths from US Law
+          enforcement.
+
+        </h5>
+        <p class="w3-text-grey">
+          California, Texas and Florida have been consistently ranked as states with highest number of deaths.
+          These states also have some of the highest population in the country.
+        </p>
+      </div>
+
+      <div class="w3-twothird w3-center" id="second_dataViz">
+        <select id="selectButton"></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third Grid -->
+  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="third-grid">
+    <h1 class="w3-jumbo">
+      RACE FACTOR
+    </h1>
+    <div class="w3-content">
+      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+        <!-- <h1>RACE FACTOR</h1> -->
+        <h5 class="w3-padding-32">
+          Compared to other races, Blacks and Hispanics are killed at higher rates.
+        </h5>
+
+        <p class="w3-text-grey">
+          White Americans form the majority of people killed at just over
+          <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
+          However, there are 4 times more White americans than Black americans.
+          Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
+          These disparities have led to renewed discussions about Race as a factor in these
+          fatal shootings recent years.
+        </p>
+      </div>
+      <div class="w3-twothird w3-center" id="third_dataViz"></div>
+    </div>
+  </div>
+
+  <!-- Fourth Grid -->
+  <div class="w3-container w3-center grids  w3-animate-opacity" style="display: none;" id="fourth-grid">
+    <h1 class="w3-jumbo">
+      AGE FACTOR
+    </h1>
+    <div class="w3-content ">
+      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+        <!-- <h1>AGE FACTOR</h1> -->
+        <h5 class="w3-padding-32">
+          Compared to other races, Blacks and Hispanics are killed at higher rates.
+        </h5>
+
+        <p class="w3-text-grey">
+          White Americans form the majority of people killed at just over
+          <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
+          However, there are 4 times more White americans than Black americans.
+          Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
+          These disparities have led to renewed discussions about Race as a factor in these
+          fatal shootings recent years.
+        </p>
+      </div>
+      <div class="w3-twothird w3-center" id="fourth_dataViz"></div>
+    </div>
+  </div>
+
+  <div class="w3-section w3-center w3-padding-24">
+    <button class="w3-button demo">Home</button>
+    <button class="w3-button demo">1</button>
+    <button class="w3-button demo">2</button>
+    <button class="w3-button demo">3</button>
+    <button class="w3-button demo">4</button>
+    <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+    <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+  </div>
+
+
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("grids");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) { slideIndex = 5 }
+      if (n < 1) { slideIndex = 1 }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-red", "");
+      }
+      x[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " w3-red";
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <script type="text/javascript" src="libraries/first.js"></script>
+  <script type="text/javascript" src="libraries/second.js"></script>
+  <script type="text/javascript" src="libraries/third.js"></script>
+  <script type="text/javascript" src="libraries/fourth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,999 @@
+year,state,statecode,race
+2019,Alabama,AL,B
+2019,Alabama,AL,B
+2019,Alabama,AL,B
+2019,Alabama,AL,B
+2019,Alabama,AL,B
+2019,Alabama,AL,W
+2019,Alabama,AL,W
+2019,Alabama,AL,B
+2019,Alabama,AL,B
+2019,Alabama,AL,W
+2019,Alabama,AL,W
+2019,Alaska,AK,W
+2019,Alaska,AK,W
+2019,Alaska,AK,N
+2019,Alaska,AK,B
+2019,Alaska,AK,W
+2019,Alaska,AK,O
+2019,Alaska,AK,W
+2019,Arizona,AZ,B
+2019,Arizona,AZ,H
+2019,Arizona,AZ,W
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,W
+2019,Arizona,AZ,W
+2019,Arizona,AZ,W
+2019,Arizona,AZ,O
+2019,Arizona,AZ,H
+2019,Arizona,AZ,O
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,W
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,O
+2019,Arizona,AZ,N
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,O
+2019,Arizona,AZ,H
+2019,Arizona,AZ,H
+2019,Arizona,AZ,B
+2019,Arizona,AZ,W
+2019,Arizona,AZ,W
+2019,Arizona,AZ,N
+2019,Arizona,AZ,W
+2019,Arizona,AZ,B
+2019,Arizona,AZ,H
+2019,Arizona,AZ,W
+2019,Arkansas,AR,B
+2019,Arkansas,AR,W
+2019,Arkansas,AR,B
+2019,Arkansas,AR,W
+2019,Arkansas,AR,B
+2019,Arkansas,AR,W
+2019,Arkansas,AR,W
+2019,Arkansas,AR,W
+2019,Arkansas,AR,B
+2019,Arkansas,AR,W
+2019,Arkansas,AR,O
+2019,Arkansas,AR,W
+2019,Arkansas,AR,O
+2019,Arkansas,AR,B
+2019,Arkansas,AR,O
+2019,Arkansas,AR,O
+2019,Arkansas,AR,B
+2019,Arkansas,AR,B
+2019,Arkansas,AR,W
+2019,Arkansas,AR,W
+2019,Arkansas,AR,B
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,A
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,N
+2019,California,CA,A
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,A
+2019,California,CA,W
+2019,California,CA,N
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,O
+2019,California,CA,A
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,O
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,A
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,O
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,O
+2019,California,CA,B
+2019,California,CA,O
+2019,California,CA,B
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,A
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,B
+2019,California,CA,W
+2019,California,CA,W
+2019,California,CA,A
+2019,California,CA,W
+2019,California,CA,H
+2019,California,CA,B
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,O
+2019,California,CA,H
+2019,California,CA,W
+2019,California,CA,H
+2019,Colorado,CO,W
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,W
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,W
+2019,Colorado,CO,H
+2019,Colorado,CO,B
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,B
+2019,Colorado,CO,O
+2019,Colorado,CO,O
+2019,Colorado,CO,B
+2019,Colorado,CO,H
+2019,Colorado,CO,H
+2019,Colorado,CO,H
+2019,Colorado,CO,H
+2019,Colorado,CO,B
+2019,Colorado,CO,W
+2019,Colorado,CO,O
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,W
+2019,Colorado,CO,O
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,W
+2019,Colorado,CO,H
+2019,Colorado,CO,W
+2019,Colorado,CO,B
+2019,Colorado,CO,W
+2019,Colorado,CO,W
+2019,Connecticut,CT,B
+2019,Connecticut,CT,H
+2019,Connecticut,CT,H
+2019,Connecticut,CT,W
+2019,Delaware,DE,O
+2019,Delaware,DE,O
+2019,Florida,FL,O
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,H
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,H
+2019,Florida,FL,O
+2019,Florida,FL,H
+2019,Florida,FL,H
+2019,Florida,FL,H
+2019,Florida,FL,O
+2019,Florida,FL,O
+2019,Florida,FL,W
+2019,Florida,FL,O
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,B
+2019,Florida,FL,O
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,O
+2019,Florida,FL,O
+2019,Florida,FL,W
+2019,Florida,FL,O
+2019,Florida,FL,W
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,W
+2019,Florida,FL,H
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,W
+2019,Florida,FL,B
+2019,Florida,FL,B
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,W
+2019,Florida,FL,H
+2019,Georgia,GA,O
+2019,Georgia,GA,B
+2019,Georgia,GA,B
+2019,Georgia,GA,B
+2019,Georgia,GA,W
+2019,Georgia,GA,O
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,O
+2019,Georgia,GA,B
+2019,Georgia,GA,B
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,B
+2019,Georgia,GA,A
+2019,Georgia,GA,H
+2019,Georgia,GA,W
+2019,Georgia,GA,O
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,O
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,H
+2019,Georgia,GA,O
+2019,Georgia,GA,W
+2019,Georgia,GA,B
+2019,Georgia,GA,O
+2019,Georgia,GA,O
+2019,Georgia,GA,A
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,W
+2019,Georgia,GA,B
+2019,Georgia,GA,W
+2019,Georgia,GA,B
+2019,Hawaii,HI,O
+2019,Hawaii,HI,A
+2019,Hawaii,HI,W
+2019,Hawaii,HI,A
+2019,Hawaii,HI,O
+2019,Hawaii,HI,O
+2019,Hawaii,HI,O
+2019,Idaho,ID,W
+2019,Idaho,ID,W
+2019,Idaho,ID,O
+2019,Idaho,ID,W
+2019,Idaho,ID,W
+2019,Idaho,ID,W
+2019,Idaho,ID,H
+2019,Illinois,IL,H
+2019,Illinois,IL,B
+2019,Illinois,IL,B
+2019,Illinois,IL,B
+2019,Illinois,IL,O
+2019,Illinois,IL,O
+2019,Illinois,IL,B
+2019,Illinois,IL,B
+2019,Illinois,IL,B
+2019,Illinois,IL,B
+2019,Illinois,IL,O
+2019,Illinois,IL,W
+2019,Illinois,IL,B
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,O
+2019,Indiana,IN,B
+2019,Indiana,IN,W
+2019,Indiana,IN,O
+2019,Indiana,IN,B
+2019,Indiana,IN,B
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Indiana,IN,W
+2019,Iowa,IA,B
+2019,Iowa,IA,W
+2019,Iowa,IA,W
+2019,Iowa,IA,W
+2019,Iowa,IA,W
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kansas,KS,B
+2019,Kansas,KS,W
+2019,Kansas,KS,W
+2019,Kentucky,KY,B
+2019,Kentucky,KY,W
+2019,Kentucky,KY,B
+2019,Kentucky,KY,W
+2019,Kentucky,KY,B
+2019,Kentucky,KY,O
+2019,Kentucky,KY,W
+2019,Kentucky,KY,W
+2019,Kentucky,KY,O
+2019,Kentucky,KY,O
+2019,Kentucky,KY,W
+2019,Kentucky,KY,W
+2019,Kentucky,KY,W
+2019,Kentucky,KY,W
+2019,Kentucky,KY,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,O
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,B
+2019,Louisiana,LA,W
+2019,Louisiana,LA,B
+2019,Louisiana,LA,W
+2019,Louisiana,LA,B
+2019,Maine,ME,W
+2019,Maine,ME,W
+2019,Maine,ME,H
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,W
+2019,Maryland,MD,B
+2019,Maryland,MD,H
+2019,Maryland,MD,O
+2019,Maryland,MD,W
+2019,Maryland,MD,W
+2019,Maryland,MD,W
+2019,Maryland,MD,B
+2019,Maryland,MD,W
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,B
+2019,Maryland,MD,W
+2019,Maryland,MD,W
+2019,Massachusetts,MA,O
+2019,Massachusetts,MA,B
+2019,Massachusetts,MA,H
+2019,Massachusetts,MA,O
+2019,Massachusetts,MA,O
+2019,Michigan,MI,H
+2019,Michigan,MI,W
+2019,Michigan,MI,O
+2019,Michigan,MI,W
+2019,Michigan,MI,W
+2019,Michigan,MI,W
+2019,Michigan,MI,B
+2019,Michigan,MI,B
+2019,Michigan,MI,W
+2019,Michigan,MI,O
+2019,Michigan,MI,W
+2019,Michigan,MI,W
+2019,Michigan,MI,B
+2019,Minnesota,MN,W
+2019,Minnesota,MN,W
+2019,Minnesota,MN,W
+2019,Minnesota,MN,N
+2019,Minnesota,MN,W
+2019,Minnesota,MN,O
+2019,Minnesota,MN,B
+2019,Minnesota,MN,O
+2019,Minnesota,MN,H
+2019,Minnesota,MN,B
+2019,Minnesota,MN,A
+2019,Mississippi,MS,W
+2019,Mississippi,MS,A
+2019,Mississippi,MS,B
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,W
+2019,Mississippi,MS,B
+2019,Mississippi,MS,B
+2019,Mississippi,MS,O
+2019,Mississippi,MS,B
+2019,Mississippi,MS,W
+2019,Mississippi,MS,B
+2019,Mississippi,MS,O
+2019,Missouri,MO,O
+2019,Missouri,MO,B
+2019,Missouri,MO,W
+2019,Missouri,MO,W
+2019,Missouri,MO,W
+2019,Missouri,MO,O
+2019,Missouri,MO,W
+2019,Missouri,MO,B
+2019,Missouri,MO,B
+2019,Missouri,MO,B
+2019,Missouri,MO,B
+2019,Missouri,MO,W
+2019,Missouri,MO,H
+2019,Missouri,MO,W
+2019,Missouri,MO,B
+2019,Missouri,MO,B
+2019,Missouri,MO,W
+2019,Missouri,MO,W
+2019,Missouri,MO,O
+2019,Missouri,MO,B
+2019,Missouri,MO,W
+2019,Missouri,MO,W
+2019,Missouri,MO,W
+2019,Missouri,MO,B
+2019,Missouri,MO,B
+2019,Missouri,MO,O
+2019,Missouri,MO,W
+2019,Missouri,MO,B
+2019,Montana,MT,W
+2019,Montana,MT,W
+2019,Montana,MT,W
+2019,Montana,MT,W
+2019,Montana,MT,W
+2019,Montana,MT,W
+2019,Nebraska,NE,H
+2019,Nebraska,NE,N
+2019,Nebraska,NE,H
+2019,Nebraska,NE,W
+2019,Nebraska,NE,W
+2019,Nebraska,NE,B
+2019,Nevada,NV,H
+2019,Nevada,NV,B
+2019,Nevada,NV,W
+2019,Nevada,NV,H
+2019,Nevada,NV,H
+2019,Nevada,NV,W
+2019,Nevada,NV,W
+2019,Nevada,NV,O
+2019,Nevada,NV,O
+2019,Nevada,NV,H
+2019,Nevada,NV,B
+2019,New Hampshire,NH,W
+2019,New Hampshire,NH,W
+2019,New Jersey,NJ,B
+2019,New Jersey,NJ,B
+2019,New Jersey,NJ,O
+2019,New Jersey,NJ,O
+2019,New Jersey,NJ,B
+2019,New Jersey,NJ,H
+2019,New Jersey,NJ,W
+2019,New Jersey,NJ,B
+2019,New Jersey,NJ,W
+2019,New Jersey,NJ,W
+2019,New Jersey,NJ,B
+2019,New Jersey,NJ,B
+2019,New Mexico,NM,N
+2019,New Mexico,NM,H
+2019,New Mexico,NM,H
+2019,New Mexico,NM,W
+2019,New Mexico,NM,H
+2019,New Mexico,NM,H
+2019,New Mexico,NM,O
+2019,New Mexico,NM,O
+2019,New Mexico,NM,H
+2019,New Mexico,NM,W
+2019,New Mexico,NM,O
+2019,New Mexico,NM,O
+2019,New Mexico,NM,W
+2019,New Mexico,NM,O
+2019,New Mexico,NM,O
+2019,New Mexico,NM,H
+2019,New Mexico,NM,O
+2019,New Mexico,NM,H
+2019,New York,NY,W
+2019,New York,NY,W
+2019,New York,NY,O
+2019,New York,NY,B
+2019,New York,NY,O
+2019,New York,NY,H
+2019,New York,NY,W
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,O
+2019,New York,NY,O
+2019,New York,NY,O
+2019,New York,NY,W
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,B
+2019,New York,NY,W
+2019,New York,NY,B
+2019,New York,NY,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,H
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,H
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,O
+2019,North Carolina,NC,W
+2019,North Carolina,NC,O
+2019,North Carolina,NC,W
+2019,North Carolina,NC,O
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,B
+2019,North Carolina,NC,B
+2019,North Carolina,NC,W
+2019,North Carolina,NC,B
+2019,North Carolina,NC,B
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,W
+2019,Ohio,OH,W
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,O
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,W
+2019,Ohio,OH,B
+2019,Ohio,OH,O
+2019,Ohio,OH,W
+2019,Oklahoma,OK,O
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,N
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,N
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,O
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,H
+2019,Oklahoma,OK,B
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,W
+2019,Oklahoma,OK,O
+2019,Oklahoma,OK,B
+2019,Oregon,OR,W
+2019,Oregon,OR,B
+2019,Oregon,OR,H
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,O
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,O
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,W
+2019,Oregon,OR,H
+2019,Oregon,OR,W
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,B
+2019,Pennsylvania,PA,B
+2019,Pennsylvania,PA,B
+2019,Pennsylvania,PA,B
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,O
+2019,Pennsylvania,PA,O
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,B
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,W
+2019,Pennsylvania,PA,B
+2019,South Carolina,SC,O
+2019,South Carolina,SC,B
+2019,South Carolina,SC,W
+2019,South Carolina,SC,B
+2019,South Carolina,SC,W
+2019,South Carolina,SC,W
+2019,South Carolina,SC,W
+2019,South Carolina,SC,W
+2019,South Carolina,SC,B
+2019,South Carolina,SC,W
+2019,South Carolina,SC,O
+2019,South Carolina,SC,W
+2019,South Carolina,SC,W
+2019,South Carolina,SC,O
+2019,South Carolina,SC,O
+2019,South Carolina,SC,W
+2019,South Carolina,SC,B
+2019,South Carolina,SC,B
+2019,South Dakota,SD,W
+2019,South Dakota,SD,N
+2019,South Dakota,SD,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Tennessee,TN,O
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Tennessee,TN,O
+2019,Tennessee,TN,B
+2019,Tennessee,TN,O
+2019,Tennessee,TN,B
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,O
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,W
+2019,Tennessee,TN,B
+2019,Tennessee,TN,W
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,A
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,B
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,H
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,A
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,O
+2019,Texas,TX,B
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,O
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,B
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Texas,TX,B
+2019,Texas,TX,W
+2019,Texas,TX,H
+2019,Texas,TX,O
+2019,Texas,TX,H
+2019,Texas,TX,W
+2019,Texas,TX,B
+2019,Utah,UT,B
+2019,Utah,UT,H
+2019,Utah,UT,W
+2019,Utah,UT,W
+2019,Utah,UT,H
+2019,Utah,UT,H
+2019,Utah,UT,W
+2019,Utah,UT,B
+2019,Utah,UT,W
+2019,Utah,UT,O
+2019,Utah,UT,W
+2019,Utah,UT,W
+2019,Vermont,VT,W
+2019,Vermont,VT,O
+2019,Vermont,VT,W
+2019,Virginia,VA,B
+2019,Virginia,VA,W
+2019,Virginia,VA,W
+2019,Virginia,VA,O
+2019,Virginia,VA,W
+2019,Virginia,VA,W
+2019,Virginia,VA,B
+2019,Virginia,VA,W
+2019,Virginia,VA,W
+2019,Virginia,VA,W
+2019,Washington,WA,H
+2019,Washington,WA,W
+2019,Washington,WA,O
+2019,Washington,WA,B
+2019,Washington,WA,H
+2019,Washington,WA,A
+2019,Washington,WA,W
+2019,Washington,WA,O
+2019,Washington,WA,H
+2019,Washington,WA,O
+2019,Washington,WA,H
+2019,Washington,WA,W
+2019,Washington,WA,W
+2019,Washington,WA,B
+2019,Washington,WA,B
+2019,Washington,WA,A
+2019,Washington,WA,B
+2019,Washington,WA,H
+2019,Washington,WA,H
+2019,Washington,WA,N
+2019,Washington,WA,W
+2019,Washington,WA,H
+2019,Washington,WA,B
+2019,Washington,WA,O
+2019,Washington,WA,O
+2019,Washington,WA,B
+2019,Washington,WA,W
+2019,Washington,WA,O
+2019,Washington,WA,W
+2019,Washington,WA,W
+2019,Washington,WA,B
+2019,Washington,WA,W
+2019,Washington,WA,W
+2019,Washington,WA,W
+2019,Washington,WA,H
+2019,Washington,WA,B
+2019,West Virginia,WV,B
+2019,West Virginia,WV,W
+2019,West Virginia,WV,W
+2019,West Virginia,WV,W
+2019,West Virginia,WV,B
+2019,West Virginia,WV,W
+2019,West Virginia,WV,A
+2019,West Virginia,WV,W
+2019,West Virginia,WV,W
+2019,West Virginia,WV,O
+2019,West Virginia,WV,W
+2019,West Virginia,WV,W
+2019,West Virginia,WV,W
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,H
+2019,Wisconsin,WI,B
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,B
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,O
+2019,Wisconsin,WI,H
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,A
+2019,Wisconsin,WI,W
+2019,Wisconsin,WI,H
+2019,Wisconsin,WI,B
+2019,Wisconsin,WI,W
+2019,Wyoming,WY,N

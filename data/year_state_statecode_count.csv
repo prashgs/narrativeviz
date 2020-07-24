@@ -1,0 +1,293 @@
+year,state,statecode,count
+2015,Alabama,AL,17
+2015,Alaska,AK,4
+2015,Arizona,AZ,42
+2015,Arkansas,AR,5
+2015,California,CA,190
+2015,Colorado,CO,29
+2015,Connecticut,CT,2
+2015,Delaware,DE,3
+2015,Florida,FL,61
+2015,Georgia,GA,29
+2015,Hawaii,HI,2
+2015,Idaho,ID,7
+2015,Illinois,IL,21
+2015,Indiana,IN,19
+2015,Iowa,IA,5
+2015,Kansas,KS,9
+2015,Kentucky,KY,16
+2015,Louisiana,LA,27
+2015,Maine,ME,2
+2015,Maryland,MD,15
+2015,Massachusetts,MA,9
+2015,Michigan,MI,16
+2015,Minnesota,MN,12
+2015,Mississippi,MS,8
+2015,Missouri,MO,21
+2015,Montana,MT,4
+2015,Nebraska,NE,8
+2015,Nevada,NV,19
+2015,New Hampshire,NH,3
+2015,New Jersey,NJ,15
+2015,New Mexico,NM,20
+2015,New York,NY,19
+2015,North Carolina,NC,22
+2015,North Dakota,ND,1
+2015,Ohio,OH,29
+2015,Oklahoma,OK,32
+2015,Oregon,OR,15
+2015,Pennsylvania,PA,18
+2015,South Carolina,SC,19
+2015,South Dakota,SD,3
+2015,Tennessee,TN,20
+2015,Texas,TX,100
+2015,Utah,UT,10
+2015,Vermont,VT,1
+2015,Virginia,VA,18
+2015,Washington,WA,16
+2015,West Virginia,WV,10
+2015,Wisconsin,WI,11
+2015,Wyoming,WY,6
+2016,Alabama,AL,25
+2016,Alaska,AK,7
+2016,Arizona,AZ,50
+2016,Arkansas,AR,15
+2016,California,CA,138
+2016,Colorado,CO,31
+2016,Connecticut,CT,4
+2016,Delaware,DE,1
+2016,Florida,FL,60
+2016,Georgia,GA,26
+2016,Hawaii,HI,6
+2016,Idaho,ID,6
+2016,Illinois,IL,26
+2016,Indiana,IN,14
+2016,Iowa,IA,5
+2016,Kansas,KS,10
+2016,Kentucky,KY,18
+2016,Louisiana,LA,19
+2016,Maine,ME,2
+2016,Maryland,MD,15
+2016,Massachusetts,MA,12
+2016,Michigan,MI,12
+2016,Minnesota,MN,14
+2016,Mississippi,MS,8
+2016,Missouri,MO,21
+2016,Montana,MT,5
+2016,Nebraska,NE,7
+2016,Nevada,NV,14
+2016,New Hampshire,NH,2
+2016,New Jersey,NJ,12
+2016,New Mexico,NM,21
+2016,New York,NY,17
+2016,North Carolina,NC,33
+2016,North Dakota,ND,1
+2016,Ohio,OH,26
+2016,Oklahoma,OK,26
+2016,Oregon,OR,15
+2016,Pennsylvania,PA,22
+2016,Rhode Island,RI,2
+2016,South Carolina,SC,17
+2016,South Dakota,SD,4
+2016,Tennessee,TN,22
+2016,Texas,TX,82
+2016,Utah,UT,8
+2016,Vermont,VT,2
+2016,Virginia,VA,17
+2016,Washington,WA,26
+2016,West Virginia,WV,12
+2016,Wisconsin,WI,17
+2016,Wyoming,WY,2
+2017,Alabama,AL,25
+2017,Alaska,AK,8
+2017,Arizona,AZ,44
+2017,Arkansas,AR,12
+2017,California,CA,161
+2017,Colorado,CO,31
+2017,Connecticut,CT,6
+2017,Delaware,DE,6
+2017,Florida,FL,58
+2017,Georgia,GA,29
+2017,Hawaii,HI,3
+2017,Idaho,ID,6
+2017,Illinois,IL,20
+2017,Indiana,IN,19
+2017,Iowa,IA,5
+2017,Kansas,KS,12
+2017,Kentucky,KY,17
+2017,Louisiana,LA,19
+2017,Maine,ME,9
+2017,Maryland,MD,9
+2017,Massachusetts,MA,3
+2017,Michigan,MI,14
+2017,Minnesota,MN,9
+2017,Mississippi,MS,17
+2017,Missouri,MO,31
+2017,Montana,MT,6
+2017,Nevada,NV,16
+2017,New Hampshire,NH,3
+2017,New Jersey,NJ,12
+2017,New Mexico,NM,21
+2017,New York,NY,16
+2017,North Carolina,NC,22
+2017,North Dakota,ND,3
+2017,Ohio,OH,34
+2017,Oklahoma,OK,26
+2017,Oregon,OR,12
+2017,Pennsylvania,PA,23
+2017,Rhode Island,RI,1
+2017,South Carolina,SC,12
+2017,South Dakota,SD,3
+2017,Tennessee,TN,27
+2017,Texas,TX,69
+2017,Utah,UT,7
+2017,Vermont,VT,1
+2017,Virginia,VA,23
+2017,Washington,WA,38
+2017,West Virginia,WV,11
+2017,Wisconsin,WI,24
+2017,Wyoming,WY,1
+2018,Alabama,AL,13
+2018,Alaska,AK,7
+2018,Arizona,AZ,62
+2018,Arkansas,AR,20
+2018,California,CA,114
+2018,Colorado,CO,44
+2018,Connecticut,CT,1
+2018,Florida,FL,64
+2018,Georgia,GA,44
+2018,Hawaii,HI,11
+2018,Idaho,ID,13
+2018,Illinois,IL,20
+2018,Indiana,IN,18
+2018,Iowa,IA,9
+2018,Kansas,KS,7
+2018,Kentucky,KY,20
+2018,Louisiana,LA,15
+2018,Maine,ME,3
+2018,Maryland,MD,12
+2018,Massachusetts,MA,3
+2018,Michigan,MI,21
+2018,Minnesota,MN,12
+2018,Mississippi,MS,10
+2018,Missouri,MO,24
+2018,Montana,MT,6
+2018,Nebraska,NE,1
+2018,Nevada,NV,22
+2018,New Hampshire,NH,2
+2018,New Jersey,NJ,12
+2018,New Mexico,NM,20
+2018,New York,NY,15
+2018,North Carolina,NC,25
+2018,North Dakota,ND,4
+2018,Ohio,OH,32
+2018,Oklahoma,OK,33
+2018,Oregon,OR,17
+2018,Pennsylvania,PA,23
+2018,Rhode Island,RI,1
+2018,South Carolina,SC,12
+2018,South Dakota,SD,3
+2018,Tennessee,TN,26
+2018,Texas,TX,85
+2018,Utah,UT,18
+2018,Vermont,VT,2
+2018,Virginia,VA,18
+2018,Washington,WA,22
+2018,West Virginia,WV,7
+2018,Wisconsin,WI,12
+2018,Wyoming,WY,4
+2019,Alabama,AL,11
+2019,Alaska,AK,7
+2019,Arizona,AZ,35
+2019,Arkansas,AR,21
+2019,California,CA,135
+2019,Colorado,CO,36
+2019,Connecticut,CT,4
+2019,Delaware,DE,2
+2019,Florida,FL,64
+2019,Georgia,GA,37
+2019,Hawaii,HI,7
+2019,Idaho,ID,7
+2019,Illinois,IL,13
+2019,Indiana,IN,16
+2019,Iowa,IA,5
+2019,Kansas,KS,9
+2019,Kentucky,KY,15
+2019,Louisiana,LA,20
+2019,Maine,ME,3
+2019,Maryland,MD,19
+2019,Massachusetts,MA,5
+2019,Michigan,MI,13
+2019,Minnesota,MN,11
+2019,Mississippi,MS,18
+2019,Missouri,MO,28
+2019,Montana,MT,6
+2019,Nebraska,NE,6
+2019,Nevada,NV,11
+2019,New Hampshire,NH,2
+2019,New Jersey,NJ,12
+2019,New Mexico,NM,18
+2019,New York,NY,23
+2019,North Carolina,NC,34
+2019,Ohio,OH,24
+2019,Oklahoma,OK,34
+2019,Oregon,OR,18
+2019,Pennsylvania,PA,14
+2019,South Carolina,SC,18
+2019,South Dakota,SD,3
+2019,Tennessee,TN,33
+2019,Texas,TX,108
+2019,Utah,UT,12
+2019,Vermont,VT,3
+2019,Virginia,VA,10
+2019,Washington,WA,36
+2019,West Virginia,WV,13
+2019,Wisconsin,WI,18
+2019,Wyoming,WY,1
+2020,Alabama,AL,13
+2020,Alaska,AK,6
+2020,Arizona,AZ,23
+2020,Arkansas,AR,10
+2020,California,CA,68
+2020,Colorado,CO,30
+2020,Connecticut,CT,4
+2020,Delaware,DE,1
+2020,Florida,FL,47
+2020,Georgia,GA,19
+2020,Hawaii,HI,1
+2020,Idaho,ID,3
+2020,Illinois,IL,4
+2020,Indiana,IN,11
+2020,Iowa,IA,2
+2020,Kansas,KS,3
+2020,Kentucky,KY,11
+2020,Louisiana,LA,10
+2020,Maine,ME,3
+2020,Maryland,MD,9
+2020,Massachusetts,MA,3
+2020,Michigan,MI,3
+2020,Minnesota,MN,3
+2020,Mississippi,MS,4
+2020,Missouri,MO,18
+2020,Montana,MT,6
+2020,Nebraska,NE,2
+2020,Nevada,NV,16
+2020,New Hampshire,NH,1
+2020,New Jersey,NJ,5
+2020,New Mexico,NM,5
+2020,New York,NY,12
+2020,North Carolina,NC,18
+2020,North Dakota,ND,2
+2020,Ohio,OH,11
+2020,Oklahoma,OK,14
+2020,Oregon,OR,11
+2020,Pennsylvania,PA,11
+2020,South Carolina,SC,11
+2020,South Dakota,SD,1
+2020,Tennessee,TN,14
+2020,Texas,TX,42
+2020,Utah,UT,5
+2020,Virginia,VA,9
+2020,Washington,WA,14
+2020,West Virginia,WV,1
+2020,Wisconsin,WI,11

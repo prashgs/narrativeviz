@@ -1,0 +1,298 @@
+year,state,race,count
+2015,Alabama,B,6
+2015,Alabama,W,11
+2015,Alaska,O,4
+2015,Arizona,O,42
+2015,Arkansas,O,5
+2015,California,O,190
+2015,Colorado,O,29
+2015,Connecticut,O,2
+2015,Delaware,O,3
+2015,Florida,O,61
+2015,Georgia,O,29
+2015,Hawaii,O,2
+2015,Idaho,O,7
+2015,Illinois,O,21
+2015,Indiana,O,19
+2015,Iowa,O,5
+2015,Kansas,O,9
+2015,Kentucky,O,16
+2015,Louisiana,O,27
+2015,Maine,O,2
+2015,Maryland,O,15
+2015,Massachusetts,O,9
+2015,Michigan,O,16
+2015,Minnesota,O,12
+2015,Mississippi,O,8
+2015,Missouri,O,21
+2015,Montana,O,4
+2015,Nebraska,O,8
+2015,Nevada,O,19
+2015,New Hampshire,O,3
+2015,New Jersey,O,15
+2015,New Mexico,O,20
+2015,New York,O,19
+2015,North Carolina,O,22
+2015,North Dakota,O,1
+2015,Ohio,O,29
+2015,Oklahoma,O,32
+2015,Oregon,O,15
+2015,Pennsylvania,O,18
+2015,South Carolina,O,19
+2015,South Dakota,O,3
+2015,Tennessee,O,20
+2015,Texas,O,100
+2015,Utah,O,10
+2015,Vermont,O,1
+2015,Virginia,O,18
+2015,Washington,O,16
+2015,West Virginia,O,10
+2015,Wisconsin,O,11
+2015,Wyoming,O,6
+2016,Alabama,B,6
+2016,Alabama,O,2
+2016,Alabama,W,17
+2016,Alaska,O,7
+2016,Arizona,O,50
+2016,Arkansas,O,15
+2016,California,O,138
+2016,Colorado,O,31
+2016,Connecticut,O,4
+2016,Delaware,O,1
+2016,Florida,O,60
+2016,Georgia,O,26
+2016,Hawaii,O,6
+2016,Idaho,O,6
+2016,Illinois,O,26
+2016,Indiana,O,14
+2016,Iowa,O,5
+2016,Kansas,O,10
+2016,Kentucky,O,18
+2016,Louisiana,O,19
+2016,Maine,O,2
+2016,Maryland,O,15
+2016,Massachusetts,O,12
+2016,Michigan,O,12
+2016,Minnesota,O,14
+2016,Mississippi,O,8
+2016,Missouri,O,21
+2016,Montana,O,5
+2016,Nebraska,O,7
+2016,Nevada,O,14
+2016,New Hampshire,O,2
+2016,New Jersey,O,12
+2016,New Mexico,O,21
+2016,New York,O,17
+2016,North Carolina,O,33
+2016,North Dakota,O,1
+2016,Ohio,O,26
+2016,Oklahoma,O,26
+2016,Oregon,O,15
+2016,Pennsylvania,O,22
+2016,Rhode Island,O,2
+2016,South Carolina,O,17
+2016,South Dakota,O,4
+2016,Tennessee,O,22
+2016,Texas,O,82
+2016,Utah,O,8
+2016,Vermont,O,2
+2016,Virginia,O,17
+2016,Washington,O,26
+2016,West Virginia,O,12
+2016,Wisconsin,O,17
+2016,Wyoming,H,1
+2016,Wyoming,W,1
+2017,Alabama,O,25
+2017,Alaska,O,8
+2017,Arizona,O,44
+2017,Arkansas,O,12
+2017,California,O,161
+2017,Colorado,O,31
+2017,Connecticut,O,6
+2017,Delaware,O,6
+2017,Florida,O,58
+2017,Georgia,O,29
+2017,Hawaii,O,3
+2017,Idaho,O,6
+2017,Illinois,O,20
+2017,Indiana,O,19
+2017,Iowa,O,5
+2017,Kansas,O,12
+2017,Kentucky,O,17
+2017,Louisiana,O,19
+2017,Maine,O,9
+2017,Maryland,O,9
+2017,Massachusetts,O,3
+2017,Michigan,O,14
+2017,Minnesota,O,9
+2017,Mississippi,O,17
+2017,Missouri,O,31
+2017,Montana,O,6
+2017,Nevada,O,16
+2017,New Hampshire,O,3
+2017,New Jersey,O,12
+2017,New Mexico,O,21
+2017,New York,O,16
+2017,North Carolina,O,22
+2017,North Dakota,O,3
+2017,Ohio,O,34
+2017,Oklahoma,O,26
+2017,Oregon,O,12
+2017,Pennsylvania,O,23
+2017,Rhode Island,O,1
+2017,South Carolina,O,12
+2017,South Dakota,O,3
+2017,Tennessee,O,27
+2017,Texas,O,69
+2017,Utah,O,7
+2017,Vermont,O,1
+2017,Virginia,O,23
+2017,Washington,O,38
+2017,West Virginia,O,11
+2017,Wisconsin,O,24
+2017,Wyoming,W,1
+2018,Alabama,O,13
+2018,Alaska,O,7
+2018,Arizona,O,62
+2018,Arkansas,O,20
+2018,California,O,114
+2018,Colorado,O,44
+2018,Connecticut,O,1
+2018,Florida,O,64
+2018,Georgia,O,44
+2018,Hawaii,O,11
+2018,Idaho,O,13
+2018,Illinois,O,20
+2018,Indiana,O,18
+2018,Iowa,O,9
+2018,Kansas,O,7
+2018,Kentucky,O,20
+2018,Louisiana,O,15
+2018,Maine,O,3
+2018,Maryland,O,12
+2018,Massachusetts,O,3
+2018,Michigan,O,21
+2018,Minnesota,O,12
+2018,Mississippi,O,10
+2018,Missouri,O,24
+2018,Montana,O,6
+2018,Nebraska,O,1
+2018,Nevada,O,22
+2018,New Hampshire,O,2
+2018,New Jersey,O,12
+2018,New Mexico,O,20
+2018,New York,O,15
+2018,North Carolina,O,25
+2018,North Dakota,O,4
+2018,Ohio,O,32
+2018,Oklahoma,O,33
+2018,Oregon,O,17
+2018,Pennsylvania,O,23
+2018,Rhode Island,O,1
+2018,South Carolina,O,12
+2018,South Dakota,O,3
+2018,Tennessee,O,26
+2018,Texas,O,85
+2018,Utah,O,18
+2018,Vermont,O,2
+2018,Virginia,O,18
+2018,Washington,O,22
+2018,West Virginia,O,7
+2018,Wisconsin,O,12
+2018,Wyoming,H,1
+2018,Wyoming,W,3
+2019,Alabama,O,11
+2019,Alaska,O,7
+2019,Arizona,O,35
+2019,Arkansas,O,21
+2019,California,O,135
+2019,Colorado,O,36
+2019,Connecticut,O,4
+2019,Delaware,O,2
+2019,Florida,O,64
+2019,Georgia,O,37
+2019,Hawaii,O,7
+2019,Idaho,O,7
+2019,Illinois,O,13
+2019,Indiana,O,16
+2019,Iowa,O,5
+2019,Kansas,O,9
+2019,Kentucky,O,15
+2019,Louisiana,O,20
+2019,Maine,O,3
+2019,Maryland,O,19
+2019,Massachusetts,O,5
+2019,Michigan,O,13
+2019,Minnesota,O,11
+2019,Mississippi,O,18
+2019,Missouri,O,28
+2019,Montana,O,6
+2019,Nebraska,O,6
+2019,Nevada,O,11
+2019,New Hampshire,O,2
+2019,New Jersey,O,12
+2019,New Mexico,O,18
+2019,New York,O,23
+2019,North Carolina,O,34
+2019,Ohio,O,24
+2019,Oklahoma,O,34
+2019,Oregon,O,18
+2019,Pennsylvania,O,14
+2019,South Carolina,O,18
+2019,South Dakota,O,3
+2019,Tennessee,O,33
+2019,Texas,O,108
+2019,Utah,O,12
+2019,Vermont,O,3
+2019,Virginia,O,10
+2019,Washington,O,36
+2019,West Virginia,O,13
+2019,Wisconsin,O,18
+2019,Wyoming,N,1
+2020,Alabama,O,13
+2020,Alaska,O,6
+2020,Arizona,O,23
+2020,Arkansas,O,10
+2020,California,O,68
+2020,Colorado,O,30
+2020,Connecticut,O,4
+2020,Delaware,O,1
+2020,Florida,O,47
+2020,Georgia,O,19
+2020,Hawaii,O,1
+2020,Idaho,O,3
+2020,Illinois,O,4
+2020,Indiana,O,11
+2020,Iowa,O,2
+2020,Kansas,O,3
+2020,Kentucky,O,11
+2020,Louisiana,O,10
+2020,Maine,O,3
+2020,Maryland,O,9
+2020,Massachusetts,O,3
+2020,Michigan,O,3
+2020,Minnesota,O,3
+2020,Mississippi,O,4
+2020,Missouri,O,18
+2020,Montana,O,6
+2020,Nebraska,O,2
+2020,Nevada,O,16
+2020,New Hampshire,O,1
+2020,New Jersey,O,5
+2020,New Mexico,O,5
+2020,New York,O,12
+2020,North Carolina,O,18
+2020,North Dakota,O,2
+2020,Ohio,O,11
+2020,Oklahoma,O,14
+2020,Oregon,O,11
+2020,Pennsylvania,O,11
+2020,South Carolina,O,11
+2020,South Dakota,O,1
+2020,Tennessee,O,14
+2020,Texas,O,42
+2020,Utah,O,5
+2020,Virginia,O,9
+2020,Washington,O,14
+2020,West Virginia,O,1
+2020,Wisconsin,O,11

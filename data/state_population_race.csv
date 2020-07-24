@@ -1,0 +1,351 @@
+﻿race,state,statecode,count
+A,Alabama,AL,63800
+B,Alabama,AL,1257300
+H,Alabama,AL,204800
+N,Alabama,AL,19000
+O,Alabama,AL,90700
+total,Alabama,AL,4752600
+W,Alabama,AL,3115600
+A,Alaska,AK,43200
+B,Alaska,AK,20700
+H,Alaska,AK,50200
+N,Alaska,AK,110300
+O,Alaska,AK,58500
+total,Alaska,AK,709100
+W,Alaska,AK,426100
+A,Arizona,AZ,227200
+B,Arizona,AZ,297000
+H,Arizona,AZ,2213600
+N,Arizona,AZ,271900
+O,Arizona,AZ,179400
+total,Arizona,AZ,7004300
+W,Arizona,AZ,3815100
+A,Arkansas,AR,44200
+B,Arkansas,AR,436900
+H,Arkansas,AR,224900
+N,Arkansas,AR,17000
+O,Arkansas,AR,87900
+total,Arkansas,AR,2921300
+W,Arkansas,AR,2110400
+A,California,CA,5669100
+B,California,CA,2074900
+H,California,CA,15261300
+N,California,CA,120300
+O,California,CA,1413200
+total,California,CA,38745900
+W,California,CA,14206900
+A,Colorado,CO,176400
+B,Colorado,CO,212200
+H,Colorado,CO,1200900
+N,Colorado,CO,27600
+O,Colorado,CO,163400
+total,Colorado,CO,5555200
+W,Colorado,CO,3774700
+A,Connecticut,CT,161300
+B,Connecticut,CT,343000
+H,Connecticut,CT,576400
+N,Connecticut,CT,4900
+O,Connecticut,CT,82500
+total,Connecticut,CT,3466300
+W,Connecticut,CT,2298100
+A,Delaware,DE,39100
+B,Delaware,DE,199900
+H,Delaware,DE,88900
+N,Delaware,DE,3300
+O,Delaware,DE,23700
+total,Delaware,DE,937700
+W,Delaware,DE,582600
+A,Florida,FL,571800
+B,Florida,FL,3141700
+H,Florida,FL,5488400
+N,Florida,FL,39300
+O,Florida,FL,500600
+total,Florida,FL,20843500
+W,Florida,FL,11101600
+A,Georgia,GA,421200
+B,Georgia,GA,3158000
+H,Georgia,GA,994300
+N,Georgia,GA,16300
+O,Georgia,GA,265100
+total,Georgia,GA,10212800
+W,Georgia,GA,5358000
+A,Hawaii,HI,512800
+B,Hawaii,HI,20400
+H,Hawaii,HI,142100
+N,Hawaii,HI,
+O,Hawaii,HI,399600
+total,Hawaii,HI,1354800
+W,Hawaii,HI,278500
+A,Idaho,ID,27300
+B,Idaho,ID,9300
+H,Idaho,ID,217500
+N,Idaho,ID,18100
+O,Idaho,ID,37100
+total,Idaho,ID,1719600
+W,Idaho,ID,1407600
+A,Illinois,IL,700500
+B,Illinois,IL,1685200
+H,Illinois,IL,2173800
+N,Illinois,IL,14600
+O,Illinois,IL,275800
+total,Illinois,IL,12438400
+W,Illinois,IL,7588300
+A,Indiana,IN,147400
+B,Indiana,IN,600600
+H,Indiana,IN,460900
+N,Indiana,IN,8500
+O,Indiana,IN,145400
+total,Indiana,IN,6487100
+W,Indiana,IN,5121300
+A,Iowa,IA,79400
+B,Iowa,IA,102300
+H,Iowa,IA,186400
+N,Iowa,IA,9000
+O,Iowa,IA,60400
+total,Iowa,IA,3056800
+W,Iowa,IA,2614600
+A,Kansas,KS,78800
+B,Kansas,KS,150700
+H,Kansas,KS,336500
+N,Kansas,KS,16000
+O,Kansas,KS,91000
+total,Kansas,KS,2814700
+W,Kansas,KS,2137700
+A,Kentucky,KY,63100
+B,Kentucky,KY,328400
+H,Kentucky,KY,155000
+N,Kentucky,KY,5600
+O,Kentucky,KY,100900
+total,Kentucky,KY,4320300
+W,Kentucky,KY,3664300
+A,Louisiana,LA,72900
+B,Louisiana,LA,1429700
+H,Louisiana,LA,229400
+N,Louisiana,LA,22700
+O,Louisiana,LA,105500
+total,Louisiana,LA,4519300
+W,Louisiana,LA,2658300
+A,Maine,ME,17100
+B,Maine,ME,17400
+H,Maine,ME,19500
+N,Maine,ME,5100
+O,Maine,ME,26900
+total,Maine,ME,1299500
+W,Maine,ME,1213400
+A,Maryland,MD,374500
+B,Maryland,MD,1720400
+H,Maryland,MD,613900
+N,Maryland,MD,8900
+O,Maryland,MD,197600
+total,Maryland,MD,5870800
+W,Maryland,MD,2953400
+A,Massachusetts,MA,444600
+B,Massachusetts,MA,465500
+H,Massachusetts,MA,824800
+N,Massachusetts,MA,11000
+O,Massachusetts,MA,195000
+total,Massachusetts,MA,6659900
+W,Massachusetts,MA,4717100
+A,Michigan,MI,315800
+B,Michigan,MI,1321900
+H,Michigan,MI,502900
+N,Michigan,MI,48200
+O,Michigan,MI,252000
+total,Michigan,MI,9770000
+W,Michigan,MI,7327100
+A,Minnesota,MN,259600
+B,Minnesota,MN,356100
+H,Minnesota,MN,296100
+N,Minnesota,MN,51700
+O,Minnesota,MN,152900
+total,Minnesota,MN,5489000
+W,Minnesota,MN,4370100
+A,Mississippi,MS,25300
+B,Mississippi,MS,1084700
+H,Mississippi,MS,81200
+N,Mississippi,MS,12000
+O,Mississippi,MS,41300
+total,Mississippi,MS,2879400
+W,Mississippi,MS,1633600
+A,Missouri,MO,119300
+B,Missouri,MO,670600
+H,Missouri,MO,240400
+N,Missouri,MO,20500
+O,Missouri,MO,164300
+total,Missouri,MO,5934500
+W,Missouri,MO,4719400
+A,Montana,MT,6800
+B,Montana,MT,3700
+H,Montana,MT,40500
+N,Montana,MT,60400
+O,Montana,MT,32000
+total,Montana,MT,1034000
+W,Montana,MT,890100
+A,Nebraska,NE,42800
+B,Nebraska,NE,82100
+H,Nebraska,NE,206800
+N,Nebraska,NE,12500
+O,Nebraska,NE,54400
+total,Nebraska,NE,1868900
+W,Nebraska,NE,1470100
+A,Nevada,NV,241600
+B,Nevada,NV,258700
+H,Nevada,NV,866800
+N,Nevada,NV,28700
+O,Nevada,NV,140200
+total,Nevada,NV,2983400
+W,Nevada,NV,1447500
+A,New Hampshire,NH,37000
+B,New Hampshire,NH,14600
+H,New Hampshire,NH,49900
+N,New Hampshire,NH,
+O,New Hampshire,NH,24000
+total,New Hampshire,NH,1310300
+W,New Hampshire,NH,1181500
+A,New Jersey,NJ,842500
+B,New Jersey,NJ,1100300
+H,New Jersey,NJ,1812100
+N,New Jersey,NJ,8900
+O,New Jersey,NJ,185600
+total,New Jersey,NJ,8728300
+W,New Jersey,NJ,4776900
+A,New Mexico,NM,31200
+B,New Mexico,NM,37100
+H,New Mexico,NM,1004800
+N,New Mexico,NM,181000
+O,New Mexico,NM,34500
+total,New Mexico,NM,2045300
+W,New Mexico,NM,754700
+A,New York,NY,1618900
+B,New York,NY,2684400
+H,New York,NY,3665000
+N,New York,NY,46200
+O,New York,NY,490000
+total,New York,NY,19016900
+W,New York,NY,10508500
+A,North Carolina,NC,294300
+B,North Carolina,NC,2095600
+H,North Carolina,NC,962600
+N,North Carolina,NC,103700
+O,North Carolina,NC,274100
+total,North Carolina,NC,10044400
+W,North Carolina,NC,6314100
+A,North Dakota,ND,14400
+B,North Dakota,ND,22200
+H,North Dakota,ND,25800
+N,North Dakota,ND,37500
+O,North Dakota,ND,17400
+total,North Dakota,ND,730600
+W,North Dakota,ND,613100
+A,Ohio,OH,260100
+B,Ohio,OH,1376200
+H,Ohio,OH,434900
+N,Ohio,OH,19200
+O,Ohio,OH,314800
+total,Ohio,OH,11355900
+W,Ohio,OH,8947700
+A,Oklahoma,OK,78400
+B,Oklahoma,OK,267700
+H,Oklahoma,OK,414200
+N,Oklahoma,OK,288000
+O,Oklahoma,OK,275500
+total,Oklahoma,OK,3816100
+W,Oklahoma,OK,2492200
+A,Oregon,OR,188400
+B,Oregon,OR,74300
+H,Oregon,OR,545300
+N,Oregon,OR,39800
+O,Oregon,OR,171100
+total,Oregon,OR,4110800
+W,Oregon,OR,3091900
+A,Pennsylvania,PA,435300
+B,Pennsylvania,PA,1274800
+H,Pennsylvania,PA,939900
+N,Pennsylvania,PA,12100
+O,Pennsylvania,PA,275500
+total,Pennsylvania,PA,12388100
+W,Pennsylvania,PA,9447800
+A,Rhode Island,RI,34700
+B,Rhode Island,RI,57000
+H,Rhode Island,RI,162700
+N,Rhode Island,RI,
+O,Rhode Island,RI,31600
+total,Rhode Island,RI,1014000
+W,Rhode Island,RI,725400
+A,South Carolina,SC,76700
+B,South Carolina,SC,1298200
+H,South Carolina,SC,284100
+N,South Carolina,SC,14900
+O,South Carolina,SC,106000
+total,South Carolina,SC,4929800
+W,South Carolina,SC,3146900
+A,South Dakota,SD,10900
+B,South Dakota,SD,18500
+H,South Dakota,SD,32100
+N,South Dakota,SD,73100
+O,South Dakota,SD,21200
+total,South Dakota,SD,848700
+W,South Dakota,SD,692900
+A,Tennessee,TN,113800
+B,Tennessee,TN,1087600
+H,Tennessee,TN,361800
+N,Tennessee,TN,14700
+O,Tennessee,TN,144200
+total,Tennessee,TN,6586400
+W,Tennessee,TN,4860100
+A,Texas,TX,1389300
+B,Texas,TX,3251900
+H,Texas,TX,11163700
+N,Texas,TX,69200
+O,Texas,TX,542300
+total,Texas,TX,28024000
+W,Texas,TX,11607500
+A,Utah,UT,72800
+B,Utah,UT,35800
+H,Utah,UT,438200
+N,Utah,UT,29100
+O,Utah,UT,108600
+total,Utah,UT,3105900
+W,Utah,UT,2421400
+A,Vermont,VT,11700
+B,Vermont,VT,6600
+H,Vermont,VT,11000
+N,Vermont,VT,2100
+O,Vermont,VT,11300
+total,Vermont,VT,600600
+W,Vermont,VT,557900
+A,Virginia,VA,536700
+B,Virginia,VA,1519400
+H,Virginia,VA,779900
+N,Virginia,VA,16100
+O,Virginia,VA,295900
+total,Virginia,VA,8182100
+W,Virginia,VA,5034100
+A,Washington,WA,648800
+B,Washington,WA,268700
+H,Washington,WA,949700
+N,Washington,WA,77900
+O,Washington,WA,416700
+total,Washington,WA,7368000
+W,Washington,WA,5006200
+A,West Virginia,WV,13100
+B,West Virginia,WV,63300
+H,West Virginia,WV,22500
+N,West Virginia,WV,1600
+O,West Virginia,WV,31300
+total,West Virginia,WV,1752300
+W,West Virginia,WV,1620000
+A,Wisconsin,WI,159500
+B,Wisconsin,WI,349400
+H,Wisconsin,WI,393600
+N,Wisconsin,WI,43800
+O,Wisconsin,WI,118100
+total,Wisconsin,WI,5662800
+W,Wisconsin,WI,4598500
+A,Wyoming,WY,6000
+B,Wyoming,WY,2700
+H,Wyoming,WY,56000
+N,Wyoming,WY,12900
+O,Wyoming,WY,11100
+total,Wyoming,WY,560300
+W,Wyoming,WY,471600

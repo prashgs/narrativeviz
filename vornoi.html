@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+
+<head>
+    <title>Voronoi</title>
+</head>
+
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    path {
+        stroke: #fafafa;
+        fill: white;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    circle {
+        fill: #888;
+    }
+
+    g.wrapper g.hovered circle {
+        fill: red;
+    }
+
+    g.wrapper .points.voronoi-visible path {
+        stroke: #aaa;
+        opacity: 1;
+        stroke-width: 1px;
+    }
+
+    .halo {
+        stroke-width: 2;
+        fill: none;
+        stroke: black;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .menu .item {
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .menu .item.active {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="menu">
+        <div class="item voronoi" onClick="toggleVoronoi();">Enable Voronoi</div>
+        <div class="item voronoi-visible" onClick="toggleVoronoiVisibility();">Show Voronoi</div>
+    </div>
+    <svg width='800' height='600'>
+        <g class="wrapper" transform="translate(10,10)">
+            <g class="points"></g>
+            <circle class="halo" r="7"></circle>
+        </g>
+    </svg>
+
+
+
+    <script src='//d3js.org/d3.v4.min.js'></script>
+    <script>
+        var width = 780, height = 580;
+        var hovered = null, voronoiActive = false, voronoiVisible = false;
+
+        var points = d3.range(100).map(function (d, i) {
+            return {
+                id: i,
+                pos: [Math.random() * width, Math.random() * height]
+            }
+        });
+
+        function polygon(d) {
+            return 'M' + d.join('L') + 'Z';
+        }
+
+        var voronoi = d3.voronoi()
+            .x(function (d) { return d.pos[0]; })
+            .y(function (d) { return d.pos[1]; })
+            .extent([[0, 0], [width, height]]);
+
+        function doVoronoi() {
+            var polygons = voronoi(points).polygons();
+
+            // merge polygons into points
+            points = points.map(function (d, i) {
+                d.polygon = polygons[i];
+                return d;
+            });
+        }
+
+        function update() {
+            d3.select('.menu .voronoi.item')
+                .text(voronoiActive ? 'Disable Voronoi' : 'Enable Voronoi');
+
+            d3.select('.menu .voronoi-visible.item')
+                .text(voronoiVisible ? 'Hide Voronoi' : 'Show Voronoi');
+
+            d3.select('.points')
+                .classed('voronoi-visible', voronoiVisible);
+
+            d3.select('.halo')
+                .style('opacity', hovered === null ? 0 : 1);
+
+            if (hovered === null)
+                return;
+
+            d3.select('.halo')
+                .attr('cx', hovered.pos[0])
+                .attr('cy', hovered.pos[1]);
+        }
+
+        function toggleVoronoi() {
+            voronoiActive = !voronoiActive;
+            update();
+        }
+
+        function toggleVoronoiVisibility() {
+            voronoiVisible = !voronoiVisible;
+            update();
+        }
+
+        doVoronoi();
+
+        var groups = d3.select('.points')
+            .selectAll('g')
+            .data(points)
+            .enter()
+            .append('g');
+
+        groups.append('path')
+            .attr('d', function (d) {
+                return polygon(d.polygon);
+            })
+            .on('mouseover', function (d) {
+                hovered = voronoiActive ? d : null;
+                update();
+            })
+            .on('mouseout', function (d) {
+                hovered = null;
+                update();
+            });
+
+        groups.append('circle')
+            .attr('transform', function (d) { return 'translate(' + d.pos + ')'; })
+            .attr('r', 2)
+            .on('mouseover', function (d) {
+                hovered = d;
+                update();
+            })
+            .on('mouseout', function (d) {
+                hovered = null;
+                update();
+            });
+
+    </script>
+</body>
+
+</html>
