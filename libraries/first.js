@@ -191,6 +191,8 @@ d3.csv("data/year_month_count2.csv", function (data) {
         .transition()
         .style("opacity", currentOpacity == 1 ? 0 : 1);
     });
+
+    
   // Add X axis label:
   svg
     .append("g")
