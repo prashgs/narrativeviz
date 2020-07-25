@@ -2,6 +2,11 @@ var glines;
 var mouseG;
 var tooltip;
 var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
+// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
+var yearColors = d3
+  .scaleOrdinal()
+  .domain(years)
+  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
 var parseDate = d3.timeParse("%m/%d/%Y");
 var months = [
   "Jan",
@@ -17,11 +22,8 @@ var months = [
   "Nov",
   "Dec",
 ];
-var yearColors = d3
-  .scaleOrdinal()
-  .domain(years)
-  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
-var margin = { top: 10, right: 10, bottom: 20, left: 20 },
+
+var margin = { top: 10, right: 10, bottom: 30, left: 50 },
   width = 500 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
@@ -62,7 +64,6 @@ d3.csv("data/year_month_count_3.csv", (d) => {
         .tickFormat((d, i) => months[i])
     )
     .attr("class", "x-axis");
-
 
   // var x = d3
   //   .scalePoint()
@@ -243,8 +244,29 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 10)
+    .attr("y", -margin.left + 20)
     .attr("x", -margin.top - height / 2 + 10)
-    .text("Number of Fatality")
+    .text("Fatality count")
     .attr("font-size", "smaller");
+
+  // Add annotation to the chart
+
+  var last2020Circle = d3.select(
+    "#first_dataViz > svg > g > g.dot-2020 > circle:nth-child(5)"
+  );
+
+  // Features of the annotation
+  const annotations = [
+    {
+      note: {
+        title: "May 2020 Fatality: 365 ",
+      },
+      x: last2020Circle.attr("cx"),
+      y: last2020Circle.attr("cy"),
+      dy: 30,
+      dx: 30,
+    },
+  ];
+  const makeAnnotations = d3.annotation().annotations(annotations);
+  svg.append("g").style("font-size", "smaller").call(makeAnnotations);
 });

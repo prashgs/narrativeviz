@@ -6,11 +6,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="text/javascript" src="libraries/d3.v4.js"></script>
+  <script type="text/javascript" src="libraries/d3-annotation.min.js"></script>
   <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <style>
     body,
     h1,
@@ -52,10 +50,10 @@
     <h2 class="w3-jumbo">
       FATAL SHOTS
     </h2>
-    <h3>By US Law Enforcement</h3>
+    <!-- <h3>By US Law Enforcement</h3> -->
     <div class="w3-text-light-grey">
-      In 2019, <span class="w3-jumbo">998</span> people were killed.
-      <br>This visualization takes you through the numbers and their relation to certain attributes.
+      In 2019, <span class="w3-jumbo">998</span> people were killed by US Police.
+      <br>This narrative takes you through the numbers for years 2015-2020 and their relation to certain attributes.
       <br>
     </div>
     <svg id="dataviz_delay" width="100" height="50"></svg>
@@ -78,8 +76,8 @@
         <p class="w3-text-grey">
           The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
           This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
-          For current year 2020, the number as of May stands at 365 cases. This is lower compared to the previous 5
-          years, however, an upward trend is already visible.
+          <br>For 2020, the number of fatalities as of May stands at 365 cases. This number is lower compared to May
+          number from previous 5 years, however, an upward trend is visible.
         </p>
       </div>
 
@@ -94,19 +92,22 @@
     <h2 class="w3-jumbo">
       NUMBERS BY STATE
     </h2>
+
     <div class="w3-content">
       <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>NUMBERS BY STATE</h1> -->
         <h5 class="w3-padding-32">
-          California, Texas and Florida are few states that have the highest number of deaths from US Law
-          enforcement.
+          California, Texas and Florida have the highest number of deaths.
         </h5>
         <p class="w3-text-grey">
           California, Texas and Florida have been consistently ranked as states with highest number of deaths.
-          Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the highest population in the country.
+          Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
+          highest population in the country.
         </p>
       </div>
-      <select id="selectButton"></select>
+      <div class="w3-third w3-right" >
+        <select class="w3-btn w3-light-gray" id="selectButton"></select>
+      </div>
       <div class="w3-twothird w3-center" id="second_dataViz">
       </div>
 
@@ -123,11 +124,12 @@
         <!-- <h1>RACE FACTOR</h1> -->
         <h5 class="w3-padding-32">
           Compared to other races, Blacks and Hispanics are killed at higher rates.
+          This visualization uses 2019 population and fatality count.
         </h5>
 
         <p class="w3-text-grey">
           White Americans form the majority of people killed at just over
-          <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
+          <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
           However, there are 4 times more White americans than Black americans.
           Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
         </p>
@@ -145,15 +147,12 @@
       <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>AGE FACTOR</h1> -->
         <h5 class="w3-padding-32">
-          Compared to other races, Blacks and Hispanics are killed at higher rates.
+          A large marjority of those killed are between 21 and 40 years old.
+          This visualization uses data from 2019.
         </h5>
         <p class="w3-text-grey">
-          White Americans form the majority of people killed at just over
-          <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
-          However, there are 4 times more White americans than Black americans.
-          Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
-          These disparities have led to renewed discussions about Race as a factor in these
-          fatal shootings recent years.
+          Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority across differenct
+          races. In 2019, the youngest killed was 14 years while the oldest was 80 years old.
         </p>
       </div>
       <div class="w3-twothird w3-center" id="fourth_dataViz"></div>
@@ -207,6 +206,14 @@
   <script type="text/javascript" src="libraries/second.js"></script>
   <script type="text/javascript" src="libraries/third.js"></script>
   <script type="text/javascript" src="libraries/fourth.js"></script>
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+    <p>
+      <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+      <a href="https://d3js.org/d3.v5.js" target="_blank">D3.v4</a>
+      <a href="https://d3-annotation.susielu.com/" target="_blank">D3 Annotation</a>
+      <a href="https://github.com/washingtonpost/data-police-shootings" target="_blank">Data</a>
+    </p>
+  </footer>
 </body>
 
 </html>

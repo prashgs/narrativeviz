@@ -101,25 +101,6 @@ d3.csv("data/year_state_statecode_count.csv")
       .range([height, 0]);
     svg.append("g").call(d3.axisLeft(y));
 
-    // Add X axis label:
-    svg
-      .append("text")
-      .attr("text-anchor", "end")
-      .attr("x", width / 2 + margin.left)
-      .attr("y", height + margin.top + 20)
-      .text("US States")
-      .attr("font-size", "smaller");
-
-    // Y axis label:
-    svg
-      .append("text")
-      .attr("text-anchor", "end")
-      .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 10)
-      .attr("x", -margin.top - height / 2 + 10)
-      .text("Number of Fatality")
-      .attr("font-size", "smaller");
-
     function update(selectedYear, selectedColor) {
       // Create new data with the selection?
       topData = getTop(sortDataByCount(filterData(data, selectedYear)), 25);
@@ -173,6 +154,7 @@ d3.csv("data/year_state_statecode_count.csv")
         });
 
       d3.selectAll(".bar-value").remove();
+      
       svg
         .selectAll(".bar-value")
         .data(topData)
@@ -205,4 +187,23 @@ d3.csv("data/year_state_statecode_count.csv")
       let selectedColor = yearColors(selectedYear);
       update(selectedYear, selectedColor);
     });
+
+    // Add X axis label:
+    svg
+      .append("text")
+      .attr("text-anchor", "end")
+      .attr("x", width / 2 + margin.left)
+      .attr("y", height + margin.top + 20)
+      .text("US States")
+      .attr("font-size", "smaller");
+
+    // Y axis label:
+    svg
+      .append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 30)
+      .attr("x", -margin.top - height / 2 + 10)
+      .text("Fatality count")
+      .attr("font-size", "smaller");
   });

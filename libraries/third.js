@@ -8,17 +8,17 @@ var margin = { top: 10, right: 10, bottom: 35, left: 50 },
 // Parse the Data
 d3.csv("data/race_count_population_ratio.csv", function (data) {
   var svg = d3
-  .select("#third_dataViz")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .select("#third_dataViz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // List of subgroups = header of the csv files = soil condition here
   var deathPercentage = data.columns.slice(2, 3);
   var populationPercentage = data.columns.slice(5);
-  
+
   var subgroups = [deathPercentage, populationPercentage];
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
@@ -84,13 +84,14 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
 
   // Add one dot in the legend for each name.
   var size = 20;
-  svg.selectAll("mydots")
+  svg
+    .selectAll("mydots")
     .data(["Fatality %", "Population %"])
     .enter()
     .append("rect")
     .attr("x", width - size * 5.5)
     .attr("y", function (d, i) {
-      return  + i * (size + 10) + size / 2;
+      return +i * (size + 10) + size / 2;
     }) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("width", size)
     .attr("height", size)
@@ -118,21 +119,42 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
 
   // Add X axis label:
   svg
-  .append("g")
-  .append("text")
-  .attr("text-anchor", "end")
-  .attr("x", width / 2 + margin.left)
-  .attr("y", height + margin.top + 20)
-  .attr("font-size", "smaller")
-  .text("Race");
+    .append("g")
+    .append("text")
+    .attr("text-anchor", "end")
+    .attr("x", width / 2 + margin.left)
+    .attr("y", height + margin.top + 20)
+    .attr("font-size", "smaller")
+    .text("Race");
 
-// Y axis label:
-svg
-  .append("text")
-  .attr("text-anchor", "end")
-  .attr("transform", "rotate(-90)")
-  .attr("y", -margin.left + 10)
-  .attr("x", -margin.top - height / 2 + 20)
-  .text("Percentage")
-  .attr("font-size", "smaller");
+  // Y axis label:
+  svg
+    .append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -margin.left + 30)
+    .attr("x", -margin.top - height / 2 + 10)
+    .text("Percentage")
+    .attr("font-size", "smaller");
+
+  // create a tooltip
+  var tooltip = d3
+    .select("#third_dataViz")
+    .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .text("I'm a circle!");
+  //
+  d3.select("#circleBasicTooltip")
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function () {
+      return tooltip
+        .style("top", event.pageY - 800 + "px")
+        .style("left", event.pageX - 800 + "px");
+    })
+    .on("mouseout", function () {
+      return tooltip.style("visibility", "hidden");
+    });
 });
