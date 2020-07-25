@@ -15,7 +15,7 @@ var months = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec"
+  "Dec",
 ];
 var yearColors = d3
   .scaleOrdinal()
@@ -47,8 +47,10 @@ d3.csv("data/year_month_count_3.csv", (d) => {
   const tooltip = d3.select("#tooltip");
   const tooltipLine = svg.append("line");
 
-
-  var x = d3.scaleLinear().domain([1, 12]).range([0, width - margin.right - 50]);
+  var x = d3
+    .scaleLinear()
+    .domain([1, 12])
+    .range([0, width - margin.right - 50]);
 
   svg
     .append("g")
@@ -147,11 +149,11 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .enter()
     .append("path")
     .attr("class", (d) => "line-" + d.key)
-    .attr('fill', 'none')
-    .attr('stroke', d => yearColors(d.key))
-    .attr('stroke-width', 2)
-    .datum(d => d.values)
-    .attr('d', line);
+    .attr("fill", "none")
+    .attr("stroke", (d) => yearColors(d.key))
+    .attr("stroke-width", 2)
+    .datum((d) => d.values)
+    .attr("d", line);
 
   // Add the points
   svg
@@ -179,47 +181,51 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("r", 5)
     .attr("stroke", "white");
 
-
-  tipBox = svg.append('rect')
-    .attr('width', width - margin.left)
-    .attr('height', height - margin.top)
-    .attr('opacity', 0)
-    .on('mousemove', drawTooltip)
-    .on('mouseout', removeTooltip)
-    .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
+  tipBox = svg
+    .append("rect")
+    .attr("width", width - margin.left)
+    .attr("height", height - margin.top)
+    .attr("opacity", 0)
+    .on("mousemove", drawTooltip)
+    .on("mouseout", removeTooltip)
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    });
 
   function removeTooltip() {
-    if (tooltip) tooltip.style('display', 'none');
-    if (tooltipLine) tooltipLine.attr('stroke', 'none');
+    if (tooltip) tooltip.style("display", "none");
+    if (tooltipLine) tooltipLine.attr("stroke", "none");
   }
 
   function drawTooltip() {
-
     try {
       const month = Math.round(x.invert(d3.mouse(tipBox.node())[0]));
       if (month <= months.length) {
-        tooltipLine.attr('stroke', 'grey')
-          .attr('x1', x(month))
-          .attr('x2', x(month))
-          .attr('y1', 0)
-          .attr('y2', height);
+        tooltipLine
+          .attr("stroke", "grey")
+          .attr("x1", x(month))
+          .attr("x2", x(month))
+          .attr("y1", 0)
+          .attr("y2", height);
 
         tooltip
           .style("font-size", "smaller")
           .html("Month: " + months[month - 1])
-          .style('display', 'block')
-          .style("left", (d3.event.pageX + 10) + "px")
-          .style("top", (d3.event.pageY - 10) + "px")
+          .style("display", "block")
+          .style("left", d3.event.pageX + 10 + "px")
+          .style("top", d3.event.pageY - 10 + "px")
           .selectAll()
-          .data(data_nested).enter()
-          .append('div')
+          .data(data_nested)
+          .enter()
+          .append("div")
           .style("font-size", "smaller")
-          .style('color', "blue")
-          .html(d => d.key + ': ' + d.values.find(h => h.month_num == month).count);
+          .style("color", "blue")
+          .html(
+            (d) =>
+              d.key + ": " + d.values.find((h) => h.month_num == month).count
+          );
       }
-    }
-    catch (err) {
-    }
+    } catch (err) {}
   }
 
   // Add X axis label:
@@ -241,5 +247,4 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("x", -margin.top - height / 2 + 10)
     .text("Number of Fatality")
     .attr("font-size", "smaller");
-
 });
