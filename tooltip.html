@@ -32,6 +32,7 @@
     // Load the data and draw a chart
     let states, tipBox;
     d3.json('data/state_populations.json', d => {
+      console.log(d);
       states = d;
       console.log(d);
       chart.selectAll()

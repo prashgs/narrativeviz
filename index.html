@@ -48,72 +48,78 @@
   </div>
 
   <!-- Header -->
-  <header class="w3-container w3-gray w3-center grids w3-animate-opacity">
-    <h1 class="w3-jumbo">
+  <div class="w3-container w3-gray w3-center w3-animate-opacity grids">
+    <h2 class="w3-jumbo">
       FATAL SHOTS
-    </h1>
+    </h2>
     <h3>By US Law Enforcement</h3>
     <div class="w3-text-light-grey">
       In 2019, <span class="w3-jumbo">998</span> people were killed.
+      <br>This visualization takes you through the numbers and their relation to certain attributes.
+      <br>
     </div>
-    <svg id="dataviz_delay" width="100" height="25"></svg>
+    <svg id="dataviz_delay" width="100" height="50"></svg>
     <script type="text/javascript" src="libraries/header.js"></script>
-  </header>
+  </div>
 
 
   <!-- First Grid -->
-  <div class="w3-container w3-center grids w3-animate-opacity" style="display: none;" id="first-grid">
-    <h1 class="w3-jumbo">
+  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="first-grid">
+    <h2 class="w3-jumbo">
       STEADY NUMBER
-    </h1>
+    </h2>
     <div class="w3-content">
-      <div class="w3-third ">
+      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>STEADY NUMBER</h1> -->
         <h5 class="w3-padding-32">
           Over the past few years, number of people killed by police has
           stayed steady.
         </h5>
         <p class="w3-text-grey">
-          The average number fatal shooting stands at <b>984</b> between 2015 and 2019.
+          The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
           This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
+          For current year 2020, the number as of May stands at 365 cases. This is lower compared to the previous 5
+          years, however, an upward trend is already visible.
         </p>
       </div>
-      <div class="w3-twothird w3-center" id="first_dataViz"></div>
+
+      <div class="w3-twothird w3-center" id="first_dataViz">
+      </div>
+      <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
     </div>
   </div>
 
   <!-- Second Grid -->
   <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="second-grid">
-    <h1 class="w3-jumbo">
+    <h2 class="w3-jumbo">
       NUMBERS BY STATE
-    </h1>
+    </h2>
     <div class="w3-content">
-      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>NUMBERS BY STATE</h1> -->
         <h5 class="w3-padding-32">
-          California, Texas, Florida and Arizona are states that have the highest number of deaths from US Law
+          California, Texas and Florida are few states that have the highest number of deaths from US Law
           enforcement.
-
         </h5>
         <p class="w3-text-grey">
           California, Texas and Florida have been consistently ranked as states with highest number of deaths.
-          These states also have some of the highest population in the country.
+          Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the highest population in the country.
         </p>
       </div>
-
+      <select id="selectButton"></select>
       <div class="w3-twothird w3-center" id="second_dataViz">
-        <select id="selectButton"></select>
       </div>
+
     </div>
   </div>
 
   <!-- Third Grid -->
   <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="third-grid">
-    <h1 class="w3-jumbo">
+    <h2 class="w3-jumbo">
       RACE FACTOR
-    </h1>
+    </h2>
     <div class="w3-content">
-      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>RACE FACTOR</h1> -->
         <h5 class="w3-padding-32">
           Compared to other races, Blacks and Hispanics are killed at higher rates.
@@ -124,8 +130,6 @@
           <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
           However, there are 4 times more White americans than Black americans.
           Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
-          These disparities have led to renewed discussions about Race as a factor in these
-          fatal shootings recent years.
         </p>
       </div>
       <div class="w3-twothird w3-center" id="third_dataViz"></div>
@@ -134,16 +138,15 @@
 
   <!-- Fourth Grid -->
   <div class="w3-container w3-center grids  w3-animate-opacity" style="display: none;" id="fourth-grid">
-    <h1 class="w3-jumbo">
+    <h2 class="w3-jumbo">
       AGE FACTOR
-    </h1>
+    </h2>
     <div class="w3-content ">
-      <div class="w3-third w3-third w3-panel w3-border w3-light-grey w3-round-large">
+      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
         <!-- <h1>AGE FACTOR</h1> -->
         <h5 class="w3-padding-32">
           Compared to other races, Blacks and Hispanics are killed at higher rates.
         </h5>
-
         <p class="w3-text-grey">
           White Americans form the majority of people killed at just over
           <b>48% compared to 29%</b> and 19% of Blacks and Hispanics respectively.
@@ -163,8 +166,10 @@
     <button class="w3-button demo">2</button>
     <button class="w3-button demo">3</button>
     <button class="w3-button demo">4</button>
-    <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-    <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+    <div class="w3-section w3-panel">
+      <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+      <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+    </div>
   </div>
 
 

@@ -3,7 +3,7 @@
 <head>
   <script type="text/javascript" src="libraries/d3.v4.js"></script>
   <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
-  <script type="text/javascript" src="libraries/d3.v4.js"></script>
+  <script type="text/javascript" src="libraries/d3.v4.min.js"></script>
   <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
@@ -12,15 +12,14 @@
 </head>
 
 <body>
-  <!-- Create a div where the graph will take place -->
-  <div id="first_dataViz">
-    <!-- <div class="w3-right">
-      <input type="checkbox" class="w3-radio w3-hover-grayscale" value="A" checked><label>group A</label>
-      <input type="checkbox" class="w3-check" value="B" checked><label>group B</label>
-      <input type="checkbox" class="w3-check" value="C" checked><label>group C</label>
-    </div> -->
-  </div>
-  <script type="text/javascript" src="libraries/first_2.js"></script>
+    <div class="w3-content">
+      <div class="w3-third ">
+        <div class="w3-twothird w3-center" id="first_dataViz">
+          <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="libraries/first_2.js"></script>
 </body>
 
 </html>
