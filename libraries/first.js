@@ -1,24 +1,41 @@
-var years = ["2015", "2016", "2017", "2018", "2019"];
-var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
-var months = ["Jan","Feb","Mar", "Apr","May", "Jun","Jul", "Aug","Sep", "Oct","Nov","Dec"];
+var glines;
+var mouseG;
+var tooltip;
+var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
+var parseDate = d3.timeParse("%m/%d/%Y");
+var months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
 var yearColors = d3
   .scaleOrdinal()
   .domain(years)
-  .range(["steelblue", "red", "blue", "green", "brown"]);
-var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
-var raceColors = d3
-  .scaleOrdinal()
-  .domain(race)
-  .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
-var margin = { top: 10, right: 10, bottom: 35, left: 50 },
+  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
+var margin = { top: 10, right: 10, bottom: 20, left: 20 },
   width = 500 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
+  height = 500 - margin.top - margin.bottom;
 
-//Read the data
-d3.csv("data/year_month_count2.csv", function (data) {
-  // set the dimensions and margins of the graph
+var r = 4;
 
-  // append the svg object to the body of the page
+d3.csv("data/year_month_count_3.csv", (d) => {
+  // var res = data.map((d, i) => {
+  //   return {
+  //     month: parseDate(d.date).getMonth(),
+  //     total: d.total,
+  //     year: parseDate(d.date).getFullYear()
+  //   };
+  // });
+
   var svg = d3
     .select("#first_dataViz")
     .append("svg")
@@ -26,26 +43,12 @@ d3.csv("data/year_month_count2.csv", function (data) {
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  // List of groups (here I have one group per column)
 
-  // Reformat the data: we need an array of arrays of {x, y} tuples
-  var dataReady = years.map(function (grpName) {
-    // .map allows to do something for each element of the list
-    return {
-      name: grpName,
-      values: data.map(function (d) {
-        return { Month: d.month_number, value: +d[grpName] };
-      }),
-    };
-  });
-  // I strongly advise to have a look to dataReady with
-  // console.log(data)
-  // console.log(dataReady);
+  const tooltip = d3.select("#tooltip");
+  const tooltipLine = svg.append("line");
 
-  // A color scale: one color for each group
 
-  // Add X axis --> it is a date format
-  var x = d3.scaleLinear().domain([1, 12]).range([0, width]);
+  var x = d3.scaleLinear().domain([1, 12]).range([0, width - margin.right - 50]);
 
   svg
     .append("g")
@@ -55,75 +58,112 @@ d3.csv("data/year_month_count2.csv", function (data) {
         .axisBottom(x)
         .ticks(12)
         .tickFormat((d, i) => months[i])
-    );
+    )
+    .attr("class", "x-axis");
+
+
+  // var x = d3
+  //   .scalePoint()
+  //   .domain(monthNames)
+  //   .range([0, width - margin.right - 50]);
+  // var xAxis = d3.axisBottom(x).tickSizeOuter(0);
+  // svg
+  //   .append("g")
+  //   .attr("class", "x-axis")
+  //   .attr("transform", "translate(0," + height + ")")
+  //   .attr("class", "x-axis")
+  //   .call(xAxis);
 
   // Add Y axis
-  var y = d3.scaleLinear().domain([0, 1200]).range([height, 0]);
-  svg.append("g").call(d3.axisLeft(y));
+  var y = d3.scaleLinear().domain([0, 1100]).range([height, margin.top]);
+  var yAxis = d3.axisLeft(y);
+  svg.append("g").attr("class", "y-axis").call(yAxis);
 
-  // Add the lines
+  // CREATE LEGEND //
+  var svgLegend = svg
+    .append("g")
+    .attr("class", "gLegend")
+    .attr(
+      "transform",
+      "translate(" + (width - margin.right - 20) + "," + margin.top + ")"
+    );
+
+  var legend = svgLegend
+    .selectAll(".legend")
+    .data(years)
+    .enter()
+    .append("g")
+    .attr("class", "legend")
+    .attr("transform", function (d, i) {
+      return "translate(0," + i * 20 + ")";
+    });
+  legend
+    .append("circle")
+    .attr("class", "legend-node")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", r)
+    .style("fill", (d) => yearColors(d));
+
+  legend
+    .append("text")
+    .attr("class", "legend-text")
+    .attr("class", "w3-button")
+    .attr("x", r * 2)
+    .attr("y", r / 2)
+    .style("fill", "#A9A9A9")
+    .style("font-size", 12)
+    .text((d) => d)
+    .on("click", function (d) {
+      // is the element currently visible ?
+      lineOpacity = d3.selectAll(".line-" + d).style("opacity");
+      dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
+      // Change the opacity: from 0 to 1 or from 1 to 0
+      d3.selectAll(".line-" + d)
+        .transition()
+        .style("opacity", lineOpacity == 1 ? 0 : 1);
+      d3.selectAll(".dot-" + d)
+        .transition()
+        .style("opacity", dotOpacity == 1 ? 0 : 1);
+    });
+
+  var data_nested = d3
+    .nest()
+    .key((d) => d.year)
+    .entries(d);
+
   var line = d3
     .line()
     .x(function (d) {
-      return x(+d.Month);
+      return x(d.month_num);
     })
     .y(function (d) {
-      return y(+d.value);
+      return y(d.count);
     });
 
-  svg
+  var path = svg
     .selectAll("myLines")
-    .data(dataReady)
+    .data(data_nested)
     .enter()
     .append("path")
-    .attr("class", function (d) {
-      return "y" + d.name;
-    })
-    .attr("d", function (d) {
-      return line(d.values);
-    })
-    .attr("stroke", function (d) {
-      return yearColors(d.name);
-    })
-    .style("stroke-width", 2)
-    .style("fill", "none");
-
-  // create a tooltip
-  var tooltip = d3
-    .select("#first_dataViz")
-    .append("div")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("visibility", "hidden")
-    .text("a simple tooltip");
+    .attr("class", (d) => "line-" + d.key)
+    .attr('fill', 'none')
+    .attr('stroke', d => yearColors(d.key))
+    .attr('stroke-width', 2)
+    .datum(d => d.values)
+    .attr('d', line);
 
   // Add the points
   svg
     // First we need to enter in a group
     .selectAll("myDots")
-    .data(dataReady)
+    .data(data_nested)
     .enter()
     .append("g")
+    .attr("class", (d) => "dot-" + d.key)
     .style("fill", function (d) {
-      return yearColors(d.name);
+      return yearColors(d.key);
     })
-    .attr("class", function (d) {
-      return "y" + d.name;
-    })
-    .on("mouseover", function (d) {
-      console.log(d);
-      tooltip.text("Year: "+ d.name +  "</br>" + "Month: "+ d.values.Month);
-      return tooltip.style("visibility", "visible");
-    })
-    .on("mousemove", function () {
-      return tooltip
-        .style("top", d3.event.pageY - 10 + "px")
-        .style("left", d3.event.pageX + 10 + "px");
-    })
-    .on("mouseout", function () {
-      return tooltip.style("visibility", "hidden");
-    })
-    // Second we need to enter in the 'values' part of this group
     .selectAll("myPoints")
     .data(function (d) {
       return d.values;
@@ -131,68 +171,57 @@ d3.csv("data/year_month_count2.csv", function (data) {
     .enter()
     .append("circle")
     .attr("cx", function (d) {
-      return x(d.Month);
+      return x(d.month_num);
     })
     .attr("cy", function (d) {
-      return y(d.value);
+      return y(d.count);
     })
     .attr("r", 5)
-    .attr("stroke", "white")
+    .attr("stroke", "white");
 
 
-  // Add a label at the end of each line
-  svg
-    .selectAll("myLabels")
-    .data(dataReady)
-    .enter()
-    .append("g")
-    .append("text")
-    .attr("class", function (d) {
-      return "y" + d.name;
-    })
-    .datum(function (d) {
-      return { name: d.name, value: d.values[d.values.length - 1] };
-    }) // keep only the last value of each time series
-    .attr("transform", function (d) {
-      return "translate(" + x(d.value.Month) + "," + y(d.value.value) + ")";
-    }) // Put the text at the position of the last point
-    .attr("x", 12) // shift the text a bit more right
-    .text(function (d) {
-      return d.name;
-    })
-    .style("fill", function (d) {
-      return yearColors(d.name);
-    })
-    .style("font-size", 15);
+  tipBox = svg.append('rect')
+    .attr('width', width - margin.left)
+    .attr('height', height - margin.top)
+    .attr('opacity', 0)
+    .on('mousemove', drawTooltip)
+    .on('mouseout', removeTooltip)
+    .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
 
-  // Add a legend (interactive)
-  svg
-    .selectAll("myLegend")
-    .data(dataReady)
-    .enter()
-    .append("g")
-    .append("text")
-    .attr("x", function (d, i) {
-      return 30 + i * 60;
-    })
-    .attr("y", 30)
-    .text(function (d) {
-      return d.name;
-    })
-    .style("fill", function (d) {
-      return yearColors(d.name);
-    })
-    .style("font-size", 15)
-    .on("click", function (d) {
-      // is the element currently visible ?
-      currentOpacity = d3.selectAll(".y" + d.name).style("opacity");
-      // Change the opacity: from 0 to 1 or from 1 to 0
-      d3.selectAll(".y" + d.name)
-        .transition()
-        .style("opacity", currentOpacity == 1 ? 0 : 1);
-    });
+  function removeTooltip() {
+    if (tooltip) tooltip.style('display', 'none');
+    if (tooltipLine) tooltipLine.attr('stroke', 'none');
+  }
 
-    
+  function drawTooltip() {
+
+    try {
+      const month = Math.round(x.invert(d3.mouse(tipBox.node())[0]));
+      if (month <= months.length) {
+        tooltipLine.attr('stroke', 'grey')
+          .attr('x1', x(month))
+          .attr('x2', x(month))
+          .attr('y1', 0)
+          .attr('y2', height);
+
+        tooltip
+          .style("font-size", "smaller")
+          .html("Month: " + months[month - 1])
+          .style('display', 'block')
+          .style("left", (d3.event.pageX + 10) + "px")
+          .style("top", (d3.event.pageY - 10) + "px")
+          .selectAll()
+          .data(data_nested).enter()
+          .append('div')
+          .style("font-size", "smaller")
+          .style('color', "blue")
+          .html(d => d.key + ': ' + d.values.find(h => h.month_num == month).count);
+      }
+    }
+    catch (err) {
+    }
+  }
+
   // Add X axis label:
   svg
     .append("g")
@@ -212,4 +241,5 @@ d3.csv("data/year_month_count2.csv", function (data) {
     .attr("x", -margin.top - height / 2 + 10)
     .text("Number of Fatality")
     .attr("font-size", "smaller");
+
 });

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script src="libraries/d3.v4.js"></script>
+    <style>
+        .axis text {
+            font: 10px sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+        var margin = { top: 20, right: 10, bottom: 10, left: 80 },
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var scale_y = d3.scaleOrdinal()
+            .domain(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"])
+            .range(Array.from(new Array(12), (x, i) => i * (height / 12)))
+        var yAxis = d3.axisLeft(scale_y)
+
+        var svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.left + margin.right)
+
+        var y_axis = svg.append("g")
+            .attr("class", "x axis")
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+            .call(yAxis);
+
+    </script>
+</body>
+
+</html>
