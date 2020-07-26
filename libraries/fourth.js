@@ -1,16 +1,16 @@
 // set the dimensions and margins of the graph
-var margin = { top: 10, right: 30, bottom: 30, left: 60 },
-  width = 460 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
-var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
-var raceColors = d3
-  .scaleOrdinal()
-  .domain(race)
-  .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
-var ageColors = d3
-  .scaleOrdinal()
-  .domain(race)
-  .range(["steelblue", "red", "blue", "green"]);
+// var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+//   width = 460 - margin.left - margin.right,
+//   height = 400 - margin.top - margin.bottom;
+// var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
+// var raceColors = d3
+//   .scaleOrdinal()
+//   .domain(race)
+//   .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
+// var ageColors = d3
+//   .scaleOrdinal()
+//   .domain(race)
+//   .range(["steelblue", "red", "blue", "green"]);
 //Read the data
 
 var r = 5;
