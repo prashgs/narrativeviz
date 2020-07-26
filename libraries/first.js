@@ -28,7 +28,15 @@ var margin = { top: 10, right: 10, bottom: 30, left: 50 },
   height = 500 - margin.top - margin.bottom;
 
 var r = 4;
-
+var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
+var raceColors = d3
+  .scaleOrdinal()
+  .domain(race)
+  .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
+var ageColors = d3
+  .scaleOrdinal()
+  .domain(race)
+  .range(["steelblue", "red", "blue", "green"]);
 d3.csv("data/year_month_count_3.csv", (d) => {
   // var res = data.map((d, i) => {
   //   return {

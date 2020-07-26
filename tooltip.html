@@ -1,95 +1,94 @@
 <html>
 
 <body>
-  <svg width='800' height='400'></svg>
-  <div id='tooltip' style='position:absolute;background-color:lightgray;padding:5px'></div>
+  <div id="my_dataviz"></div>
   <script src="http://d3js.org/d3.v4.min.js"></script>
   <script>
-    var years = ["2015", "2016", "2017", "2018", "2019"];
-    // Define margins, dimensions, and some line colors
-    const margin = { top: 40, right: 120, bottom: 30, left: 40 };
-    const width = 800 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    // set the dimensions and margins of the graph
+    var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+      width = 460 - margin.left - margin.right,
+      height = 450 - margin.top - margin.bottom;
 
-    // Define the scales and tell D3 how to draw the line
-    const x = d3.scaleLinear().domain([1910, 2010]).range([0, width]);
-    const y = d3.scaleLinear().domain([0, 40000000]).range([height, 0]);
-    const line = d3.line().x(d => x(d.year)).y(d => y(d.population));
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
 
-    const chart = d3.select('svg').append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    //Read the data
+    d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv", function (data) {
 
-    const tooltip = d3.select('#tooltip');
-    const tooltipLine = chart.append('line');
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain([0, 3000])
+        .range([0, width]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
 
-    // Add the axes and a title
-    const xAxis = d3.axisBottom(x).tickFormat(d3.format('.4'));
-    const yAxis = d3.axisLeft(y).tickFormat(d3.format('.2s'));
-    chart.append('g').call(yAxis);
-    chart.append('g').attr('transform', 'translate(0,' + height + ')').call(xAxis);
-    chart.append('text').html('State Population Over Time').attr('x', 200);
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, 400000])
+        .range([height, 0]);
+      svg.append("g")
+        .call(d3.axisLeft(y));
 
-    // Load the data and draw a chart
-    let states, tipBox;
-    d3.json('data/state_populations.json', d => {
-      console.log(d);
-      states = d;
-      console.log(d);
-      chart.selectAll()
-        .data(states).enter()
-        .append('path')
-        .attr('fill', 'none')
-        .attr('stroke', d => d.color)
-        .attr('stroke-width', 2)
-        .datum(d => d.history)
-        .attr('d', line);
+      // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
+      // Its opacity is set to 0: we don't see it by default.
+      var tooltip = d3.select("#my_dataviz")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
 
-      chart.selectAll()
-        .data(states).enter()
-        .append('text')
-        .html(d => d.name)
-        .attr('fill', d => d.color)
-        .attr('alignment-baseline', 'middle')
-        .attr('x', width)
-        .attr('dx', '.5em')
-        .attr('y', d => y(d.currentPopulation));
 
-      tipBox = chart.append('rect')
-        .attr('width', width)
-        .attr('height', height)
-        .attr('opacity', 0)
-        .on('mousemove', drawTooltip)
-        .on('mouseout', removeTooltip);
+
+      // A function that change this tooltip when the user hover a point.
+      // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+      var mouseover = function (d) {
+        tooltip
+          .style("opacity", 1)
+      }
+
+      var mousemove = function (d) {
+        tooltip
+          .html("The exact value of<br>the Ground Living area is: " + d.GrLivArea)
+          .style("left", (d3.mouse(this)[0] + 10) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+
+      // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+      var mouseleave = function (d) {
+        tooltip
+          .transition()
+          .duration(200)
+          .style("opacity", 0)
+      }
+
+      // Add dots
+      svg.append('g')
+        .selectAll("dot")
+        .data(data.filter(function (d, i) { return i < 50 })) // the .filter part is just to keep a few dots on the chart, not all of them
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) { return x(d.GrLivArea); })
+        .attr("cy", function (d) { return y(d.SalePrice); })
+        .attr("r", 7)
+        .style("fill", "#69b3a2")
+        .style("opacity", 0.3)
+        .style("stroke", "white")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+
     })
-
-    function removeTooltip() {
-      if (tooltip) tooltip.style('display', 'none');
-      if (tooltipLine) tooltipLine.attr('stroke', 'none');
-    }
-
-    function drawTooltip() {
-      const year = Math.floor((x.invert(d3.mouse(tipBox.node())[0]) + 5) / 10) * 10;
-
-      states.sort((a, b) => {
-        return b.history.find(h => h.year == year).population - a.history.find(h => h.year == year).population;
-      })
-
-      tooltipLine.attr('stroke', 'black')
-        .attr('x1', x(year))
-        .attr('x2', x(year))
-        .attr('y1', 0)
-        .attr('y2', height);
-
-      tooltip.html(year)
-        .style('display', 'block')
-        .style('left', d3.event.pageX + 20)
-        .style('top', d3.event.pageY - 20)
-        .selectAll()
-        .data(states).enter()
-        .append('div')
-        .style('color', d => d.color)
-        .html(d => d.name + ': ' + d.history.find(h => h.year == year).population);
-    }
   </script>
 </body>
 

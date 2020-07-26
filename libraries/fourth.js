@@ -53,6 +53,12 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
   var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
 
+  var tooltip = d3
+    .select("#fourth-viz-tooltip")
+    .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden");
+
   // Add a clipPath: everything out of this area won't be drawn.
   var clip = svg
     .append("defs")
@@ -63,12 +69,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("height", height)
     .attr("x", 0)
     .attr("y", 0);
-
-  // Color scale: give me a specie name, I return a color
-  var color = d3
-    .scaleOrdinal()
-    .domain(["setosa", "versicolor", "virginica"])
-    .range(["#440154ff", "#21908dff", "#fde725ff"]);
 
   // Add brushing
   var brush = d3
@@ -99,7 +99,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
       return ageColors(d.binned);
     })
     .style("opacity", 0.5);
-
   // Add the brushing
   scatter.append("g").attr("class", "brush").call(brush);
 
@@ -112,17 +111,14 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
   // A function that update the chart for given boundaries
   function updateChart() {
     extent = d3.event.selection;
-
-    // If no selection, back to initial coordinate. Otherwise, update X axis domain
     if (!extent) {
-      if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
+      if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350));
       x.domain([0, maxAge + 10]);
     } else {
       x.domain([x.invert(extent[0]), x.invert(extent[1])]);
-      scatter.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
+      scatter.select(".brush").call(brush.move, null);
     }
 
-    // Update axis and circle position
     xAxis.transition().duration(1000).call(d3.axisBottom(x));
     scatter
       .selectAll("circle")
@@ -144,7 +140,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("x", width / 2 + margin.left)
     .attr("y", height + margin.top + 20)
     .attr("font-size", "smaller")
-    .text("Months");
+    .text("Age");
 
   // Y axis label:
   svg
@@ -153,7 +149,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("transform", "rotate(-90)")
     .attr("y", -margin.left + 30)
     .attr("x", -margin.top - height / 2 + 10)
-    .text("Age")
+    .text("Fatality count")
     .attr("font-size", "smaller");
 
   // CREATE LEGEND //
@@ -180,7 +176,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("cx", 0)
     .attr("cy", 0)
     .attr("r", r)
-    .style("fill", (d,i) => ageColors(i));
+    .style("fill", (d, i) => ageColors(i));
 
   legend
     .append("text")

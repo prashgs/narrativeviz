@@ -9,95 +9,28 @@
   <script type="text/javascript" src="libraries/d3.v4.js"></script>
   <script type="text/javascript" src="libraries/d3-annotation.min.js"></script>
   <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <style>
-    * {
-      box-sizing: border-box;
-    }
 
-    .menu {
-      float: left;
-      width: 20%;
-      text-align: center;
-    }
-
-    .menu a {
-      background-color: #e5e5e5;
-      padding: 8px;
-      margin-top: 7px;
-      display: block;
-      width: 100%;
-      color: black;
-    }
-
-    .main {
-      float: left;
-      width: 60%;
-      padding: 0 20px;
-    }
-
-    .right {
-      background-color: #e5e5e5;
-      float: left;
-      width: 20%;
-      padding: 15px;
-      margin-top: 7px;
-      text-align: center;
-    }
-
-    @media only screen and (max-width:620px) {
-
-      /* For mobile phones: */
-      .menu,
-      .main,
-      .right {
-        width: 100%;
-      }
-    }
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Lato", sans-serif;
-    }
-
-    .w3-bar,
-    h1,
-    button {
-      font-family: "Montserrat", sans-serif;
-    }
-
-    .fa-anchor,
-    .fa-coffee {
-      font-size: 200px;
-    }
-
-    .grids {
-      display: none;
-    }
   </style>
 </head>
 
-<body onload="">
+<body>
   <!-- Navbar -->
-  <div class="w3-top">
-    <div class="w3-bar w3-blue-grey w3-left-align w3-large">
+  <div class="topnav" id="myTopnav" style="background-color: black;">
+    <div>
       <br>
     </div>
   </div>
 
   <!-- Header -->
-  <div class="w3-container w3-gray w3-center w3-animate-opacity grids"
-    style="background-color:#e5e5e5;padding:15px;text-align:center;">
+  <div class="grids" style="background-color:#e5e5e5;padding:15px;text-align:center;">
     <h2>
       FATAL SHOTS
     </h2>
     <!-- <h3>By US Law Enforcement</h3> -->
-    <div class="w3-text-light-grey">
-      In 2019, <span class="w3-jumbo">998</span> people were killed by US Police.
+    <div>
+      In 2019, <span>998</span> people were killed by US Police.
       <br>This narrative takes you through the numbers for years 2015-2020 and their relation to certain attributes.
       <br>
     </div>
@@ -105,115 +38,106 @@
     <script type="text/javascript" src="libraries/header.js"></script>
   </div>
 
-
   <!-- First Grid -->
-  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="first-grid">
-    <h2 class="w3-jumbo">
+  <div class="row grids" style="text-align:center;display: none;" id="first-grid">
+    <h1>
       STEADY NUMBER
-    </h2>
-    <div class="w3-content">
-      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
-        <!-- <h1>STEADY NUMBER</h1> -->
-        <h5 class="w3-padding-32">
-          Over the past few years, number of people killed by police has
-          stayed steady.
-        </h5>
-        <p class="w3-text-grey">
-          The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
-          This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
-          <br>For 2020, the number of fatalities as of May stands at 365 cases. This number is lower compared to May
-          number from previous 5 years, however, an upward trend is visible.
-        </p>
-      </div>
-
-      <div class="w3-twothird w3-center" id="first_dataViz">
-      </div>
+    </h1>
+    <div class="column left">
+      <h5>
+        Over the past few years, number of people killed by police has
+        stayed steady.
+      </h5>
+      <p>
+        The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
+        This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
+        <br>For 2020, the number of fatalities as of May stands at 365 cases. This number is lower compared to May
+        number from previous 5 years, however, an upward trend is visible.
+      </p>
+    </div>
+    <div class="column middle card">
+      <div id="first_dataViz"></div>
       <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
     </div>
   </div>
 
   <!-- Second Grid -->
-  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="second-grid">
-    <h2 class="w3-jumbo">
+  <div class="row grids" style="text-align:center;display: none;" id="second-grid">
+    <h2>
       NUMBERS BY STATE
     </h2>
+    <div class="column left">
+      <h5 class="w3-padding-32">
+        California, Texas and Florida have the highest number of deaths.
+      </h5>
+      <p class="w3-text-grey">
+        California, Texas and Florida have been consistently ranked as states with highest number of deaths.
+        Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
+        highest population in the country.
+      </p>
+    </div>
 
-    <div class="w3-content">
-      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
-        <!-- <h1>NUMBERS BY STATE</h1> -->
-        <h5 class="w3-padding-32">
-          California, Texas and Florida have the highest number of deaths.
-        </h5>
-        <p class="w3-text-grey">
-          California, Texas and Florida have been consistently ranked as states with highest number of deaths.
-          Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
-          highest population in the country.
-        </p>
-      </div>
-      <div class="w3-third w3-right">
-        <select class="w3-btn w3-light-gray" id="selectButton"></select>
-      </div>
-      <div class="w3-twothird w3-center" id="second_dataViz">
-      </div>
-
+    <div class="column middle card">
+      <select id="selectButton"></select>
+      <div id="second_dataViz"></div>
     </div>
   </div>
 
   <!-- Third Grid -->
-  <div class="w3-container w3-center w3-animate-opacity grids" style="display: none;" id="third-grid">
-    <h2 class="w3-jumbo">
+  <div class="row grids" style="text-align:center;display: none;" id="third-grid">
+    <h2>
       RACE FACTOR
     </h2>
-    <div class="w3-content">
-      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
-        <!-- <h1>RACE FACTOR</h1> -->
-        <h5 class="w3-padding-32">
-          Compared to other races, Blacks and Hispanics are killed at higher rates.
-          This visualization uses 2019 population and fatality count.
-        </h5>
+    <div class="column left">
+      <h5>
+        Compared to other races, Blacks and Hispanics are killed at higher rates.
+        This visualization uses 2019 population and fatality count.
+      </h5>
 
-        <p class="w3-text-grey">
-          White Americans form the majority of people killed at just over
-          <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
-          However, there are 4 times more White americans than Black americans.
-          Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
-        </p>
-      </div>
-      <div class="w3-twothird w3-center" id="third_dataViz"></div>
+      <p>
+        White Americans form the majority of people killed at just over
+        <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
+        However, there are 4 times more White americans than Black americans.
+        Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
+      </p>
+    </div>
+    <div class="column middle card">
+      <div id='third-viz-tooltip'></div>
+      <div id="third_dataViz"></div>
     </div>
   </div>
 
   <!-- Fourth Grid -->
-  <div class="w3-container w3-center grids  w3-animate-opacity" style="display: none;" id="fourth-grid">
+  <div class="grids row" style="text-align:center;display: none;" id="fourth-grid">
     <h2 class="w3-jumbo">
       AGE FACTOR
     </h2>
-    <div class="w3-content ">
-      <div class="w3-third w3-panel w3-border w3-light-grey w3-round-large">
-        <!-- <h1>AGE FACTOR</h1> -->
-        <h5 class="w3-padding-32">
-          A large marjority of those killed are between 21 and 40 years old.
-          This visualization uses data from 2019.
-        </h5>
-        <p class="w3-text-grey">
-          Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority across differenct
-          races. In 2019, the youngest killed was 14 years while the oldest was 80 years old.
-        </p>
-      </div>
-      <div class="w3-twothird w3-center" id="fourth_dataViz"></div>
+    <div class="column left">
+      <!-- <h1>AGE FACTOR</h1> -->
+      <h5 class="w3-padding-32">
+        A large marjority of those killed are between 21 and 40 years old.
+        This visualization uses data from 2019.
+      </h5>
+      <p>
+        Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority across differenct
+        races. In 2019, the youngest killed was 14 years while the oldest was 80 years old.
+      </p>
+    </div>
+    <div class="column middle card">
+      <div id='fourth-viz-tooltip'></div>
+      <div id="fourth_dataViz"></div>
     </div>
   </div>
 
-  <div class="w3-section w3-center w3-padding-24">
-    <button class="w3-button demo">Home</button>
-    <button class="w3-button demo">1</button>
-    <button class="w3-button demo">2</button>
-    <button class="w3-button demo">3</button>
-    <button class="w3-button demo">4</button>
-    <div class="w3-section w3-panel">
-      <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-      <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
-    </div>
+
+  <div class="card" style="background-color: transparent;">
+    <button class="btn nav-btn active">Home</button>
+    <button class="btn nav-btn">1</button>
+    <button class="btn nav-btn">2</button>
+    <button class="btn nav-btn">3</button>
+    <button class="btn nav-btn">4</button>
+    <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
+    <button class="btn" onclick="plusDivs(1)">Next ❯</button>
   </div>
 
 
@@ -230,19 +154,30 @@
     }
 
     function showDivs(n) {
+
+      // var header = document.getElementById("myDIV");
+      // var btns = header.getElementsByClassName("btn");
+      // for (var i = 0; i < btns.length; i++) {
+      //   btns[i].addEventListener("click", function () {
+      //     var current = document.getElementsByClassName("active");
+      //     current[0].className = current[0].className.replace(" active", "");
+      //     this.className += " active";
+      //   });
+      // }
+
       var i;
       var x = document.getElementsByClassName("grids");
-      var dots = document.getElementsByClassName("demo");
+      var dots = document.getElementsByClassName("nav-btn");
       if (n > x.length) { slideIndex = 5 }
       if (n < 1) { slideIndex = 1 }
       for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
       }
       for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-red", "");
+        dots[i].className = dots[i].className.replace(" active", "");
       }
       x[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " w3-red";
+      // dots[slideIndex - 1].className += " w3-red";
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
@@ -251,14 +186,7 @@
   <script type="text/javascript" src="libraries/second.js"></script>
   <script type="text/javascript" src="libraries/third.js"></script>
   <script type="text/javascript" src="libraries/fourth.js"></script>
-  <footer class="w3-container w3-padding-64 w3-center w3-opacity">
-    <p>
-      <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-      <a href="https://d3js.org/d3.v5.js" target="_blank">D3.v4</a>
-      <a href="https://d3-annotation.susielu.com/" target="_blank">D3 Annotation</a>
-      <a href="https://github.com/washingtonpost/data-police-shootings" target="_blank">Data</a>
-    </p>
-  </footer>
+
 </body>
 
 </html>

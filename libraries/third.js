@@ -3,6 +3,7 @@ var margin = { top: 10, right: 10, bottom: 35, left: 50 },
   width = 500 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
+var races = ["Asian", "Black", "Hispanic", "Native", "White"];
 // append the svg object to the body of the page
 
 // Parse the Data
@@ -14,6 +15,12 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var tooltip = d3
+    .select("#third-viz-tooltip")
+    .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden");
 
   // List of subgroups = header of the csv files = soil condition here
   var deathPercentage = data.columns.slice(2, 3);
@@ -57,6 +64,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .data(data)
     .enter()
     .append("g")
+    .attr("class", (d) => "bar-" + d.race)
     .attr("transform", function (d) {
       return "translate(" + x(d.race) + ",0)";
     })
@@ -80,6 +88,22 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     })
     .attr("fill", function (d) {
       return color(d.key);
+    })
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function (d) {
+      let key = d.key[0].split("_")[0];
+      let value = Math.round(d.value);
+      console.log(key, value);
+      return tooltip
+        .style("top", event.pageY - 10 + "px")
+        .style("left", event.pageX + 10 + "px")
+        .text(key+":"+ value + "%")
+        .style("font-size", "small")
+    })
+    .on("mouseout", function () {
+      return tooltip.style("visibility", "hidden");
     });
 
   // Add one dot in the legend for each name.
@@ -136,25 +160,4 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("x", -margin.top - height / 2 + 10)
     .text("Percentage")
     .attr("font-size", "smaller");
-
-  // create a tooltip
-  var tooltip = d3
-    .select("#third_dataViz")
-    .append("div")
-    .style("position", "absolute")
-    .style("visibility", "hidden")
-    .text("I'm a circle!");
-  //
-  d3.select("#circleBasicTooltip")
-    .on("mouseover", function () {
-      return tooltip.style("visibility", "visible");
-    })
-    .on("mousemove", function () {
-      return tooltip
-        .style("top", event.pageY - 800 + "px")
-        .style("left", event.pageX - 800 + "px");
-    })
-    .on("mouseout", function () {
-      return tooltip.style("visibility", "hidden");
-    });
 });
