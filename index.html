@@ -25,9 +25,9 @@
 
   <!-- Header -->
   <div class="grids" style="background-color:#e5e5e5;padding:15px;text-align:center;">
-    <h2>
+    <h1>
       FATAL SHOTS
-    </h2>
+    </h1>
     <!-- <h3>By US Law Enforcement</h3> -->
     <div>
       In 2019, <span>998</span> people were killed by US Police.
@@ -44,10 +44,10 @@
       STEADY NUMBER
     </h1>
     <div class="column left">
-      <h5>
+      <h3>
         Over the past few years, number of people killed by police has
         stayed steady.
-      </h5>
+      </h3>
       <p>
         The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
         This chart shows the number of fatalities for years from 2015 to 2019 and their numbers for each month.
@@ -63,14 +63,14 @@
 
   <!-- Second Grid -->
   <div class="row grids" style="text-align:center;display: none;" id="second-grid">
-    <h2>
+    <h1>
       NUMBERS BY STATE
-    </h2>
+    </h1>
     <div class="column left">
-      <h5 class="w3-padding-32">
+      <h3>
         California, Texas and Florida have the highest number of deaths.
-      </h5>
-      <p class="w3-text-grey">
+      </h3>
+      <p>
         California, Texas and Florida have been consistently ranked as states with highest number of deaths.
         Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
         highest population in the country.
@@ -85,14 +85,14 @@
 
   <!-- Third Grid -->
   <div class="row grids" style="text-align:center;display: none;" id="third-grid">
-    <h2>
+    <h1>
       RACE FACTOR
-    </h2>
+    </h1>
     <div class="column left">
-      <h5>
-        Compared to other races, Blacks and Hispanics are killed at higher rates.
+      <h3>
+        Blacks and Hispanics are killed at higher rates.
         This visualization uses 2019 population and fatality count.
-      </h5>
+      </h3>
 
       <p>
         White Americans form the majority of people killed at just over
@@ -109,15 +109,15 @@
 
   <!-- Fourth Grid -->
   <div class="grids row" style="text-align:center;display: none;" id="fourth-grid">
-    <h2 class="w3-jumbo">
+    <h1>
       AGE FACTOR
-    </h2>
+    </h1>
     <div class="column left">
       <!-- <h1>AGE FACTOR</h1> -->
-      <h5 class="w3-padding-32">
+      <h3 class="w3-padding-32">
         A large marjority of those killed are between 21 and 40 years old.
         This visualization uses data from 2019.
-      </h5>
+      </h3>
       <p>
         Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority across differenct
         races. In 2019, the youngest killed was 14 years while the oldest was 80 years old.
@@ -131,7 +131,7 @@
 
 
   <div class="card" style="background-color: transparent;">
-    <button class="btn nav-btn active">Home</button>
+    <button class="btn active nav-btn">Home</button>
     <button class="btn nav-btn">1</button>
     <button class="btn nav-btn">2</button>
     <button class="btn nav-btn">3</button>
@@ -177,7 +177,7 @@
         dots[i].className = dots[i].className.replace(" active", "");
       }
       x[slideIndex - 1].style.display = "block";
-      // dots[slideIndex - 1].className += " w3-red";
+      dots[slideIndex - 1].className += " active";
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
