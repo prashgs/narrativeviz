@@ -238,8 +238,7 @@ button {
 }
 
 /* Style the active class, and buttons on mouse-over */
-.active,
-.btn:hover {
+.active{
   background-color: #666;
   color: white;
 }
