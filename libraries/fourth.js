@@ -138,7 +138,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .append("text")
     .attr("text-anchor", "end")
     .attr("x", width / 2 + margin.left)
-    .attr("y", height + margin.top + 20)
+    .attr("y", height + margin.top + 15)
     .attr("font-size", "smaller")
     .text("Age");
 
