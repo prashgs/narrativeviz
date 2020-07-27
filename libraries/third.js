@@ -1,9 +1,9 @@
 
-// var margin = { top: 10, right: 10, bottom: 35, left: 50 },
-//   width = 500 - margin.left - margin.right,
-//   height = 400 - margin.top - margin.bottom;
+var margin = { top: 10, right: 10, bottom: 35, left: 50 },
+  width = 500 - margin.left - margin.right,
+  height = 400 - margin.top - margin.bottom;
 
-// var races = ["Asian", "Black", "Hispanic", "Native", "White"];
+var races = ["Asian", "Black", "Hispanic", "Native", "White"];
 
 d3.csv("data/race_count_population_ratio.csv", function (data) {
   var svg = d3
@@ -40,25 +40,23 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).tickSize(0));
 
-  // Add Y axis
+
   var y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
 
-  // Another scale for subgroup position?
+
   var xSubgroup = d3
     .scaleBand()
     .domain(subgroups)
     .range([0, x.bandwidth()])
     .padding([0.05]);
 
-  // color palette = one color per subgroup
   var color = d3.scaleOrdinal().domain(subgroups).range(["#e41a1c", "#377eb8"]);
 
-  // Show the bars
+
   svg
     .append("g")
     .selectAll("g")
-    // Enter in data = loop group per group
     .data(data)
     .enter()
     .append("g")
@@ -104,7 +102,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       return tooltip.style("visibility", "hidden");
     });
 
-  // Add X axis label:
+
   svg
     .append("g")
     .append("text")
@@ -114,7 +112,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("font-size", "smaller")
     .text("Race");
 
-  // Y axis label:
   svg
     .append("text")
     .attr("text-anchor", "end")
@@ -125,7 +122,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("font-size", "smaller");
 
 
-    // CREATE LEGEND //
+
     var svgLegend = svg
     .append("g")
     .attr("class", "gLegend")
