@@ -11,7 +11,6 @@
 //   .scaleOrdinal()
 //   .domain(race)
 //   .range(["steelblue", "red", "blue", "green"]);
-//Read the data
 
 var r = 5;
 d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
@@ -103,12 +102,22 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
 
   function updateChart() {
     extent = d3.event.selection;
+    console.log("Extent");
+    console.log(extent);
+    var count = 0;
     if (!extent) {
       if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350));
       x.domain([0, maxAge + 10]);
+      console.log("If Not extent");
+      d3.selectAll("#fourth_dataViz .annotation-line").remove();
+      d3.selectAll("#fourth_dataViz .annotation-text").remove();
+      count+=1;
     } else {
       x.domain([x.invert(extent[0]), x.invert(extent[1])]);
       scatter.select(".brush").call(brush.move, null);
+      console.log("Else Extent");
+      d3.selectAll("#fourth_dataViz .annotation-line").remove();
+      d3.selectAll("#fourth_dataViz .annotation-text").remove();
     }
 
     xAxis.transition().duration(1000).call(d3.axisBottom(x));
@@ -122,6 +131,11 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
       .attr("cy", function (d) {
         return y(d.count);
       });
+    if (count==1){
+      d3.selectAll("#fourth_dataViz .annotation-line").remove();
+      d3.selectAll("#fourth_dataViz .annotation-text").remove();
+      drawAnnotations();
+    }
   }
 
   svg
@@ -187,44 +201,52 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
         .style("opacity", dotOpacity == 1 ? 0 : 1);
     });
 
-  var last2020Circle = d3.select(
-    "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(185)"
-  );
-  var first2020Circle = d3.select(
-    "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(1)"
-  );
+  drawAnnotations();
 
-  svg
-    .append("line")
-    .attr("class", "annotation-line")
-    .attr("x1", last2020Circle.attr("cx"))
-    .attr("y1", last2020Circle.attr("cx"))
-    .attr("x2", last2020Circle.attr("cy"))
-    .attr("y2", height - 100)
-    .attr("stroke", "grey");
+  function drawAnnotations() {
+    var last2020Circle = d3.select(
+      "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(185)"
+    );
+    var first2020Circle = d3.select(
+      "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(1)"
+    );
 
-  svg
-    .append("text")
-    .attr("x", last2020Circle.attr("cx")-20)
-    .attr("y", height - 100)
-    .text("Oldest: 80 years")
-    .style("font-size", "small")
-    .attr("stroke", "grey");
+    if (last2020Circle !== null && first2020Circle !== null) {
+      svg
+        .append("line")
+        .attr("class", "annotation-line")
+        .attr("x1", last2020Circle.attr("cx"))
+        .attr("y1", last2020Circle.attr("cx"))
+        .attr("x2", last2020Circle.attr("cy"))
+        .attr("y2", height - 100)
+        .attr("stroke", "grey");
 
-    svg
-    .append("line")
-    .attr("class", "annotation-line")
-    .attr("x1", first2020Circle.attr("cx")-10)
-    .attr("y1", first2020Circle.attr("cy"))
-    .attr("x2", first2020Circle.attr("cx"))
-    .attr("y2", height - 100)
-    .attr("stroke", "grey");
+      svg
+        .append("text")
+        .attr("class", "annotation-text")
+        .attr("x", last2020Circle.attr("cx") - 20)
+        .attr("y", height - 100)
+        .text("Oldest: 80 years")
+        .style("font-size", "small")
+        .attr("stroke", "grey");
 
-  svg
-    .append("text")
-    .attr("x", first2020Circle.attr("cx")-40)
-    .attr("y", height - 100)
-    .text("Youngest: 14 years")
-    .style("font-size", "small")
-    .attr("stroke", "grey");
+      svg
+        .append("line")
+        .attr("class", "annotation-line")
+        .attr("x1", first2020Circle.attr("cx") - 10)
+        .attr("y1", first2020Circle.attr("cy"))
+        .attr("x2", first2020Circle.attr("cx"))
+        .attr("y2", height - 100)
+        .attr("stroke", "grey");
+
+      svg
+        .append("text")
+        .attr("class", "annotation-text")
+        .attr("x", first2020Circle.attr("cx") - 40)
+        .attr("y", height - 100)
+        .text("Youngest: 14 years")
+        .style("font-size", "small")
+        .attr("stroke", "grey");
+    }
+  }
 });
