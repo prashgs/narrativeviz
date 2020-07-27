@@ -106,41 +106,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       return tooltip.style("visibility", "hidden");
     });
 
-  // Add one dot in the legend for each name.
-  var size = 20;
-  svg
-    .selectAll("mydots")
-    .data(["Fatality %", "Population %"])
-    .enter()
-    .append("rect")
-    .attr("x", width - size * 5.5)
-    .attr("y", function (d, i) {
-      return +i * (size + 10) + size / 2;
-    }) // 100 is where the first dot appears. 25 is the distance between dots
-    .attr("width", size)
-    .attr("height", size)
-    .style("fill", function (d) {
-      return color(d);
-    });
-  // Add one dot in the legend for each name.
-  svg
-    .selectAll("mylabels")
-    .data(["Fatality %", "Population %"])
-    .enter()
-    .append("text")
-    .attr("x", width - size * 4)
-    .attr("y", function (d, i) {
-      return 15 + i * (size + 5) + size / 2;
-    }) // 100 is where the first dot appears. 25 is the distance between dots
-    .style("fill", function (d) {
-      return color(d);
-    })
-    .text(function (d) {
-      return d;
-    })
-    .attr("text-anchor", "left")
-    .style("alignment-baseline", "right");
-
   // Add X axis label:
   svg
     .append("g")
@@ -160,4 +125,42 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("x", -margin.top - height / 2 + 10)
     .text("Percentage")
     .attr("font-size", "smaller");
+
+
+    // CREATE LEGEND //
+    var svgLegend = svg
+    .append("g")
+    .attr("class", "gLegend")
+    .attr(
+      "transform",
+      "translate(" + (width - margin.right - 70) + "," + margin.top + ")"
+    );
+
+  var legend = svgLegend
+    .selectAll(".legend")
+    .data(["Fatality %", "Population %"])
+    .enter()
+    .append("g")
+    .attr("class", "legend")
+    .attr("transform", function (d, i) {
+      return "translate(0," + i * 20 + ")";
+    });
+  legend
+    .append("circle")
+    .attr("class", "legend-node")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", r)
+    .style("fill", (d) => color(d));
+
+  legend
+    .append("text")
+    .attr("class", "legend-text")
+    .attr("class", "w3-button")
+    .attr("x", r * 2)
+    .attr("y", r / 2)
+    .style("fill", "#A9A9A9")
+    .style("font-size", 12)
+    .text((d) => d);
+
 });

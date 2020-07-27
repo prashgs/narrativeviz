@@ -158,7 +158,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("class", "gLegend")
     .attr(
       "transform",
-      "translate(" + (width - margin.right - 20) + "," + margin.top + ")"
+      "translate(" + (width - margin.right - 70) + "," + margin.top + ")"
     );
 
   var legend = svgLegend

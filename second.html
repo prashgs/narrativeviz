@@ -1,0 +1,22 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="libraries/d3.v4.js"></script>
+  <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+</head>
+
+<body>
+  <!-- Create a div where the graph will take place -->
+  <div class="column equal">
+    <label style="float: left;font-size: smaller;" for="country">Choose a year:
+      <select class="box" id="selectButton"></select>
+        States: 
+        <button class="btn" id="top25">Top 25</button>
+        <button class="btn" id="bottom25">Bottom 25</button>
+    </label>
+    <div id="second_dataViz" style="float: center;"></div>
+  </div>
+  <script type="text/javascript" src="libraries/second.js"></script>
+</body>
+
+</html>

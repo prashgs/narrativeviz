@@ -43,7 +43,7 @@
     <h1>
       STEADY NUMBER
     </h1>
-    <div class="column left">
+    <div class="column left card">
       <h3>
         Over the past few years, number of people killed by police has
         stayed steady.
@@ -55,8 +55,8 @@
         number from previous 5 years, however, an upward trend is visible.
       </p>
     </div>
-    <div class="column middle card">
-      <div id="first_dataViz" style="float: left;"></div>
+    <div class="column equal">
+      <div id="first_dataViz" style="float: center;"></div>
       <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
     </div>
   </div>
@@ -66,7 +66,7 @@
     <h1>
       NUMBERS BY STATE
     </h1>
-    <div class="column left">
+    <div class="column left card">
       <h3>
         California, Texas and Florida have the highest number of deaths.
       </h3>
@@ -76,10 +76,14 @@
         highest population in the country.
       </p>
     </div>
-    <select id="selectButton"></select>
-    <div class="column middle card">
 
-      <div id="second_dataViz" style="float: left;"></div>
+    <div class="column equal">
+      <label style="float: left;font-size: smaller;" for="country">Choose a year:
+        <select class="box" id="selectButton"></select>
+        <button class="btn" id="top25">Top half</button>
+        <button class="btn" id="bottom25">Bottom half</button>
+      </label>
+      <div id="second_dataViz" style="float: center;"></div>
     </div>
   </div>
 
@@ -88,7 +92,7 @@
     <h1>
       RACE FACTOR
     </h1>
-    <div class="column left">
+    <div class="column left card">
       <h3>
         Blacks and Hispanics are killed at higher rates.
         This visualization uses 2019 population and fatality count.
@@ -97,13 +101,13 @@
       <p>
         White Americans form the majority of people killed at just over
         <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
-        However, there are 4 times more White americans than Black americans.
+        However, population of whites to black is 63% to 13%, almost 4 to 1.
         Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
       </p>
     </div>
-    <div class="column middle card">
+    <div class="column equal">
       <div id='third-viz-tooltip'></div>
-      <div id="third_dataViz" style="float: left;"></div>
+      <div id="third_dataViz" style="float: center;"></div>
     </div>
   </div>
 
@@ -112,20 +116,20 @@
     <h1>
       AGE FACTOR
     </h1>
-    <div class="column left">
+    <div class="column left card">
       <!-- <h1>AGE FACTOR</h1> -->
       <h3 class="w3-padding-32">
         A large marjority of those killed are between 21 and 40 years old.
         This visualization uses data from 2019.
       </h3>
       <p>
-        Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority across differenct
-        races. In 2019, the youngest killed was 14 years while the oldest was 80 years old.
+        Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority.
+        In 2019, the youngest killed was 14 years while the oldest was 80 years old.
       </p>
     </div>
-    <div class="column middle card">
+    <div class="column equal ">
       <div id='fourth-viz-tooltip'></div>
-      <div id="fourth_dataViz" style="float: left;"></div>
+      <div id="fourth_dataViz" style="float: center;"></div>
     </div>
   </div>
 

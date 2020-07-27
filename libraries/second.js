@@ -1,11 +1,12 @@
-// var years = ["2015", "2016", "2017", "2018", "2019"];
-// var colors = d3.scaleBand().domain(years).range(d3.schemeCategory20);
-// var colors = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeCategory20);
-// // set the dimensions and margins of the graph
-// var margin = { top: 10, right: 30, bottom: 90, left: 40 },
-//   width = 460 - margin.left - margin.right,
-//   height = 450 - margin.top - margin.bottom;
-// Parse the Data
+var years = ["2015", "2016", "2017", "2018", "2019"];
+// set the dimensions and margins of the graph
+var margin = { top: 10, right: 30, bottom: 90, left: 40 },
+  width = 460 - margin.left - margin.right,
+  height = 450 - margin.top - margin.bottom;
+var yearColors = d3
+  .scaleOrdinal()
+  .domain(years)
+  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
 
 d3.csv("data/year_state_statecode_count.csv")
   .row(function (d) {
@@ -29,12 +30,12 @@ d3.csv("data/year_state_statecode_count.csv")
       });
     }
 
-    function getTop(data, top) {
+    function getTop(data, top, bottom) {
       return data
         .sort(function (a, b) {
           return d3.descending(+a.count, +b.count);
         })
-        .slice(0, top);
+        .slice(top, bottom);
     }
 
     // append the svg object to the body of the page
@@ -45,22 +46,6 @@ d3.csv("data/year_state_statecode_count.csv")
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    topData = getTop(sortDataByCount(filterData(data, selectedYear)), 25);
-
-    var x = d3
-      .scaleBand()
-      .domain(
-        topData.map(function (d) {
-          return d.statecode;
-        })
-      )
-      .range([0, width])
-      .padding(0.2);
-
-    var xAxis = svg
-      .append("g")
-      .attr("transform", "translate(0," + height + ")");
 
     var dropdown = d3
       .select("#selectButton")
@@ -81,14 +66,26 @@ d3.csv("data/year_state_statecode_count.csv")
 
     var selectedYear = d3.select("#selectButton").property("value");
     var selectedColor = yearColors(selectedYear);
-    // svg
-    //   .append("g")
-    //   .attr("transform", "translate(0," + height + ")")
-    //   .call(d3.axisBottom(x))
-    //   .selectAll("text")
-    //   .attr("class", "bar-label")
-    //   .attr("transform", "translate(-10,0)rotate(-45)")
-    //   .style("text-anchor", "end");
+    var filteredData = filterData(data, selectedYear);
+    var topData = getTop(
+      sortDataByCount(filteredData),
+      0,
+      filteredData.length / 2
+    );
+
+    var x = d3
+      .scaleBand()
+      .domain(
+        topData.map(function (d) {
+          return d.statecode;
+        })
+      )
+      .range([0, width])
+      .padding(0.2);
+
+    var xAxis = svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")");
 
     var yMax = d3.max(data, function (d) {
       return +d.count;
@@ -101,9 +98,14 @@ d3.csv("data/year_state_statecode_count.csv")
       .range([height, 0]);
     svg.append("g").call(d3.axisLeft(y));
 
-    function update(selectedYear, selectedColor) {
+    function update(selectedYear, selectedColor, top, bottom) {
       // Create new data with the selection?
-      topData = getTop(sortDataByCount(filterData(data, selectedYear)), 25);
+      topData = getTop(
+        sortDataByCount(filterData(data, selectedYear)),
+        top,
+        bottom
+      );
+
       // Give these new data to update line
       x.domain(
         topData.map(function (d) {
@@ -118,6 +120,8 @@ d3.csv("data/year_state_statecode_count.csv")
         .attr("class", "bar-label")
         .attr("transform", "translate(-10,0)rotate(-45)")
         .style("text-anchor", "end");
+
+      d3.selectAll(".bar").remove();
 
       // Bars
       svg
@@ -154,7 +158,7 @@ d3.csv("data/year_state_statecode_count.csv")
         });
 
       d3.selectAll(".bar-value").remove();
-      
+
       svg
         .selectAll(".bar-value")
         .data(topData)
@@ -180,12 +184,32 @@ d3.csv("data/year_state_statecode_count.csv")
         });
     }
 
-    update(selectedYear, selectedColor);
+    update(selectedYear, selectedColor, 0, topData.length);
 
     d3.select("#selectButton").on("change", function (d) {
       selectedYear = d3.select(this).property("value");
       let selectedColor = yearColors(selectedYear);
-      update(selectedYear, selectedColor);
+      var dataLength = filterData(data, selectedYear).length;
+      update(selectedYear, selectedColor, 0, Math.round(dataLength / 2));
+    });
+
+    d3.select("#bottom25").on("click", function (d) {
+      selectedYear = d3.select("#selectButton").property("value");
+      let selectedColor = yearColors(selectedYear);
+      var dataLength = filterData(data, selectedYear).length;
+      update(
+        selectedYear,
+        selectedColor,
+        Math.round(dataLength / 2),
+        dataLength
+      );
+    });
+
+    d3.select("#top25").on("click", function (d) {
+      selectedYear = d3.select("#selectButton").property("value");
+      let selectedColor = yearColors(selectedYear);
+      var dataLength = filterData(data, selectedYear).length;
+      update(selectedYear, selectedColor, 0, Math.round(dataLength / 2));
     });
 
     // Add X axis label:
@@ -202,7 +226,7 @@ d3.csv("data/year_state_statecode_count.csv")
       .append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 30)
+      .attr("y", -margin.left + 10)
       .attr("x", -margin.top - height / 2 + 10)
       .text("Fatality count")
       .attr("font-size", "smaller");
