@@ -1,4 +1,3 @@
-
 var margin = { top: 10, right: 10, bottom: 35, left: 50 },
   width = 500 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
@@ -40,10 +39,8 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).tickSize(0));
 
-
   var y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
-
 
   var xSubgroup = d3
     .scaleBand()
@@ -52,7 +49,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .padding([0.05]);
 
   var color = d3.scaleOrdinal().domain(subgroups).range(["#e41a1c", "#377eb8"]);
-
 
   svg
     .append("g")
@@ -91,17 +87,15 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .on("mousemove", function (d) {
       let key = d.key[0].split("_")[0];
       let value = Math.round(d.value);
-      console.log(key, value);
       return tooltip
         .style("top", event.pageY - 10 + "px")
         .style("left", event.pageX + 10 + "px")
-        .text(key+":"+ value + "%")
-        .style("font-size", "small")
+        .text(key + ":" + value + "%")
+        .style("font-size", "small");
     })
     .on("mouseout", function () {
       return tooltip.style("visibility", "hidden");
     });
-
 
   svg
     .append("g")
@@ -121,9 +115,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .text("Percentage")
     .attr("font-size", "smaller");
 
-
-
-    var svgLegend = svg
+  var svgLegend = svg
     .append("g")
     .attr("class", "gLegend")
     .attr(
@@ -157,5 +149,4 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .style("fill", "#A9A9A9")
     .style("font-size", 12)
     .text((d) => d);
-
 });

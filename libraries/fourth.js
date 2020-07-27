@@ -15,7 +15,6 @@
 
 var r = 5;
 d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
-
   var svg = d3
     .select("#fourth_dataViz")
     .append("svg")
@@ -49,7 +48,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
-
   var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
 
@@ -58,7 +56,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .append("div")
     .style("position", "absolute")
     .style("visibility", "hidden");
-
 
   var clip = svg
     .append("defs")
@@ -70,19 +67,16 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("x", 0)
     .attr("y", 0);
 
-
   var brush = d3
-    .brushX() 
+    .brushX()
     .extent([
       [0, 0],
       [width, height],
-    ]) 
-    .on("end", updateChart); 
+    ])
+    .on("end", updateChart);
 
-  
   var scatter = svg.append("g").attr("clip-path", "url(#clip)");
 
-  
   scatter
     .selectAll("circle")
     .data(data)
@@ -102,12 +96,10 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
 
   scatter.append("g").attr("class", "brush").call(brush);
 
-
   var idleTimeout;
   function idled() {
     idleTimeout = null;
   }
-
 
   function updateChart() {
     extent = d3.event.selection;
@@ -132,7 +124,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
       });
   }
 
-
   svg
     .append("g")
     .append("text")
@@ -141,7 +132,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("y", height + margin.top + 15)
     .attr("font-size", "smaller")
     .text("Age");
-
 
   svg
     .append("text")
@@ -196,4 +186,45 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
         .transition()
         .style("opacity", dotOpacity == 1 ? 0 : 1);
     });
+
+  var last2020Circle = d3.select(
+    "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(185)"
+  );
+  var first2020Circle = d3.select(
+    "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(1)"
+  );
+
+  svg
+    .append("line")
+    .attr("class", "annotation-line")
+    .attr("x1", last2020Circle.attr("cx"))
+    .attr("y1", last2020Circle.attr("cx"))
+    .attr("x2", last2020Circle.attr("cy"))
+    .attr("y2", height - 100)
+    .attr("stroke", "grey");
+
+  svg
+    .append("text")
+    .attr("x", last2020Circle.attr("cx")-20)
+    .attr("y", height - 100)
+    .text("Oldest: 80 years")
+    .style("font-size", "small")
+    .attr("stroke", "grey");
+
+    svg
+    .append("line")
+    .attr("class", "annotation-line")
+    .attr("x1", first2020Circle.attr("cx")-10)
+    .attr("y1", first2020Circle.attr("cy"))
+    .attr("x2", first2020Circle.attr("cx"))
+    .attr("y2", height - 100)
+    .attr("stroke", "grey");
+
+  svg
+    .append("text")
+    .attr("x", first2020Circle.attr("cx")-40)
+    .attr("y", height - 100)
+    .text("Youngest: 14 years")
+    .style("font-size", "small")
+    .attr("stroke", "grey");
 });

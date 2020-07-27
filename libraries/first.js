@@ -257,17 +257,23 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     "#first_dataViz > svg > g > g.dot-2020 > circle:nth-child(5)"
   );
 
-  const annotations = [
-    {
-      note: {
-        title: "May 2020 Fatality: 365 ",
-      },
-      x: last2020Circle.attr("cx"),
-      y: last2020Circle.attr("cy"),
-      dy: 30,
-      dx: 30,
-    },
-  ];
-  const makeAnnotations = d3.annotation().annotations(annotations);
-  svg.append("g").style("font-size", "smaller").call(makeAnnotations);
+  console.log(last2020Circle.attr("cx"));
+  console.log(Number(last2020Circle.attr("cx"))+20);
+  svg
+  .append("line")
+  .attr("class", "annotation-line")
+  .attr("x1", last2020Circle.attr("cx"))
+  .attr("y1", last2020Circle.attr("cy"))
+  .attr("x2", Number(last2020Circle.attr("cx"))+20)
+  .attr("y2", Number(last2020Circle.attr("cy"))+60)
+  .attr("stroke", "grey");
+
+svg
+  .append("text")
+  .attr("x", last2020Circle.attr("cx"))
+  .attr("y", Number(last2020Circle.attr("cy"))+60)
+  .text("May 2020: 365")
+  .style("font-size", "small")
+  .attr("stroke", "grey");
+
 });
