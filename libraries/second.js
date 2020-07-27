@@ -1,12 +1,11 @@
-var years = ["2015", "2016", "2017", "2018", "2019"];
-// set the dimensions and margins of the graph
-var margin = { top: 10, right: 30, bottom: 90, left: 40 },
-  width = 460 - margin.left - margin.right,
-  height = 450 - margin.top - margin.bottom;
-var yearColors = d3
-  .scaleOrdinal()
-  .domain(years)
-  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
+// var years = ["2015", "2016", "2017", "2018", "2019"];
+// var margin = { top: 10, right: 30, bottom: 90, left: 40 },
+//   width = 460 - margin.left - margin.right,
+//   height = 450 - margin.top - margin.bottom;
+// var yearColors = d3
+//   .scaleOrdinal()
+//   .domain(years)
+//   .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
 
 d3.csv("data/year_state_statecode_count.csv")
   .row(function (d) {

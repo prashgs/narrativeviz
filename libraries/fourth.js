@@ -15,7 +15,7 @@
 
 var r = 5;
 d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
-  // append the svg object to the body of the page
+
   var svg = d3
     .select("#fourth_dataViz")
     .append("svg")
@@ -33,7 +33,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
   var maxCount = d3.max(data, function (d) {
     return +d.count + 5;
   });
-  // Add X axis
+
   var bins = d3
     .map(data, function (d) {
       return d.binned;
@@ -49,7 +49,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
-  // Add Y axis
+
   var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
 
@@ -59,7 +59,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .style("position", "absolute")
     .style("visibility", "hidden");
 
-  // Add a clipPath: everything out of this area won't be drawn.
+
   var clip = svg
     .append("defs")
     .append("svg:clipPath")
@@ -70,19 +70,19 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("x", 0)
     .attr("y", 0);
 
-  // Add brushing
+
   var brush = d3
-    .brushX() // Add the brush feature using the d3.brush function
+    .brushX() 
     .extent([
       [0, 0],
       [width, height],
-    ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
+    ]) 
+    .on("end", updateChart); 
 
-  // Create the scatter variable: where both the circles and the brush take place
+  
   var scatter = svg.append("g").attr("clip-path", "url(#clip)");
 
-  // Add circles
+  
   scatter
     .selectAll("circle")
     .data(data)
@@ -99,16 +99,16 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
       return ageColors(d.binned);
     })
     .style("opacity", 0.5);
-  // Add the brushing
+
   scatter.append("g").attr("class", "brush").call(brush);
 
-  // A function that set idleTimeOut to null
+
   var idleTimeout;
   function idled() {
     idleTimeout = null;
   }
 
-  // A function that update the chart for given boundaries
+
   function updateChart() {
     extent = d3.event.selection;
     if (!extent) {
@@ -132,7 +132,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
       });
   }
 
-  // Add X axis label:
+
   svg
     .append("g")
     .append("text")
@@ -142,7 +142,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("font-size", "smaller")
     .text("Age");
 
-  // Y axis label:
+
   svg
     .append("text")
     .attr("text-anchor", "end")
@@ -152,7 +152,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .text("Fatality count")
     .attr("font-size", "smaller");
 
-  // CREATE LEGEND //
   var svgLegend = svg
     .append("g")
     .attr("class", "gLegend")
@@ -188,10 +187,8 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .style("font-size", 12)
     .text((d) => d)
     .on("click", function (d) {
-      // is the element currently visible ?
       lineOpacity = d3.selectAll(".line-" + d).style("opacity");
       dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
-      // Change the opacity: from 0 to 1 or from 1 to 0
       d3.selectAll(".line-" + d)
         .transition()
         .style("opacity", lineOpacity == 1 ? 0 : 1);

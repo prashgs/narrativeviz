@@ -126,10 +126,8 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .style("font-size", 12)
     .text((d) => d)
     .on("click", function (d) {
-      // is the element currently visible ?
       lineOpacity = d3.selectAll(".line-" + d).style("opacity");
       dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
-      // Change the opacity: from 0 to 1 or from 1 to 0
       d3.selectAll(".line-" + d)
         .transition()
         .style("opacity", lineOpacity == 1 ? 0 : 1);
@@ -164,9 +162,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .datum((d) => d.values)
     .attr("d", line);
 
-  // Add the points
   svg
-    // First we need to enter in a group
     .selectAll("myDots")
     .data(data_nested)
     .enter()
@@ -257,13 +253,10 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .text("Fatality count")
     .attr("font-size", "smaller");
 
-  // Add annotation to the chart
-
   var last2020Circle = d3.select(
     "#first_dataViz > svg > g > g.dot-2020 > circle:nth-child(5)"
   );
 
-  // Features of the annotation
   const annotations = [
     {
       note: {

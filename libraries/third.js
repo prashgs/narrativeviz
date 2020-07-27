@@ -1,12 +1,10 @@
-//set the dimensions and margins of the graph
-var margin = { top: 10, right: 10, bottom: 35, left: 50 },
-  width = 500 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
 
-var races = ["Asian", "Black", "Hispanic", "Native", "White"];
-// append the svg object to the body of the page
+// var margin = { top: 10, right: 10, bottom: 35, left: 50 },
+//   width = 500 - margin.left - margin.right,
+//   height = 400 - margin.top - margin.bottom;
 
-// Parse the Data
+// var races = ["Asian", "Black", "Hispanic", "Native", "White"];
+
 d3.csv("data/race_count_population_ratio.csv", function (data) {
   var svg = d3
     .select("#third_dataViz")
