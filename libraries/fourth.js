@@ -1,19 +1,10 @@
-// set the dimensions and margins of the graph
-// var margin = { top: 10, right: 30, bottom: 30, left: 60 },
-//   width = 460 - margin.left - margin.right,
+// var margin = { top: 10, right: 10, bottom: 35, left: 50 },
+//   width = 500 - margin.left - margin.right,
 //   height = 400 - margin.top - margin.bottom;
-// var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
-// var raceColors = d3
-//   .scaleOrdinal()
-//   .domain(race)
-//   .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
-// var ageColors = d3
-//   .scaleOrdinal()
-//   .domain(race)
-//   .range(["steelblue", "red", "blue", "green"]);
 
-var r = 5;
-d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
+// var races = ["Asian", "Black", "Hispanic", "Native", "White"];
+
+d3.csv("data/race_count_population_ratio.csv", function (data) {
   var svg = d3
     .select("#fourth_dataViz")
     .append("svg")
@@ -22,130 +13,98 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var maxAge = d3.max(data, function (d) {
-    return +d.age + 10;
-  });
-  var minAge = d3.min(data, function (d) {
-    return +d.age + 10;
-  });
-  var maxCount = d3.max(data, function (d) {
-    return +d.count + 5;
-  });
-
-  var bins = d3
-    .map(data, function (d) {
-      return d.binned;
-    })
-    .keys();
-
-  var x = d3
-    .scaleLinear()
-    .domain([0, maxAge + 10])
-    .range([0, width]);
-  var xAxis = svg
-    .append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
-
-  var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
-  svg.append("g").call(d3.axisLeft(y));
-
   var tooltip = d3
     .select("#fourth-viz-tooltip")
     .append("div")
     .style("position", "absolute")
     .style("visibility", "hidden");
 
-  var clip = svg
-    .append("defs")
-    .append("svg:clipPath")
-    .attr("id", "clip")
-    .append("svg:rect")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("x", 0)
-    .attr("y", 0);
+  // List of subgroups = header of the csv files = soil condition here
+  var deathPercentage = data.columns.slice(2, 3);
+  var populationPercentage = data.columns.slice(5);
 
-  var brush = d3
-    .brushX()
-    .extent([
-      [0, 0],
-      [width, height],
-    ])
-    .on("end", updateChart);
+  var subgroups = [deathPercentage, populationPercentage];
 
-  var scatter = svg.append("g").attr("clip-path", "url(#clip)");
+  // List of groups = species here = value of the first column called group -> I show them on the X axis
+  var groups = d3
+    .map(data, function (d) {
+      return d.race;
+    })
+    .keys();
 
-  scatter
-    .selectAll("circle")
+  // Add X axis
+  var x = d3.scaleBand().domain(groups).range([0, width]).padding([0.2]);
+  svg
+    .append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).tickSize(0));
+
+  var y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  svg.append("g").call(d3.axisLeft(y));
+
+  var xSubgroup = d3
+    .scaleBand()
+    .domain(subgroups)
+    .range([0, x.bandwidth()])
+    .padding([0.05]);
+
+  var color = d3.scaleOrdinal().domain(subgroups).range(["#e41a1c", "#377eb8"]);
+
+  svg
+    .append("g")
+    .selectAll("g")
     .data(data)
     .enter()
-    .append("circle")
-    .attr("cx", function (d) {
-      return x(d.age);
+    .append("g")
+    .attr("class", (d) => "bar-" + d.race)
+    .attr("transform", function (d) {
+      return "translate(" + x(d.race) + ",0)";
     })
-    .attr("cy", function (d) {
-      return y(d.count);
-    })
-    .attr("r", 5)
-    .style("fill", function (d) {
-      return ageColors(d.binned);
-    })
-    .style("opacity", 0.5);
-
-  scatter.append("g").attr("class", "brush").call(brush);
-
-  var idleTimeout;
-  function idled() {
-    idleTimeout = null;
-  }
-
-  function updateChart() {
-    extent = d3.event.selection;
-    console.log("Extent");
-    console.log(extent);
-    var count = 0;
-    if (!extent) {
-      if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350));
-      x.domain([0, maxAge + 10]);
-      console.log("If Not extent");
-      d3.selectAll("#fourth_dataViz .annotation-line").remove();
-      d3.selectAll("#fourth_dataViz .annotation-text").remove();
-      count+=1;
-    } else {
-      x.domain([x.invert(extent[0]), x.invert(extent[1])]);
-      scatter.select(".brush").call(brush.move, null);
-      console.log("Else Extent");
-      d3.selectAll("#fourth_dataViz .annotation-line").remove();
-      d3.selectAll("#fourth_dataViz .annotation-text").remove();
-    }
-
-    xAxis.transition().duration(1000).call(d3.axisBottom(x));
-    scatter
-      .selectAll("circle")
-      .transition()
-      .duration(1000)
-      .attr("cx", function (d) {
-        return x(d.age);
-      })
-      .attr("cy", function (d) {
-        return y(d.count);
+    .selectAll("rect")
+    .data(function (d) {
+      return subgroups.map(function (key) {
+        return { key: key, value: d[key] };
       });
-    if (count==1){
-      d3.selectAll("#fourth_dataViz .annotation-line").remove();
-      d3.selectAll("#fourth_dataViz .annotation-text").remove();
-      drawAnnotations();
-    }
-  }
+    })
+    .enter()
+    .append("rect")
+    .attr("x", function (d) {
+      return xSubgroup(d.key);
+    })
+    .attr("y", function (d) {
+      return y(d.value);
+    })
+    .attr("width", xSubgroup.bandwidth())
+    .attr("height", function (d) {
+      return height - y(d.value);
+    })
+    .attr("fill", function (d) {
+      return color(d.key);
+    })
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function (d) {
+      let key = d.key[0].split("_")[0];
+      let value = Math.round(d.value);
+      return tooltip
+        .style("top", event.pageY - 10 + "px")
+        .style("left", event.pageX + 10 + "px")
+        .text(key + ":" + value + "%")
+        .style("font-size", "small");
+    })
+    .on("mouseout", function () {
+      return tooltip.style("visibility", "hidden");
+    });
 
   svg
     .append("g")
     .append("text")
     .attr("text-anchor", "end")
     .attr("x", width / 2 + margin.left)
-    .attr("y", height + margin.top + 15)
-    .attr("font-size", "smaller")
-    .text("Age");
+    .attr("y", height + margin.top + 20)
+    .style("font-size", "small")
+    .text("Race");
 
   svg
     .append("text")
@@ -153,8 +112,8 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("transform", "rotate(-90)")
     .attr("y", -margin.left + 30)
     .attr("x", -margin.top - height / 2 + 10)
-    .text("Fatality count")
-    .attr("font-size", "smaller");
+    .text("Percentage")
+    .style("font-size", "small");
 
   var svgLegend = svg
     .append("g")
@@ -166,7 +125,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
 
   var legend = svgLegend
     .selectAll(".legend")
-    .data(bins)
+    .data(["Fatality %", "Population %"])
     .enter()
     .append("g")
     .attr("class", "legend")
@@ -179,7 +138,7 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("cx", 0)
     .attr("cy", 0)
     .attr("r", r)
-    .style("fill", (d, i) => ageColors(i));
+    .style("fill", (d) => color(d));
 
   legend
     .append("text")
@@ -188,65 +147,6 @@ d3.csv("data/2019_year_race_age_count_binned.csv", function (data) {
     .attr("x", r * 2)
     .attr("y", r / 2)
     .style("fill", "#A9A9A9")
-    .style("font-size", 12)
-    .text((d) => d)
-    .on("click", function (d) {
-      lineOpacity = d3.selectAll(".line-" + d).style("opacity");
-      dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
-      d3.selectAll(".line-" + d)
-        .transition()
-        .style("opacity", lineOpacity == 1 ? 0 : 1);
-      d3.selectAll(".dot-" + d)
-        .transition()
-        .style("opacity", dotOpacity == 1 ? 0 : 1);
-    });
-
-  drawAnnotations();
-
-  function drawAnnotations() {
-    var last2020Circle = d3.select(
-      "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(185)"
-    );
-    var first2020Circle = d3.select(
-      "#fourth_dataViz > svg > g > g:nth-child(4) > circle:nth-child(1)"
-    );
-
-    if (last2020Circle !== null && first2020Circle !== null) {
-      svg
-        .append("line")
-        .attr("class", "annotation-line")
-        .attr("x1", last2020Circle.attr("cx"))
-        .attr("y1", last2020Circle.attr("cx"))
-        .attr("x2", last2020Circle.attr("cy"))
-        .attr("y2", height - 100)
-        .attr("stroke", "grey");
-
-      svg
-        .append("text")
-        .attr("class", "annotation-text")
-        .attr("x", last2020Circle.attr("cx") - 20)
-        .attr("y", height - 100)
-        .text("Oldest: 80 years")
-        .style("font-size", "small")
-        .attr("stroke", "grey");
-
-      svg
-        .append("line")
-        .attr("class", "annotation-line")
-        .attr("x1", first2020Circle.attr("cx") - 10)
-        .attr("y1", first2020Circle.attr("cy"))
-        .attr("x2", first2020Circle.attr("cx"))
-        .attr("y2", height - 100)
-        .attr("stroke", "grey");
-
-      svg
-        .append("text")
-        .attr("class", "annotation-text")
-        .attr("x", first2020Circle.attr("cx") - 40)
-        .attr("y", height - 100)
-        .text("Youngest: 14 years")
-        .style("font-size", "small")
-        .attr("stroke", "grey");
-    }
-  }
+    .style("font-size", "small")
+    .text((d) => d);
 });

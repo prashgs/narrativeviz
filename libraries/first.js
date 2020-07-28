@@ -25,7 +25,7 @@ var months = [
 
 var margin = { top: 10, right: 10, bottom: 30, left: 50 },
   width = 500 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+  height = 400 - margin.top - margin.bottom;
 
 var r = 4;
 var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
@@ -37,6 +37,13 @@ var ageColors = d3
   .scaleOrdinal()
   .domain(race)
   .range(["steelblue", "red", "blue", "green"]);
+
+var yearBins = ["<=20 Years", "21-40 Years", "41-60 Years", "Over 60 Years"];
+var yearBinsColors = d3
+  .scaleOrdinal()
+  .domain(yearBins)
+  .range(["steelblue", "red", "blue", "green"]);
+
 d3.csv("data/year_month_count_3.csv", (d) => {
   // var res = data.map((d, i) => {
   //   return {
@@ -96,7 +103,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("class", "gLegend")
     .attr(
       "transform",
-      "translate(" + (width - margin.right - 20) + "," + margin.top + ")"
+      "translate(" + (width - margin.right - 30) + "," + margin.top + ")"
     );
 
   var legend = svgLegend
@@ -123,7 +130,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("x", r * 2)
     .attr("y", r / 2)
     .style("fill", "#A9A9A9")
-    .style("font-size", 12)
+    .style("font-size", "small")
     .text((d) => d)
     .on("click", function (d) {
       lineOpacity = d3.selectAll(".line-" + d).style("opacity");
@@ -240,7 +247,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("text-anchor", "end")
     .attr("x", width / 2 + margin.left)
     .attr("y", height + margin.top + 20)
-    .attr("font-size", "smaller")
+    .style("font-size", "small")
     .text("Months");
 
   // Y axis label:
@@ -251,29 +258,26 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("y", -margin.left + 20)
     .attr("x", -margin.top - height / 2 + 10)
     .text("Fatality count")
-    .attr("font-size", "smaller");
+    .style("font-size", "small");
 
   var last2020Circle = d3.select(
     "#first_dataViz > svg > g > g.dot-2020 > circle:nth-child(5)"
   );
 
-  console.log(last2020Circle.attr("cx"));
-  console.log(Number(last2020Circle.attr("cx"))+20);
   svg
-  .append("line")
-  .attr("class", "annotation-line")
-  .attr("x1", last2020Circle.attr("cx"))
-  .attr("y1", last2020Circle.attr("cy"))
-  .attr("x2", Number(last2020Circle.attr("cx"))+20)
-  .attr("y2", Number(last2020Circle.attr("cy"))+60)
-  .attr("stroke", "grey");
+    .append("line")
+    .attr("class", "annotation-line")
+    .attr("x1", last2020Circle.attr("cx"))
+    .attr("y1", last2020Circle.attr("cy"))
+    .attr("x2", Number(last2020Circle.attr("cx")) + 20)
+    .attr("y2", Number(last2020Circle.attr("cy")) + 60)
+    .attr("stroke", "grey");
 
-svg
-  .append("text")
-  .attr("x", last2020Circle.attr("cx"))
-  .attr("y", Number(last2020Circle.attr("cy"))+60)
-  .text("May 2020: 365")
-  .style("font-size", "small")
-  .attr("stroke", "grey");
-
+  svg
+    .append("text")
+    .attr("x", last2020Circle.attr("cx"))
+    .attr("y", Number(last2020Circle.attr("cy")) + 60)
+    .text("May 2020: 365")
+    .style("font-size", "small")
+    .attr("stroke", "grey");
 });

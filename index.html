@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Narrative Visualization-Fatal Shots</title>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="text/javascript" src="libraries/d3.v4.js"></script>
-  <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+  <!-- <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script> -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <style>
 
@@ -29,7 +28,7 @@
     </h1>
     <!-- <h3>By US Law Enforcement</h3> -->
     <div>
-      In 2019, <b>998</b> people were killed by US Police.
+      In 2019, <b>998</b> people were fatally shot by US Police.
       <br>This narrative takes you through the numbers for years 2015-2020 and their relation to certain attributes.
       <br>
     </div>
@@ -44,8 +43,8 @@
     </h1>
     <div class="column left card">
       <h3>
-        Over the past few years, number of people killed by police has
-        stayed steady.
+        Between 2015 and 2019, number of people killed by police has
+        stayed steady
       </h3>
       <p>
         The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
@@ -55,7 +54,7 @@
       </p>
     </div>
     <div class="column equal">
-      <div id="first_dataViz" style="float: center;"></div>
+      <div id="first_dataViz" style="float: none;"></div>
       <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
     </div>
   </div>
@@ -67,7 +66,7 @@
     </h1>
     <div class="column left card">
       <h3>
-        California, Texas and Florida have the highest number of deaths.
+        California, Texas and Florida have the highest number of deaths
       </h3>
       <p>
         California, Texas and Florida have been consistently ranked as states with highest number of deaths.
@@ -77,17 +76,42 @@
     </div>
 
     <div class="column equal">
-      <label style="float: left;font-size: smaller;" for="country">Choose a year:
+      <label style="float: none;font-size: small;" for="country">Choose a year:
         <select class="box" id="selectButton"></select>
         <button class="btn" id="top25">Top half</button>
         <button class="btn" id="bottom25">Bottom half</button>
       </label>
-      <div id="second_dataViz" style="float: center;"></div>
+      <div id="second_dataViz" style="float: none;"></div>
     </div>
   </div>
 
   <!-- Third Grid -->
-  <div class="row grids" style="text-align:center;display: none;" id="third-grid">
+  <div class="grids row" style="text-align:center;display: none;" id="third-grid">
+    <h1>
+      AGE FACTOR
+    </h1>
+    <div class="column left card">
+      <!-- <h1>AGE FACTOR</h1> -->
+      <h3>
+        A large marjority of those killed are between 21 and 40 years old.
+      </h3>
+      <p>
+        Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority.
+        The youngest fatality was 6 years while the oldest was 91 years old.
+      </p>
+    </div>
+    <div class="column equal">
+      <label style="float: none;font-size: small;" for="selectButton">Choose a year:
+        <select class="box" id="selectButton"></select>
+      </label>
+      <div id='third-viz-tooltip'></div>
+      <div id="third_dataViz" style="float: none;"></div>
+    </div>
+  </div>
+
+
+  <!-- Fourth Grid -->
+  <div class="row grids" style="text-align:center;display: none;" id="fourth-grid">
     <h1>
       RACE FACTOR
     </h1>
@@ -101,36 +125,16 @@
         White Americans form the majority of people killed at just over
         <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
         However, population of whites to black is 63% to 13%, almost 4 to 1.
-        Black and Hispanics are <b>2 to 3 times</b> more likely to be shot and killed.
+        Black and Hispanics are more likely to be fatally shot.
       </p>
     </div>
     <div class="column equal">
-      <div id='third-viz-tooltip'></div>
-      <div id="third_dataViz" style="float: center;"></div>
+      <div id='fourth-viz-tooltip'></div>
+      <div id="fourth_dataViz" style="float: none;"></div>
     </div>
   </div>
 
-  <!-- Fourth Grid -->
-  <div class="grids row" style="text-align:center;display: none;" id="fourth-grid">
-    <h1>
-      AGE FACTOR
-    </h1>
-    <div class="column left card">
-      <!-- <h1>AGE FACTOR</h1> -->
-      <h3 class="w3-padding-32">
-        A large marjority of those killed are between 21 and 40 years old.
-        This visualization uses data from 2019.
-      </h3>
-      <p>
-        Most people killed are between 21 and 60 years old with 21-40 year olds forming the majority.
-        In 2019, the youngest killed was 14 years while the oldest was 80 years old.
-      </p>
-    </div>
-    <div class="column equal ">
-      <div id='fourth-viz-tooltip'></div>
-      <div id="fourth_dataViz" style="float: center;"></div>
-    </div>
-  </div>
+
 
 
   <div class="card" style="background-color: transparent;">
@@ -171,7 +175,7 @@
       var i;
       var x = document.getElementsByClassName("grids");
       var dots = document.getElementsByClassName("nav-btn");
-      if (n > x.length) { slideIndex = 5 }
+      if (n > x.length) { slideIndex = 1 }
       if (n < 1) { slideIndex = 1 }
       for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";

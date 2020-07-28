@@ -47,7 +47,7 @@ d3.csv("data/year_state_statecode_count.csv")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var dropdown = d3
-      .select("#selectButton")
+      .select("#second-grid select")
       .selectAll("yearOptions")
       .data(years)
       .enter()
@@ -135,7 +135,7 @@ d3.csv("data/year_state_statecode_count.csv")
         .attr("width", x.bandwidth())
         .attr("height", function (d) {
           return height - y(0);
-        }) // always equal to 0
+        })
         .attr("y", function (d) {
           return y(0);
         });

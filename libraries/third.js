@@ -1,152 +1,337 @@
-var margin = { top: 10, right: 10, bottom: 35, left: 50 },
-  width = 500 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
+// set the dimensions and margins of the graph
+// var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+//   width = 460 - margin.left - margin.right,
+//   height = 400 - margin.top - margin.bottom;
+// var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
+// var raceColors = d3
+//   .scaleOrdinal()
+//   .domain(race)
+//   .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
+// var ageColors = d3
+//   .scaleOrdinal()
+//   .domain(race)
+//   .range(["steelblue", "red", "blue", "green"]);
 
-var races = ["Asian", "Black", "Hispanic", "Native", "White"];
-
-d3.csv("data/race_count_population_ratio.csv", function (data) {
-  var svg = d3
-    .select("#third_dataViz")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  var tooltip = d3
-    .select("#third-viz-tooltip")
-    .append("div")
-    .style("position", "absolute")
-    .style("visibility", "hidden");
-
-  // List of subgroups = header of the csv files = soil condition here
-  var deathPercentage = data.columns.slice(2, 3);
-  var populationPercentage = data.columns.slice(5);
-
-  var subgroups = [deathPercentage, populationPercentage];
-
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3
-    .map(data, function (d) {
-      return d.race;
-    })
-    .keys();
-
-  // Add X axis
-  var x = d3.scaleBand().domain(groups).range([0, width]).padding([0.2]);
-  svg
-    .append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickSize(0));
-
-  var y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-  svg.append("g").call(d3.axisLeft(y));
-
-  var xSubgroup = d3
-    .scaleBand()
-    .domain(subgroups)
-    .range([0, x.bandwidth()])
-    .padding([0.05]);
-
-  var color = d3.scaleOrdinal().domain(subgroups).range(["#e41a1c", "#377eb8"]);
-
-  svg
-    .append("g")
-    .selectAll("g")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("class", (d) => "bar-" + d.race)
-    .attr("transform", function (d) {
-      return "translate(" + x(d.race) + ",0)";
-    })
-    .selectAll("rect")
-    .data(function (d) {
-      return subgroups.map(function (key) {
-        return { key: key, value: d[key] };
+var r = 5;
+d3.csv("data/year_race_age_count_binned.csv")
+  .row(function (d) {
+    return {
+      year: Number(d.year),
+      race: d.race,
+      age: Number(d.age),
+      count: Number(d.count),
+      binned: d.binned,
+    };
+  })
+  .get(function (data) {
+    function sortDataByAge() {
+      return data.sort(function (a, b) {
+        return d3.ascending(a.age, b.age);
       });
-    })
-    .enter()
-    .append("rect")
-    .attr("x", function (d) {
-      return xSubgroup(d.key);
-    })
-    .attr("y", function (d) {
-      return y(d.value);
-    })
-    .attr("width", xSubgroup.bandwidth())
-    .attr("height", function (d) {
-      return height - y(d.value);
-    })
-    .attr("fill", function (d) {
-      return color(d.key);
-    })
-    .on("mouseover", function () {
-      return tooltip.style("visibility", "visible");
-    })
-    .on("mousemove", function (d) {
-      let key = d.key[0].split("_")[0];
-      let value = Math.round(d.value);
-      return tooltip
-        .style("top", event.pageY - 10 + "px")
-        .style("left", event.pageX + 10 + "px")
-        .text(key + ":" + value + "%")
-        .style("font-size", "small");
-    })
-    .on("mouseout", function () {
-      return tooltip.style("visibility", "hidden");
+    }
+
+    function filterData(data, year) {
+      return data.filter(function (d) {
+        return d.year == year;
+      });
+    }
+
+    var svg = d3
+      .select("#third_dataViz")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var dropdown = d3
+      .select("#third-grid select")
+      .selectAll("yearOptions")
+      .data(years)
+      .enter()
+      .append("option")
+      .text(function (d) {
+        return d;
+      })
+      .attr("value", function (d) {
+        return d;
+      });
+
+    dropdown.property("selected", function (d) {
+      return d == "2019";
     });
 
-  svg
-    .append("g")
-    .append("text")
-    .attr("text-anchor", "end")
-    .attr("x", width / 2 + margin.left)
-    .attr("y", height + margin.top + 20)
-    .attr("font-size", "smaller")
-    .text("Race");
+    var selectedYear = d3.select("#third-grid select").property("value");
+    var filteredData = filterData(sortDataByAge(), selectedYear);
 
-  svg
-    .append("text")
-    .attr("text-anchor", "end")
-    .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 30)
-    .attr("x", -margin.top - height / 2 + 10)
-    .text("Percentage")
-    .attr("font-size", "smaller");
-
-  var svgLegend = svg
-    .append("g")
-    .attr("class", "gLegend")
-    .attr(
-      "transform",
-      "translate(" + (width - margin.right - 70) + "," + margin.top + ")"
-    );
-
-  var legend = svgLegend
-    .selectAll(".legend")
-    .data(["Fatality %", "Population %"])
-    .enter()
-    .append("g")
-    .attr("class", "legend")
-    .attr("transform", function (d, i) {
-      return "translate(0," + i * 20 + ")";
+    var maxAge = d3.max(data, function (d) {
+      return +d.age + 10;
     });
-  legend
-    .append("circle")
-    .attr("class", "legend-node")
-    .attr("cx", 0)
-    .attr("cy", 0)
-    .attr("r", r)
-    .style("fill", (d) => color(d));
+    var minAge = d3.min(data, function (d) {
+      return +d.age + 10;
+    });
+    var maxCount = d3.max(data, function (d) {
+      return +d.count + 5;
+    });
 
-  legend
-    .append("text")
-    .attr("class", "legend-text")
-    .attr("class", "w3-button")
-    .attr("x", r * 2)
-    .attr("y", r / 2)
-    .style("fill", "#A9A9A9")
-    .style("font-size", 12)
-    .text((d) => d);
-});
+    var bins = d3
+      .map(data, function (d) {
+        return d.binned;
+      })
+      .keys();
+
+    var x = d3
+      .scaleLinear()
+      .domain([0, maxAge + 10])
+      .range([0, width]);
+    var xAxis = svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
+    svg.append("g").call(d3.axisLeft(y));
+
+    var tooltip = d3
+      .select("#third-viz-tooltip")
+      .append("div")
+      .style("position", "absolute")
+      .style("visibility", "hidden");
+
+    var clip = svg
+      .append("defs")
+      .append("svg:clipPath")
+      .attr("id", "clip")
+      .append("svg:rect")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("x", 0)
+      .attr("y", 0);
+
+    var brush = d3
+      .brushX()
+      .extent([
+        [0, 0],
+        [width, height],
+      ])
+      .on("end", updateChart);
+
+    var scatter = svg.append("g").attr("clip-path", "url(#clip)");
+
+    scatter
+      .selectAll("scatterCircle")
+      .data(filteredData)
+      .enter()
+      .append("circle")
+      .attr("class", "scatterCircle")
+      .attr("cx", function (d) {
+        return x(d.age);
+      })
+      .attr("cy", function (d) {
+        return y(d.count);
+      })
+      .attr("r", 5)
+      .style("fill", function (d) {
+        return ageColors(d.binned);
+      })
+      .style("opacity", 0.5);
+
+    scatter.append("g").attr("class", "brush").call(brush);
+
+    var idleTimeout;
+    function idled() {
+      idleTimeout = null;
+    }
+
+    function updateChart() {
+      extent = d3.event.selection;
+      var count = 0;
+      if (!extent) {
+        if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350));
+        x.domain([0, maxAge + 10]);
+        console.log("If Not extent");
+        d3.selectAll("#third_dataViz .annotation-line").remove();
+        d3.selectAll("#third_dataViz .annotation-text").remove();
+        drawAnnotations();
+      } else {
+        x.domain([x.invert(extent[0]), x.invert(extent[1])]);
+        scatter.select(".brush").call(brush.move, null);
+        console.log("Else Extent");
+        d3.selectAll("#third_dataViz .annotation-line").remove();
+        d3.selectAll("#third_dataViz .annotation-text").remove();
+      }
+
+      xAxis.transition().duration(1000).call(d3.axisBottom(x));
+      scatter
+        .selectAll(".scatterCircle")
+        .transition()
+        .duration(1000)
+        .attr("cx", function (d) {
+          return x(d.age);
+        })
+        .attr("cy", function (d) {
+          return y(d.count);
+        });
+    }
+
+    svg
+      .append("g")
+      .append("text")
+      .attr("text-anchor", "end")
+      .attr("x", width / 2 + margin.left)
+      .attr("y", height + margin.top + 15)
+      .style("font-size", "small")
+      .text("Age");
+
+    svg
+      .append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left + 30)
+      .attr("x", -margin.top - height / 2 + 10)
+      .text("Fatality count")
+      .style("font-size", "small");
+
+    var svgLegend = svg
+      .append("g")
+      .attr("class", "gLegend")
+      .attr(
+        "transform",
+        "translate(" + (width - margin.right - 80) + "," + margin.top + ")"
+      );
+
+    var legend = svgLegend
+      .selectAll(".legend")
+      .data(yearBins)
+      .enter()
+      .append("g")
+      .attr("class", "legend")
+      .attr("transform", function (d, i) {
+        return "translate(0," + i * 20 + ")";
+      });
+
+    legend
+      .append("circle")
+      .attr("class", "legend-node")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", r)
+      .style("fill", (d, i) => yearBinsColors(i));
+
+    legend
+      .append("text")
+      .attr("class", "legend-text")
+      .attr("class", "w3-button")
+      .attr("x", r * 2)
+      .attr("y", r / 2)
+      .style("fill", "#A9A9A9")
+      .style("font-size", "small")
+      .text((d) => d)
+      .on("click", function (d) {
+        lineOpacity = d3.selectAll(".line-" + d).style("opacity");
+        dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
+        d3.selectAll(".line-" + d)
+          .transition()
+          .style("opacity", lineOpacity == 1 ? 0 : 1);
+        d3.selectAll(".dot-" + d)
+          .transition()
+          .style("opacity", dotOpacity == 1 ? 0 : 1);
+      });
+
+    drawAnnotations();
+
+    d3.select("#third-grid select").on("change", function (d) {
+      selectedYear = d3.select(this).property("value");
+      filteredData = filterData(data, selectedYear);
+      updateScatter(filteredData);
+    });
+
+    function drawAnnotations() {
+      d3.selection.prototype.first = function () {
+        return d3.select(this.nodes()[0]);
+      };
+      d3.selection.prototype.last = function () {
+        return d3.select(this.nodes()[this.size() - 1]);
+      };
+
+      var scatterCircles = svg.selectAll(".scatterCircle");
+      scatterCircles.first().attr("transform", "translate(4,0)");
+      scatterCircles.last().attr("transform", "translate(-4,0)");
+
+      if (scatterCircles !== null) {
+        svg
+          .append("line")
+          .attr("class", "annotation-line")
+          .attr("x1", scatterCircles.last().attr("cx"))
+          .attr("y1", scatterCircles.last().attr("cy"))
+          .attr("x2", scatterCircles.last().attr("cx"))
+          .attr("y2", height - 200)
+          .attr("stroke", "grey");
+
+        svg
+          .append("text")
+          .attr("class", "annotation-text")
+          .attr("x", Number(scatterCircles.last().attr("cx")) - 80)
+          .attr("y", height - 200)
+          .text(
+            "Year: " +
+              scatterCircles.last().data()[0].year +
+              "Max Age: " +
+              scatterCircles.last().data()[0].age
+          )
+          .style("font-size", "small")
+          .attr("stroke", "grey");
+
+        svg
+          .append("line")
+          .attr("class", "annotation-line")
+          .attr("x1", scatterCircles.first().attr("cx"))
+          .attr("y1", scatterCircles.first().attr("cy"))
+          .attr("x2", scatterCircles.first().attr("cx"))
+          .attr("y2", height - 200)
+          .attr("stroke", "grey");
+
+        svg
+          .append("text")
+          .attr("class", "annotation-text")
+          .attr("x", Number(scatterCircles.first().attr("cx")) - 10)
+          .attr("y", height - 200)
+          .text(
+            "Year " +
+              scatterCircles.first().data()[0].year +
+              ": Min Age: " +
+              scatterCircles.first().data()[0].age
+          )
+          .style("font-size", "small")
+          .attr("stroke", "grey");
+      }
+    }
+
+    function updateScatter(filteredData) {
+      d3.selectAll("#third_dataViz .scatterCircle").remove();
+      d3.selectAll("#third_dataViz .annotation-line").remove();
+      d3.selectAll("#third_dataViz .annotation-text").remove();
+
+      scatter
+        .selectAll("scatterCircle")
+        .data(filteredData)
+        .enter()
+        .append("circle")
+        .attr("class", "scatterCircle")
+        .attr("cx", function (d) {
+          return x(d.age);
+        })
+        .attr("cy", function (d) {
+          return y(d.count);
+        })
+        .attr("r", 5)
+        .style("fill", function (d) {
+          return yearBinsColors(d.binned);
+        })
+        .transition()
+        .duration(800)
+        .style("opacity", 0.5);
+
+      drawAnnotations();
+    }
+  });
