@@ -2,26 +2,95 @@
 <html lang="en">
 
 <head>
-  <script src="https://d3js.org/d3.v4.js"></script>
-  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrative Visualization-Fatal Shots</title>
+  <meta charset="UTF-8" />
+  <script type="text/javascript" src="libraries/d3.v4.js"></script>
+  <!-- <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+
+  </style>
 </head>
 
 <body>
-  <div id='fourth-viz-tooltip'></div>
-  <div id="fourth_dataViz"></div>
-  <style>
-    .bubbles {
-      stroke-width: 1px;
-      stroke: black;
-      opacity: .8
-    }
+  <!-- Navbar -->
+  <div class="topnav" id="myTopnav" style="background-color: black;">
+    <div>
+      <br>
+    </div>
+  </div>
 
-    .bubbles:hover {
-      stroke: black;
-    }
-  </style>
+  <!-- Fourth Grid -->
+  <div class="row grids" style="text-align:center;display: block;" id="fourth-grid">
+    <h1>
+      RACE FACTOR
+    </h1>
+    <div class="column left card">
+      <h3>
+        Blacks and Hispanics are killed at higher rates.
+        This visualization uses 2019 population and fatality count.
+      </h3>
+
+      <p>
+        White Americans form the majority of people killed at just over
+        <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
+        However, population of whites to black is 63% to 13%, almost 4 to 1.
+        Black and Hispanics are more likely to be fatally shot.
+      </p>
+    </div>
+
+    <div class="column equal">
+      <div id='fourth-viz-tooltip'></div>
+      <div id="fourth_dataViz" style="float: none;"></div>
+    </div>
+  </div>
 
   <script type="text/javascript" src="libraries/fourth.js"></script>
+  <div class="card" style="background-color: transparent;">
+    <button class="btn active nav-btn">Home</button>
+    <button class="btn nav-btn">1</button>
+    <button class="btn nav-btn">2</button>
+    <button class="btn nav-btn">3</button>
+    <button class="btn nav-btn">4</button>
+    <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
+    <button class="btn" onclick="plusDivs(1)">Next ❯</button>
+  </div>
+
+
+  <script>
+    var slideIndex = 4;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+
+      var i;
+      // var x = document.getElementsByClassName("grids");
+      var length = 5;
+      var navBtns = document.getElementsByClassName("nav-btn");
+      if (n == length) { slideIndex = 0 }
+      for (i = 0; i < navBtns.length; i++) {
+        navBtns[i].className = navBtns[i].className.replace(" active", "");
+      }
+      if (n == 3) {
+        window.location.href = "third.html";
+      }
+      if (n == length) {
+        window.location.href = "index.html";
+      }
+      navBtns[slideIndex].className += " active";
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
 
 </html>

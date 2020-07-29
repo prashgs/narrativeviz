@@ -175,6 +175,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .enter()
     .append("g")
     .attr("class", (d) => "dot-" + d.key)
+
     .style("fill", function (d) {
       return yearColors(d.key);
     })

@@ -2,197 +2,90 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Narrative Visualization-Fatal Shots</title>
-  <meta charset="UTF-8" />
-  <script type="text/javascript" src="libraries/d3.v4.js"></script>
-  <!-- <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script> -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Visualization-Fatal Shots</title>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="libraries/d3.v4.js"></script>
+    <!-- <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
 
-  </style>
+    </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div class="topnav" id="myTopnav" style="background-color: black;">
-    <div>
-      <br>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <div class="grids" style="background-color:#e5e5e5;padding:15px;text-align:center;">
-    <h1>
-      FATAL SHOTS
-    </h1>
-    <!-- <h3>By US Law Enforcement</h3> -->
-    <div>
-      In 2019, <b>998</b> people were fatally shot by US Police.
-      <br>This narrative takes you through the numbers for years 2015-2020 and their relation to certain attributes.
-      <br>
-    </div>
-    <svg id="dataviz_delay" width="100" height="50"></svg>
-    <script type="text/javascript" src="libraries/header.js"></script>
-  </div>
-
-  <!-- First Grid -->
-  <div class="row grids" style="text-align:center;display: none;" id="first-grid">
-    <h1>
-      STEADY NUMBER
-    </h1>
-    <div class="column left card">
-      <h3>
-        Between 2015 and 2019, number of people killed by police has
-        stayed steady
-      </h3>
-      <p>
-        The average number of fatal shooting stands at <b>984</b> between 2015 and 2019.
-        This chart shows the number of fatalities from 2015 to 2019 and the count for each month.
-        <br>For 2020, the number of fatalities as of May stands at 365 cases. This number is lower compared to May
-        number from previous 5 years, however, an upward trend is visible.
-      </p>
-    </div>
-    <div class="column equal">
-      <div id="first_dataViz" style="float: none;"></div>
-      <div id='tooltip' style='position:absolute;background-color:lightgray'></div>
-    </div>
-  </div>
-
-  <!-- Second Grid -->
-  <div class="row grids" style="text-align:center;display: none;" id="second-grid">
-    <h1>
-      NUMBERS BY STATE
-    </h1>
-    <div class="column left card">
-      <h3>
-        California, Texas and Florida have the highest number of deaths
-      </h3>
-      <p>
-        California, Texas and Florida have been consistently ranked as states with highest number of deaths.
-        Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
-        highest population in the country.
-      </p>
+    <!-- Navbar -->
+    <div class="topnav" id="myTopnav" style="background-color: black;">
+        <div>
+            <br>
+        </div>
     </div>
 
-    <div class="column equal">
-      <label style="float: none;font-size: small;" for="country">Choose a year:
-        <select class="box" id="selectButton"></select>
-        <button class="btn" id="top25">Top half</button>
-        <button class="btn" id="bottom25">Bottom half</button>
-      </label>
-      <div id="second_dataViz" style="float: none;"></div>
+    <div class="container" id="container">
+        <!-- Header -->
+        <div class="grids" style="background-color:#e5e5e5;padding:15px;text-align:center;display: block;" id="header">
+            <h1>
+                FATAL SHOTS
+            </h1>
+            <!-- <h3>By US Law Enforcement</h3> -->
+            <div>
+                In 2019, <b>998</b> people were fatally shot by US Police.
+                <br>This narrative takes you through the numbers for years 2015-2020 and their relation to certain
+                attributes.
+                <br>
+            </div>
+            <svg id="dataviz_delay" width="100" height="50"></svg>
+            <script type="text/javascript" src="libraries/header.js"></script>
+        </div>
     </div>
-  </div>
 
-  <!-- Third Grid -->
-  <div class="grids row" style="text-align:center;display: none;" id="third-grid">
-    <h1>
-      AGE FACTOR
-    </h1>
-    <div class="column left card">
-      <!-- <h1>AGE FACTOR</h1> -->
-      <h3>
-        Most people killed are between 21 and 60 years old.
-      </h3>
-      <p>
-        Majority of fatalities are between 21-40 years old.
-        The youngest fatality between 2015 and 2020 was 6 years while the oldest was 91 years old.
-      </p>
+
+    <div class="card" style="background-color: transparent;">
+        <button class="btn active nav-btn">Home</button>
+        <button class="btn nav-btn">1</button>
+        <button class="btn nav-btn">2</button>
+        <button class="btn nav-btn">3</button>
+        <button class="btn nav-btn">4</button>
+        <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
+        <button class="btn" onclick="plusDivs(1)">Next ❯</button>
     </div>
-    <div class="column equal">
-      <label style="float: none;font-size: small;" for="selectButton">Choose a year:
-        <select class="box" id="selectButton"></select>
-      </label>
-      <div id='third-viz-tooltip'></div>
-      <div id="third_dataViz" style="float: none;"></div>
-    </div>
-  </div>
 
 
-  <!-- Fourth Grid -->
-  <div class="row grids" style="text-align:center;display: none;" id="fourth-grid">
-    <h1>
-      RACE FACTOR
-    </h1>
-    <div class="column left card">
-      <h3>
-        Blacks and Hispanics are killed at higher rates.
-        This visualization uses 2019 population and fatality count.
-      </h3>
+    <script>
+        var slideIndex = 0;
+        showDivs(slideIndex);
 
-      <p>
-        White Americans form the majority of people killed at just over
-        <b>48% compared to 29% and 19%</b> of Blacks and Hispanics respectively.
-        However, population of whites to black is 63% to 13%, almost 4 to 1.
-        Black and Hispanics are more likely to be fatally shot.
-      </p>
-    </div>
-    <div class="column equal">
-      <div id='fourth-viz-tooltip'></div>
-      <div id="fourth_dataViz" style="float: none;"></div>
-    </div>
-  </div>
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
 
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
 
+        function showDivs(n) {
 
+            var i;
+            // var x = document.getElementsByClassName("grids");
+            var length = 5;
+            var navBtns = document.getElementsByClassName("nav-btn");
+            if (n <= 0) { slideIndex = 0 }
+            for (i = 0; i < navBtns.length; i++) {
+                navBtns[i].className = navBtns[i].className.replace(" active", "");
+            }
 
-  <div class="card" style="background-color: transparent;">
-    <button class="btn active nav-btn">Home</button>
-    <button class="btn nav-btn">1</button>
-    <button class="btn nav-btn">2</button>
-    <button class="btn nav-btn">3</button>
-    <button class="btn nav-btn">4</button>
-    <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
-    <button class="btn" onclick="plusDivs(1)">Next ❯</button>
-  </div>
-
-
-  <script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-      showDivs(slideIndex += n);
-    }
-
-    function currentDiv(n) {
-      showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-
-      // var header = document.getElementById("myDIV");
-      // var btns = header.getElementsByClassName("btn");
-      // for (var i = 0; i < btns.length; i++) {
-      //   btns[i].addEventListener("click", function () {
-      //     var current = document.getElementsByClassName("active");
-      //     current[0].className = current[0].className.replace(" active", "");
-      //     this.className += " active";
-      //   });
-      // }
-
-      var i;
-      var x = document.getElementsByClassName("grids");
-      var dots = document.getElementsByClassName("nav-btn");
-      if (n > x.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = 1 }
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      x[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <script type="text/javascript" src="libraries/first.js"></script>
-  <script type="text/javascript" src="libraries/second.js"></script>
+            if (n == 1) {
+                window.location.href = "first.html";
+            }
+            navBtns[slideIndex].className += " active";
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- <script type="text/javascript" src="libraries/first.js"></script> -->
+    <!-- <script type="text/javascript" src="libraries/second.js"></script>
   <script type="text/javascript" src="libraries/third.js"></script>
-  <script type="text/javascript" src="libraries/fourth.js"></script>
+  <script type="text/javascript" src="libraries/fourth.js"></script> -->
 
 </body>
 

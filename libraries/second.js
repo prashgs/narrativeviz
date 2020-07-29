@@ -1,11 +1,48 @@
-// var years = ["2015", "2016", "2017", "2018", "2019"];
-// var margin = { top: 10, right: 30, bottom: 90, left: 40 },
-//   width = 460 - margin.left - margin.right,
-//   height = 450 - margin.top - margin.bottom;
-// var yearColors = d3
-//   .scaleOrdinal()
-//   .domain(years)
-//   .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
+var glines;
+var mouseG;
+var tooltip;
+var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
+// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
+var yearColors = d3
+  .scaleOrdinal()
+  .domain(years)
+  .range(["steelblue", "red", "blue", "green", "brown", "grey"]);
+var parseDate = d3.timeParse("%m/%d/%Y");
+var months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+var margin = { top: 10, right: 10, bottom: 30, left: 50 },
+  width = 500 - margin.left - margin.right,
+  height = 400 - margin.top - margin.bottom;
+
+var r = 4;
+var race = ["White", "Black", "Hispanic", "Asian", "Native", "Other"];
+var raceColors = d3
+  .scaleOrdinal()
+  .domain(race)
+  .range(["steelblue", "red", "blue", "green", "brown", "darkgreen"]);
+var ageColors = d3
+  .scaleOrdinal()
+  .domain(race)
+  .range(["steelblue", "red", "blue", "green"]);
+
+var yearBins = ["<=20 Years", "21-40 Years", "41-60 Years", "Over 60 Years"];
+var yearBinsColors = d3
+  .scaleOrdinal()
+  .domain(yearBins)
+  .range(["steelblue", "red", "blue", "green"]);
 
 d3.csv("data/year_state_statecode_count.csv")
   .row(function (d) {
@@ -145,10 +182,12 @@ d3.csv("data/year_state_statecode_count.csv")
         .selectAll("rect")
         .attr("fill", selectedColor)
         .transition()
-        .duration(800)
+        .duration(1000)
         .attr("y", function (d) {
           return y(+d.count);
         })
+        .transition()
+        .duration(1000)
         .attr("height", function (d) {
           return height - y(+d.count);
         })
@@ -165,6 +204,8 @@ d3.csv("data/year_state_statecode_count.csv")
         .append("text")
         .classed("bar-value", true)
         .style("font-size", "x-small")
+        .transition()
+        .duration(1000)
         .attr("x", function (d, i) {
           return x(d.statecode) + x.bandwidth() / 2;
         })
@@ -173,7 +214,8 @@ d3.csv("data/year_state_statecode_count.csv")
         .delay(function (d, i) {
           return i * 50; // gives it a smoother effect
         })
-        .duration(500)
+        .transition()
+        .duration(1000)
         .attr("y", function (d, i) {
           return y(d.count) - 4;
         })

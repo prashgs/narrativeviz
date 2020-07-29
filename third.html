@@ -1,37 +1,89 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Visualization-Fatal Shots</title>
+    <meta charset="UTF-8" />
     <script type="text/javascript" src="libraries/d3.v4.js"></script>
-    <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+    <!-- <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <!-- Create a div where the graph will take place -->
-    <div id='third-viz-tooltip'></div>
-    <div id="third_dataViz"></div>
+    <!-- Navbar -->
+    <div class="topnav" id="myTopnav" style="background-color: black;">
+        <div>
+            <br>
+        </div>
+    </div>
 
-    <style>
-        .bubbles {
-            stroke-width: 2px;
-            stroke: white;
+    <!-- Third Grid -->
+    <div class="grids row" style="text-align:center;display: block;" id="third-grid">
+        <h1>
+            AGE FACTOR
+        </h1>
+        <div class="column left card">
+            <!-- <h1>AGE FACTOR</h1> -->
+            <h3>
+                Most people killed are between 21 and 60 years old.
+            </h3>
+            <p>
+                Majority of fatalities are between 21-40 years old.
+                The youngest fatality between 2015 and 2020 was 6 years while the oldest was 91 years old.
+            </p>
+        </div>
+        <div class="column equal">
+            <label style="float: none;font-size: small;" for="selectButton">Choose a year:
+                <select class="box" id="selectButton"></select>
+            </label>
+            <div id='third-viz-tooltip'></div>
+            <div id="third_dataViz" style="float: none;"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="libraries/third.js"></script>
+    <div class="card" style="background-color: transparent;">
+        <button class="btn active nav-btn">Home</button>
+        <button class="btn nav-btn">1</button>
+        <button class="btn nav-btn">2</button>
+        <button class="btn nav-btn">3</button>
+        <button class="btn nav-btn">4</button>
+        <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
+        <button class="btn" onclick="plusDivs(1)">Next ❯</button>
+    </div>
+
+
+    <script>
+        var slideIndex = 3;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
         }
 
-        .bubbles:hover {
-            stroke: black;
-        }
-    </style>
-    <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
-    <!-- <style>
-        .bubbles {
-            stroke-width: 2px;
-            stroke: white;
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
         }
 
-        .bubbles:hover {
-            stroke: black;
+        function showDivs(n) {
+
+            var i;
+            // var x = document.getElementsByClassName("grids");
+            var navBtns = document.getElementsByClassName("nav-btn");
+            for (i = 0; i < navBtns.length; i++) {
+                navBtns[i].className = navBtns[i].className.replace(" active", "");
+            }
+            if (n == 2) {
+                window.location.href = "second.html";
+            }
+            if (n == 4) {
+                window.location.href = "fourth.html";
+            }
+            navBtns[slideIndex].className += " active";
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
-    </style> -->
-    <script type="text/javascript" src="libraries/third_bubble.js"></script>
+    </script>
 </body>
 
 </html>

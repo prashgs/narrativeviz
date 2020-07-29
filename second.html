@@ -1,22 +1,96 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrative Visualization-Fatal Shots</title>
+  <meta charset="UTF-8" />
   <script type="text/javascript" src="libraries/d3.v4.js"></script>
-  <script type="text/javascript" src="libraries/d3-scale-chromatic.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+
+  </style>
 </head>
 
 <body>
-  <!-- Create a div where the graph will take place -->
-  <div class="column equal">
-    <label style="float: left;font-size: smaller;" for="country">Choose a year:
-      <select class="box" id="selectButton"></select>
-        States: 
-        <button class="btn" id="top25">Top 25</button>
-        <button class="btn" id="bottom25">Bottom 25</button>
-    </label>
-    <div id="second_dataViz" style="float: center;"></div>
+  <!-- Navbar -->
+  <div class="topnav" id="myTopnav" style="background-color: black;">
+    <div>
+      <br>
+    </div>
   </div>
+
+  <!-- Second Grid -->
+  <div class="row grids" style="text-align:center;display: block;" id="second-grid">
+    <h1>
+      NUMBERS BY STATE
+    </h1>
+    <div class="column left card">
+      <h3>
+        California, Texas and Florida have the highest number of deaths
+      </h3>
+      <p>
+        California, Texas and Florida have been consistently ranked as states with highest number of deaths.
+        Arizona, Colorado, Georia and Washington state are trailing the top 3. These states also have some of the
+        highest population in the country.
+      </p>
+    </div>
+
+    <div class="column equal">
+      <label style="float: none;font-size: small;" for="country">Choose a year:
+        <select class="box" id="selectButton"></select>
+        <button class="btn" id="top25">Top half</button>
+        <button class="btn" id="bottom25">Bottom half</button>
+      </label>
+      <div id="second_dataViz" style="float: none;"></div>
+    </div>
+  </div>
+
   <script type="text/javascript" src="libraries/second.js"></script>
+
+  <div class="card" style="background-color: transparent;">
+    <button class="btn active nav-btn">Home</button>
+    <button class="btn nav-btn">1</button>
+    <button class="btn nav-btn">2</button>
+    <button class="btn nav-btn">3</button>
+    <button class="btn nav-btn">4</button>
+    <button class="btn" onclick="plusDivs(-1)">❮ Prev</button>
+    <button class="btn" onclick="plusDivs(1)">Next ❯</button>
+  </div>
+
+
+  <script>
+    var slideIndex = 2;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+
+      var i;
+      // var x = document.getElementsByClassName("grids");
+      var length = 5;
+      var navBtns = document.getElementsByClassName("nav-btn");
+      for (i = 0; i < navBtns.length; i++) {
+        navBtns[i].className = navBtns[i].className.replace(" active", "");
+      }
+      if (n == 1) {
+        window.location.href = "first.html";
+      }
+      if (n == 3) {
+        window.location.href = "third.html";
+      }
+      navBtns[slideIndex].className += " active";
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
 
 </html>
