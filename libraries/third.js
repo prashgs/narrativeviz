@@ -132,9 +132,10 @@ d3.csv("data/year_race_age_count_binned.csv")
       })
       .attr("r", 5)
       .style("fill", function (d) {
-        return ageColors(d.binned);
+        return yearBinsColors(d.binned);
       })
-      .style("opacity", 0.5);
+      .style("opacity", 0.7)
+      .attr("pointer-events", "all");
 
     scatter.append("g").attr("class", "brush").call(brush);
 
@@ -276,7 +277,7 @@ d3.csv("data/year_race_age_count_binned.csv")
           .text(
             "Year: " +
               scatterCircles.last().data()[0].year +
-              "Max Age: " +
+              " Max Age: " +
               scatterCircles.last().data()[0].age
           )
           .style("font-size", "small")
@@ -297,9 +298,9 @@ d3.csv("data/year_race_age_count_binned.csv")
           .attr("x", Number(scatterCircles.first().attr("cx")) - 10)
           .attr("y", height - 200)
           .text(
-            "Year " +
+            "Year: " +
               scatterCircles.first().data()[0].year +
-              ": Min Age: " +
+              " Min Age: " +
               scatterCircles.first().data()[0].age
           )
           .style("font-size", "small")
@@ -330,7 +331,7 @@ d3.csv("data/year_race_age_count_binned.csv")
         })
         .transition()
         .duration(800)
-        .style("opacity", 0.5);
+        .style("opacity", 0.7);
 
       drawAnnotations();
     }
