@@ -13,11 +13,20 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    svg.transition().duration(800);
+    d3.selection.prototype.first = function () {
+      return d3.select(this.nodes()[0]);
+    };
+    d3.selection.prototype.last = function () {
+      return d3.select(this.nodes()[this.size() - 1]);
+    };
+
   var tooltip = d3
     .select("#fourth-viz-tooltip")
     .append("div")
     .style("position", "absolute")
-    .style("visibility", "hidden");
+    .style("visibility", "hidden")
+    .attr("class", "tooltip");
 
   // List of subgroups = header of the csv files = soil condition here
   var deathPercentage = data.columns.slice(2, 3);
@@ -90,7 +99,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       return tooltip
         .style("top", event.pageY - 10 + "px")
         .style("left", event.pageX + 10 + "px")
-        .text(key + ":" + value + "%")
+        .html("year: " + "2019" + "<br/>" + key + ":" + value + "%")
         .style("font-size", "small");
     })
     .on("mouseout", function () {
@@ -149,4 +158,85 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .style("fill", "#A9A9A9")
     .style("font-size", "small")
     .text((d) => d);
+
+  drawAnnotations();
+  function drawAnnotations() {
+
+
+    var hElement = svg.selectAll(".bar-Hispanic");
+    var hString = hElement.first().attr("transform");
+    var hTranslate = hString
+      .substring(hString.indexOf("(") + 1, hString.indexOf(")"))
+      .split(",")[0];
+    var hXCoord =
+      Number(svg.selectAll(".bar-Hispanic rect").first().attr("x")) +
+      Number(svg.selectAll(".bar-Hispanic rect").first().attr("width")) +
+      Number(hTranslate);
+    var hYCoord =
+      Number(svg.selectAll(".bar-Black rect").first().attr("y")) +
+      Number(svg.selectAll(".bar-Black rect").first().attr("height")) / 2 -
+      20;
+
+    svg
+      .append("line")
+      .attr("class", "annotation-line")
+      .attr("x1", hXCoord)
+      .attr("y1", hYCoord - 40)
+      .attr("x2", hXCoord + 30)
+      .attr("y2", height - 200)
+      .attr("stroke", "grey");
+
+    svg
+      .append("circle")
+      .attr("class", "annotation-circle")
+      .attr("cx", hXCoord)
+      .attr("cy", hYCoord)
+      .attr("r", 40)
+      .style("stroke", "grey")
+      .style("fill", "none")
+      .text("Test");
+
+    var bElement = svg.selectAll(".bar-Black");
+    var bString = bElement.first().attr("transform");
+    var bTranslate = bString
+      .substring(bString.indexOf("(") + 1, bString.indexOf(")"))
+      .split(",")[0];
+    var bXCoord =
+      Number(svg.selectAll(".bar-Black rect").first().attr("x")) +
+      Number(svg.selectAll(".bar-Black rect").first().attr("width")) +
+      Number(bTranslate);
+    var bYCoord =
+      Number(svg.selectAll(".bar-Black rect").first().attr("y")) +
+      Number(svg.selectAll(".bar-Black rect").first().attr("height")) / 2 -
+      20;
+
+    svg
+      .append("line")
+      .attr("class", "annotation-line")
+      .attr("x1", bXCoord)
+      .attr("y1", bYCoord - 40)
+      .attr("x2", bXCoord - 30)
+      .attr("y2", height - 200)
+      .attr("stroke", "grey");
+
+    svg
+      .append("circle")
+      .attr("class", "annotation-circle")
+      .attr("cx", bXCoord)
+      .attr("cy", bYCoord)
+      .attr("r", 40)
+      .style("stroke", "grey")
+      .style("fill", "none")
+      .text("Test");
+
+    // console.log(bElement.first().data()[0]);
+    svg
+      .append("text")
+      .attr("class", "annotation-text")
+      .attr("x", bXCoord - 50)
+      .attr("y", height - 200)
+      .html("Diff in % Fatality & Population")
+      .style("font-size", "small")
+      .attr("stroke", "grey");
+  }
 });

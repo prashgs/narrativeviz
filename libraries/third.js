@@ -263,16 +263,24 @@ d3.csv("data/year_race_age_count_binned.csv")
         svg
           .append("line")
           .attr("class", "annotation-line")
+          .transition()
+          .duration(500)
           .attr("x1", scatterCircles.last().attr("cx"))
           .attr("y1", scatterCircles.last().attr("cy"))
           .attr("x2", scatterCircles.last().attr("cx"))
           .attr("y2", height - 200)
+          .transition()
+          .duration(500)
           .attr("stroke", "grey");
 
         svg
           .append("text")
+          .transition()
+          .duration(500)
           .attr("class", "annotation-text")
           .attr("x", Number(scatterCircles.last().attr("cx")) - 80)
+          .transition()
+          .duration(500)
           .attr("y", height - 200)
           .text(
             "Year: " +
@@ -286,17 +294,25 @@ d3.csv("data/year_race_age_count_binned.csv")
         svg
           .append("line")
           .attr("class", "annotation-line")
+          .transition()
+          .duration(500)
           .attr("x1", scatterCircles.first().attr("cx"))
           .attr("y1", scatterCircles.first().attr("cy"))
           .attr("x2", scatterCircles.first().attr("cx"))
-          .attr("y2", height - 200)
+          .attr("y2", height - 300)
+          .transition()
+          .duration(500)
           .attr("stroke", "grey");
 
         svg
           .append("text")
+          .transition()
+          .duration(500)
           .attr("class", "annotation-text")
           .attr("x", Number(scatterCircles.first().attr("cx")) - 10)
-          .attr("y", height - 200)
+          .transition()
+          .duration(500)
+          .attr("y", height - 300)
           .text(
             "Year: " +
               scatterCircles.first().data()[0].year +
@@ -322,10 +338,13 @@ d3.csv("data/year_race_age_count_binned.csv")
         .attr("cx", function (d) {
           return x(d.age);
         })
+
         .attr("cy", function (d) {
           return y(d.count);
         })
+
         .attr("r", 5)
+        .transition()
         .style("fill", function (d) {
           return yearBinsColors(d.binned);
         })
