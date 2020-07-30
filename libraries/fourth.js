@@ -53,13 +53,12 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-    d3.selection.prototype.first = function () {
-      return d3.select(this.nodes()[0]);
-    };
-    d3.selection.prototype.last = function () {
-      return d3.select(this.nodes()[this.size() - 1]);
-    };
+  d3.selection.prototype.first = function () {
+    return d3.select(this.nodes()[0]);
+  };
+  d3.selection.prototype.last = function () {
+    return d3.select(this.nodes()[this.size() - 1]);
+  };
 
   var tooltip = d3
     .select("#fourth-viz-tooltip")
@@ -201,8 +200,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
 
   drawAnnotations();
   function drawAnnotations() {
-
-
     var hElement = svg.selectAll(".bar-Hispanic");
     var hString = hElement.first().attr("transform");
     var hTranslate = hString

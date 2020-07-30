@@ -127,6 +127,7 @@ d3.csv("data/year_race_age_count_binned.csv")
     var tooltip = d3
       .select("#third-viz-tooltip")
       .append("div")
+      .attr("class", "tooltip")
       .style("position", "absolute")
       .style("visibility", "hidden");
 
@@ -155,7 +156,8 @@ d3.csv("data/year_race_age_count_binned.csv")
       .data(filteredData)
       .enter()
       .append("circle")
-
+      .on("mouseover", handleMouseOver)
+      .on("mouseout", handleMouseOut)
       .attr("class", "scatterCircle")
       .attr("cx", function (d) {
         return x(d.age);
@@ -163,17 +165,49 @@ d3.csv("data/year_race_age_count_binned.csv")
       .attr("cy", function (d) {
         return y(d.count);
       })
-      .attr("r", 8)
-      .transition().duration(800)
-      .attr("r", 5)
-      .transition().duration(1000)
+      .style("fill","lightgrey")
+      .attr("r", 10)
+      .transition()
+      .duration(800)
+      .attr("r", r)
+      .transition()
+      .duration(1000)
       .style("fill", function (d) {
         return yearBinsColors(d.binned);
       })
-      .style("opacity", 0.7)
-      .attr("pointer-events", "all");
+      .style("opacity", 0.7);
 
-    scatter.append("g").attr("class", "brush").call(brush);
+
+    // Create Event Handlers for mouse
+    function handleMouseOver(d, i) {
+      d3.select(this).attr("r", Number(r) * 2);
+      tooltip.style("visibility", "visible");
+      return tooltip
+        .html(
+          "Year: " +
+            d.year +
+            "<br/>" +
+            "Age: " +
+            d.age +
+            "<br/>" +
+            "Count: " +
+            d.count
+        )
+        .style("top", event.pageY - 10 + "px")
+        .style("left", event.pageX + 10 + "px")
+        .style("font-size", "small");
+    }
+
+    function handleMouseOut(d, i) {
+      // Use D3 to select element, change color back to normal
+      d3.select(this).attr("r", Number(r));
+      return tooltip.style("visibility", "hidden");
+
+      //   // Select text by id and then remove
+      //   d3.select("#t" + d.x + "-" + d.y + "-" + i).remove(); // Remove text location
+    }
+
+    // scatter.append("g").attr("class", "brush").call(brush);
 
     var idleTimeout;
     function idled() {
@@ -370,23 +404,27 @@ d3.csv("data/year_race_age_count_binned.csv")
         .data(filteredData)
         .enter()
         .append("circle")
+        .on("mouseover", handleMouseOver)
+        .on("mouseout", handleMouseOut)
         .attr("class", "scatterCircle")
         .attr("cx", function (d) {
+          console.log(d);
           return x(d.age);
         })
 
         .attr("cy", function (d) {
           return y(d.count);
         })
-
-        .attr("r", 5)
+        .style("fill","lightgrey")
+        .attr("r", 10)
         .transition()
-        .duration(1000)
+        .duration(800)
+        .attr("r", r)
+        .transition()
+        .duration(800)
         .style("fill", function (d) {
           return yearBinsColors(d.binned);
         })
-        .transition()
-        .duration(1000)
         .style("opacity", 0.7);
 
       drawAnnotations();
