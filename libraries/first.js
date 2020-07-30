@@ -77,6 +77,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
         .axisBottom(x)
         .ticks(12)
         .tickFormat((d, i) => months[i])
+        .tickSizeOuter(0)
     )
     .attr("class", "x-axis");
 

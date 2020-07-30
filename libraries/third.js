@@ -114,12 +114,12 @@ d3.csv("data/year_race_age_count_binned.csv")
 
     var x = d3
       .scaleLinear()
-      .domain([0, maxAge + 10])
+      .domain([0, maxAge+5])
       .range([0, width]);
     var xAxis = svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).tickSizeOuter(0));
 
     var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
     svg.append("g").call(d3.axisLeft(y));
