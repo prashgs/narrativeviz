@@ -200,5 +200,15 @@ div.tooltip {
 }
 
 .bar:hover {
-  fill: orangered ;
+  fill: orangered;
+}
+
+footer {
+  bottom: 2px;
+  height: 40px;
+  margin-top: 40px;
+  text-align: center;
+  vertical-align: middle;
+  position: fixed;
+  width: 100%;
 }
