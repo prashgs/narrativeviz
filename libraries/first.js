@@ -279,7 +279,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .append("text")
     .attr("x", last2020Circle.attr("cx"))
     .attr("y", Number(last2020Circle.attr("cy")) + 60)
-    .text("May 2020: 365")
+    .html("May 2020: 365 & " + "<br/>" + "Slight upward tick")
     .style("font-size", "small")
     .attr("stroke", "grey");
 });
