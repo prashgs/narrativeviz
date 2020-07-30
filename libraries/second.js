@@ -260,7 +260,7 @@ d3.csv("data/year_state_statecode_count.csv")
       .attr("x", width / 2 + margin.left)
       .attr("y", height + margin.top + 20)
       .text("US States")
-      .attr("font-size", "smaller");
+      .attr("font-size", "small");
 
     // Y axis label:
     svg
@@ -270,5 +270,5 @@ d3.csv("data/year_state_statecode_count.csv")
       .attr("y", -margin.left + 10)
       .attr("x", -margin.top - height / 2 + 10)
       .text("Fatality count")
-      .attr("font-size", "smaller");
+      .attr("font-size", "small");
   });

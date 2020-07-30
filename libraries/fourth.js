@@ -116,19 +116,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     })
     .enter()
     .append("rect")
-    .attr("x", function (d) {
-      return xSubgroup(d.key);
-    })
-    .attr("y", function (d) {
-      return y(d.value);
-    })
-    .attr("width", xSubgroup.bandwidth())
-    .attr("height", function (d) {
-      return height - y(d.value);
-    })
-    .attr("fill", function (d) {
-      return color(d.key);
-    })
     .on("mouseover", function () {
       return tooltip.style("visibility", "visible");
     })
@@ -143,6 +130,25 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     })
     .on("mouseout", function () {
       return tooltip.style("visibility", "hidden");
+    })
+    .attr("x", function (d) {
+      return xSubgroup(d.key);
+    })
+    .attr("y", function (d) {
+      return y(d.value);
+    })
+    .attr("width", xSubgroup.bandwidth())
+    .attr("height", function (d) {
+      return height - y(d.value);
+    })
+    .transition()
+    .duration(800)
+    .attr("fill", function (d) {
+      return "lightgrey";
+    })
+    .transition()
+    .attr("fill", function (d) {
+      return color(d.key);
     });
 
   svg
