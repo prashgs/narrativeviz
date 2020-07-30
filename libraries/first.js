@@ -167,7 +167,8 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("stroke", (d) => yearColors(d.key))
     .attr("stroke-width", 2)
     .datum((d) => d.values)
-    .attr("d", line);
+    .attr("d", line)
+    .transition();
 
   svg
     .selectAll("myDots")

@@ -155,6 +155,7 @@ d3.csv("data/year_race_age_count_binned.csv")
       .data(filteredData)
       .enter()
       .append("circle")
+
       .attr("class", "scatterCircle")
       .attr("cx", function (d) {
         return x(d.age);
@@ -162,7 +163,10 @@ d3.csv("data/year_race_age_count_binned.csv")
       .attr("cy", function (d) {
         return y(d.count);
       })
+      .attr("r", 8)
+      .transition().duration(800)
       .attr("r", 5)
+      .transition().duration(1000)
       .style("fill", function (d) {
         return yearBinsColors(d.binned);
       })

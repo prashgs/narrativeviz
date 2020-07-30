@@ -187,7 +187,7 @@ d3.csv("data/year_state_statecode_count.csv")
           return y(+d.count);
         })
         .transition()
-        .duration(1000)
+        .duration(800)
         .attr("height", function (d) {
           return height - y(+d.count);
         })

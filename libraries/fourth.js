@@ -53,7 +53,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    svg.transition().duration(800);
+
     d3.selection.prototype.first = function () {
       return d3.select(this.nodes()[0]);
     };
