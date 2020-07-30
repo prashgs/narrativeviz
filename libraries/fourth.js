@@ -164,7 +164,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
-    .attr("y", -margin.left + 30)
+    .attr("y", -margin.left + 20)
     .attr("x", -margin.top - height / 2 + 10)
     .text("Percentage")
     .style("font-size", "small");
@@ -227,7 +227,9 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .attr("y1", hYCoord - 40)
       .attr("x2", hXCoord + 30)
       .attr("y2", height - 200)
-      .attr("stroke", "grey");
+      .attr("stroke", "darkgrey")
+      .style('stroke-width', '2px')
+      .style('stroke-dasharray', '5,3');
 
     svg
       .append("circle")
@@ -260,7 +262,9 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .attr("y1", bYCoord - 40)
       .attr("x2", bXCoord - 30)
       .attr("y2", height - 200)
-      .attr("stroke", "grey");
+      .attr("stroke", "darkgrey")
+      .style('stroke-width', '2px')
+      .style('stroke-dasharray', '5,3');
 
     svg
       .append("circle")
@@ -269,8 +273,7 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .attr("cy", bYCoord)
       .attr("r", 40)
       .style("stroke", "grey")
-      .style("fill", "none")
-      .text("Test");
+      .style("fill", "none");
 
     // console.log(bElement.first().data()[0]);
     svg

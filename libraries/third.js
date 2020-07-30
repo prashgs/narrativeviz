@@ -258,7 +258,7 @@ d3.csv("data/year_race_age_count_binned.csv")
       .append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 30)
+      .attr("y", -margin.left + 20)
       .attr("x", -margin.top - height / 2 + 10)
       .text("Fatality count")
       .style("font-size", "small");
@@ -341,7 +341,9 @@ d3.csv("data/year_race_age_count_binned.csv")
           .attr("y2", height - 200)
           .transition()
           .duration(500)
-          .attr("stroke", "grey");
+          .attr("stroke", "darkgrey")
+          .style('stroke-width', '2px')
+          .style('stroke-dasharray', '5,3');
 
         svg
           .append("text")
@@ -372,7 +374,9 @@ d3.csv("data/year_race_age_count_binned.csv")
           .attr("y2", height - 300)
           .transition()
           .duration(500)
-          .attr("stroke", "grey");
+          .attr("stroke", "darkgrey")
+          .style('stroke-width', '2px')
+          .style('stroke-dasharray', '5,3');
 
         svg
           .append("text")

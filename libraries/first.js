@@ -274,7 +274,9 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("y1", last2020Circle.attr("cy"))
     .attr("x2", Number(last2020Circle.attr("cx")) + 20)
     .attr("y2", Number(last2020Circle.attr("cy")) + 60)
-    .attr("stroke", "grey");
+    .attr("stroke", "darkgrey")
+    .style('stroke-width', '2px')
+    .style('stroke-dasharray', '5,3');
 
   svg
     .append("text")
