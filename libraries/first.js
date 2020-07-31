@@ -98,13 +98,20 @@ d3.csv("data/year_month_count_3.csv", (d) => {
   var yAxis = d3.axisLeft(y);
   svg.append("g").attr("class", "y-axis").call(yAxis);
 
+  svg
+    .append("text")
+    .text("Click to choose:")
+    .attr("x", width - margin.right - 70)
+    .style("fill", "#A9A9A9")
+    .style("font-size", "small");
+
   // CREATE LEGEND //
   var svgLegend = svg
     .append("g")
     .attr("class", "gLegend")
     .attr(
       "transform",
-      "translate(" + (width - margin.right - 30) + "," + margin.top + ")"
+      "translate(" + (width - margin.right - 30) + "," + (margin.top + 10) + ")"
     );
 
   var legend = svgLegend
@@ -136,12 +143,15 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .on("click", function (d) {
       lineOpacity = d3.selectAll(".line-" + d).style("opacity");
       dotOpacity = d3.selectAll(".dot-" + d).style("opacity");
-      d3.selectAll(".line-" + d)
-        .transition()
-        .style("opacity", lineOpacity == 1 ? 0 : 1);
-      d3.selectAll(".dot-" + d)
-        .transition()
-        .style("opacity", dotOpacity == 1 ? 0 : 1);
+
+      if (d !== "2020") {
+        d3.selectAll(".line-" + d)
+          .transition()
+          .style("opacity", lineOpacity == 1 ? 0 : 1);
+        d3.selectAll(".dot-" + d)
+          .transition()
+          .style("opacity", dotOpacity == 1 ? 0 : 1);
+      }
     });
 
   var data_nested = d3
@@ -269,17 +279,18 @@ d3.csv("data/year_month_count_3.csv", (d) => {
 
   svg
     .append("line")
-    .attr("class", "annotation-line")
+    .attr("class", "annotation")
     .attr("x1", last2020Circle.attr("cx"))
     .attr("y1", last2020Circle.attr("cy"))
     .attr("x2", Number(last2020Circle.attr("cx")) + 20)
     .attr("y2", Number(last2020Circle.attr("cy")) + 60)
     .attr("stroke", "darkgrey")
-    .style('stroke-width', '2px')
-    .style('stroke-dasharray', '5,3');
+    .style("stroke-width", "2px")
+    .style("stroke-dasharray", "5,3");
 
   svg
     .append("text")
+    .attr("class", "annotation")
     .attr("x", last2020Circle.attr("cx"))
     .attr("y", Number(last2020Circle.attr("cy")) + 60)
     .html("May 2020: 365 & " + "<br/>" + "Slight upward tick")
