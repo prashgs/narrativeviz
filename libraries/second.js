@@ -182,7 +182,7 @@ d3.csv("data/year_state_statecode_count.csv")
         .selectAll("rect")
         .attr("fill", selectedColor)
         .transition()
-        .duration(1000)
+        .duration(800)
         .attr("y", function (d) {
           return y(+d.count);
         })
@@ -205,7 +205,7 @@ d3.csv("data/year_state_statecode_count.csv")
         .classed("bar-value", true)
         .style("font-size", "x-small")
         .transition()
-        .duration(1000)
+        .duration(800)
         .attr("x", function (d, i) {
           return x(d.statecode) + x.bandwidth() / 2;
         })
