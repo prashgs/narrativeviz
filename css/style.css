@@ -111,6 +111,22 @@ h6 {
   font-family: "Lato", sans-serif;
 }
 
+
+h1 {
+    background-color: dodgerblue;
+    opacity: 0.5;
+    color: whitesmoke;
+}
+
+h3 {
+  opacity: 1;
+  color: grey;
+}
+
+p {
+  opacity: 1;
+  color: grey;
+}
 .fa-anchor,
 .fa-coffee {
   font-size: 200px;
