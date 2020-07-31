@@ -111,21 +111,20 @@ h6 {
   font-family: "Lato", sans-serif;
 }
 
-
 h1 {
-    background-color: dodgerblue;
-    opacity: 0.8;
-    color: white;
+  background-color: dodgerblue;
+  opacity: 1;
+  color: white;
 }
 
 h3 {
   opacity: 1;
-  color: grey;
+  color: rgb(83, 83, 83);
 }
 
 p {
   opacity: 1;
-  color: grey;
+  color: rgb(100, 100, 100);
 }
 .fa-anchor,
 .fa-coffee {
@@ -182,6 +181,16 @@ p {
   background-color: #f1f1f1;
 }
 
+.column.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  animation-name: anim;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  background-color: #f1f1f1;
+}
+
 .btn {
   border: none;
   outline: none;
@@ -227,4 +236,13 @@ footer {
   vertical-align: middle;
   position: fixed;
   width: 100%;
+}
+
+@keyframes anim {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
 }
