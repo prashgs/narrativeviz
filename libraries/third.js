@@ -114,7 +114,7 @@ d3.csv("data/year_race_age_count_binned.csv")
 
     var x = d3
       .scaleLinear()
-      .domain([0, maxAge+5])
+      .domain([0, maxAge + 5])
       .range([0, width]);
     var xAxis = svg
       .append("g")
@@ -165,7 +165,7 @@ d3.csv("data/year_race_age_count_binned.csv")
       .attr("cy", function (d) {
         return y(d.count);
       })
-      .style("fill","lightgrey")
+      .style("fill", "lightgrey")
       .attr("r", 10)
       .transition()
       .duration(800)
@@ -176,7 +176,6 @@ d3.csv("data/year_race_age_count_binned.csv")
         return yearBinsColors(d.binned);
       })
       .style("opacity", 0.7);
-
 
     // Create Event Handlers for mouse
     function handleMouseOver(d, i) {
@@ -309,11 +308,10 @@ d3.csv("data/year_race_age_count_binned.csv")
           .style("opacity", dotOpacity == 1 ? 0 : 1);
       });
 
-
-      svg
+    svg
       .append("text")
       .text("<-Hover")
-      .attr("x", width - margin.right-40)
+      .attr("x", width - margin.right - 40)
       .attr("y", height - margin.bottom)
       .style("font-size", "small");
 
@@ -350,8 +348,8 @@ d3.csv("data/year_race_age_count_binned.csv")
           .transition()
           .duration(500)
           .attr("stroke", "darkgrey")
-          .style('stroke-width', '2px')
-          .style('stroke-dasharray', '5,3');
+          .style("stroke-width", "2px")
+          .style("stroke-dasharray", "5,3");
 
         svg
           .append("text")
@@ -383,8 +381,8 @@ d3.csv("data/year_race_age_count_binned.csv")
           .transition()
           .duration(500)
           .attr("stroke", "darkgrey")
-          .style('stroke-width', '2px')
-          .style('stroke-dasharray', '5,3');
+          .style("stroke-width", "2px")
+          .style("stroke-dasharray", "5,3");
 
         svg
           .append("text")
@@ -427,7 +425,7 @@ d3.csv("data/year_race_age_count_binned.csv")
         .attr("cy", function (d) {
           return y(d.count);
         })
-        .style("fill","lightgrey")
+        .style("fill", "lightgrey")
         .attr("r", 10)
         .transition()
         .duration(800)
