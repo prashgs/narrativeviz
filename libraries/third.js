@@ -309,6 +309,14 @@ d3.csv("data/year_race_age_count_binned.csv")
           .style("opacity", dotOpacity == 1 ? 0 : 1);
       });
 
+
+      svg
+      .append("text")
+      .text("<-Hover")
+      .attr("x", width - margin.right-40)
+      .attr("y", height - margin.bottom)
+      .style("font-size", "small");
+
     drawAnnotations();
 
     d3.select("#third-grid select").on("change", function (d) {
