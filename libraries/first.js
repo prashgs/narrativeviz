@@ -297,3 +297,4 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .style("font-size", "small")
     .attr("stroke", "grey");
 });
+
