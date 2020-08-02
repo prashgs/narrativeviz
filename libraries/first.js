@@ -134,7 +134,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
   legend
     .append("text")
     .attr("class", "legend-text")
-    .attr("class", "w3-button")
+    .attr("class", "btn")
     .attr("x", r * 2)
     .attr("y", r / 2)
     .style("fill", "#A9A9A9")
@@ -282,8 +282,8 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("class", "annotation")
     .attr("x1", last2020Circle.attr("cx"))
     .attr("y1", last2020Circle.attr("cy"))
-    .attr("x2", Number(last2020Circle.attr("cx")) + 20)
-    .attr("y2", Number(last2020Circle.attr("cy")) + 60)
+    .attr("x2", last2020Circle.attr("cx"))
+    .attr("y2", height - 250)
     .attr("stroke", "darkgrey")
     .style("stroke-width", "2px")
     .style("stroke-dasharray", "5,3");
@@ -291,9 +291,9 @@ d3.csv("data/year_month_count_3.csv", (d) => {
   svg
     .append("text")
     .attr("class", "annotation")
-    .attr("x", last2020Circle.attr("cx"))
-    .attr("y", Number(last2020Circle.attr("cy")) + 60)
-    .html("May 2020: 365 & " + "<br/>" + "Slight upward tick")
+    .attr("x", last2020Circle.attr("cx")-110)
+    .attr("y", height - 250)
+    .html("May 2020: 365 & " + "<br/>" + "slight uptick")
     .style("font-size", "small")
     .attr("stroke", "grey");
 });

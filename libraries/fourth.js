@@ -224,22 +224,22 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .append("line")
       .attr("class", "annotation-line")
       .attr("x1", hXCoord)
-      .attr("y1", hYCoord - 40)
-      .attr("x2", hXCoord + 30)
+      .attr("y1", hYCoord)
+      .attr("x2", hXCoord)
       .attr("y2", height - 200)
       .attr("stroke", "darkgrey")
       .style('stroke-width', '2px')
       .style('stroke-dasharray', '5,3');
 
-    svg
-      .append("circle")
-      .attr("class", "annotation-circle")
-      .attr("cx", hXCoord)
-      .attr("cy", hYCoord)
-      .attr("r", 40)
-      .style("stroke", "grey")
-      .style("fill", "none")
-      .text("Test");
+    // svg
+    //   .append("circle")
+    //   .attr("class", "annotation-circle")
+    //   .attr("cx", hXCoord)
+    //   .attr("cy", hYCoord)
+    //   .attr("r", 40)
+    //   .style("stroke", "grey")
+    //   .style("fill", "none")
+    //   .text("Test");
 
     var bElement = svg.selectAll(".bar-Black");
     var bString = bElement.first().attr("transform");
@@ -260,20 +260,20 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .attr("class", "annotation-line")
       .attr("x1", bXCoord)
       .attr("y1", bYCoord - 40)
-      .attr("x2", bXCoord - 30)
+      .attr("x2", bXCoord)
       .attr("y2", height - 200)
       .attr("stroke", "darkgrey")
       .style('stroke-width', '2px')
       .style('stroke-dasharray', '5,3');
 
-    svg
-      .append("circle")
-      .attr("class", "annotation-circle")
-      .attr("cx", bXCoord)
-      .attr("cy", bYCoord)
-      .attr("r", 40)
-      .style("stroke", "grey")
-      .style("fill", "none");
+    // svg
+    //   .append("circle")
+    //   .attr("class", "annotation-circle")
+    //   .attr("cx", bXCoord)
+    //   .attr("cy", bYCoord)
+    //   .attr("r", 40)
+    //   .style("stroke", "grey")
+    //   .style("fill", "none");
 
     // console.log(bElement.first().data()[0]);
     svg
