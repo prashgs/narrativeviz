@@ -82,10 +82,15 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
   svg
     .append("g")
     .attr("transform", "translate(0," + height + ")")
+    .transition()
+    .duration(800)
     .call(d3.axisBottom(x).tickSize(0));
 
   var y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-  svg.append("g").call(d3.axisLeft(y));
+  svg.append("g")
+  .transition()
+  .duration(800)
+  .call(d3.axisLeft(y));
 
   var xSubgroup = d3
     .scaleBand()
@@ -153,16 +158,25 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .append("text")
     .attr("text-anchor", "end")
     .attr("x", width / 2 + margin.left)
+    .transition()
+    .duration(800)
     .attr("y", height + margin.top + 20)
-    .style("font-size", "small")
-    .text("Race");
+    .transition()
+    .duration(800)
+    .text("Race")
+    .style("font-size", "small");
+
 
   svg
     .append("text")
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
     .attr("y", -margin.left + 20)
+    .transition()
+    .duration(800)
     .attr("x", -margin.top - height / 2 + 10)
+    .transition()
+    .duration(800)
     .text("Percentage")
     .style("font-size", "small");
 

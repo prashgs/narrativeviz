@@ -126,10 +126,6 @@ p {
   opacity: 1;
   color: rgb(100, 100, 100);
 }
-.fa-anchor,
-.fa-coffee {
-  font-size: 200px;
-}
 
 .grids {
   display: none;

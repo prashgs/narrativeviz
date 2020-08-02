@@ -71,6 +71,8 @@ d3.csv("data/year_month_count_3.csv", (d) => {
   svg
     .append("g")
     .attr("transform", "translate(0," + height + ")")
+    .transition()
+    .duration(800)
     .call(
       d3
         .axisBottom(x)
@@ -82,7 +84,12 @@ d3.csv("data/year_month_count_3.csv", (d) => {
 
   var y = d3.scaleLinear().domain([0, 1100]).range([height, margin.top]);
   var yAxis = d3.axisLeft(y);
-  svg.append("g").attr("class", "y-axis").call(yAxis);
+  svg
+  .append("g")
+  .attr("class", "y-axis")
+  .transition()
+  .duration(800)
+  .call(yAxis);
 
   svg
     .append("text")
@@ -245,8 +252,12 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .append("text")
     .attr("text-anchor", "end")
     .attr("x", width / 2 + margin.left)
+    .transition()
+    .duration(800)
     .attr("y", height + margin.top + 20)
     .style("font-size", "small")
+    .transition()
+    .duration(800)
     .text("Months");
 
   // Y axis label:
@@ -255,7 +266,11 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("text-anchor", "end")
     .attr("transform", "rotate(-90)")
     .attr("y", -margin.left + 20)
+    .transition()
+    .duration(800)
     .attr("x", -margin.top - height / 2 + 10)
+    .transition()
+    .duration(800)
     .text("Fatality count")
     .style("font-size", "small");
 

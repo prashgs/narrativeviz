@@ -131,7 +131,11 @@ d3.csv("data/year_state_statecode_count.csv")
       .scaleLinear()
       .domain([0, yMax + 10])
       .range([height, 0]);
-    svg.append("g").call(d3.axisLeft(y));
+    svg
+    .append("g")
+    .transition()
+    .duration(800)
+    .call(d3.axisLeft(y));
 
     function update(selectedYear, selectedColor, top, bottom) {
       topData = getTop(
@@ -253,7 +257,11 @@ d3.csv("data/year_state_statecode_count.csv")
       .append("text")
       .attr("text-anchor", "end")
       .attr("x", width / 2 + margin.left)
+      .transition()
+      .duration(800)
       .attr("y", height + margin.top + 20)
+      .transition()
+      .duration(800)
       .text("US States")
       .attr("font-size", "small");
 
@@ -263,7 +271,11 @@ d3.csv("data/year_state_statecode_count.csv")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left + 20)
+      .transition()
+      .duration(800)
       .attr("x", -margin.top - height / 2 + 10)
+      .transition()
+      .duration(800)
       .text("Fatality count")
       .attr("font-size", "small");
   });

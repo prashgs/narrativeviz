@@ -119,10 +119,15 @@ d3.csv("data/year_race_age_count_binned.csv")
     var xAxis = svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
+      .transition()
+      .duration(800)
       .call(d3.axisBottom(x).tickSizeOuter(0));
 
     var y = d3.scaleLinear().domain([0, maxCount]).range([height, 0]);
-    svg.append("g").call(d3.axisLeft(y));
+    svg.append("g")
+    .transition()
+    .duration(800)
+    .call(d3.axisLeft(y));
 
     var tooltip = d3
       .select("#third-viz-tooltip")
@@ -239,16 +244,25 @@ d3.csv("data/year_race_age_count_binned.csv")
       .append("text")
       .attr("text-anchor", "end")
       .attr("x", width / 2 + margin.left)
+      .transition()
+      .duration(800)
       .attr("y", height + margin.top + 15)
-      .style("font-size", "small")
-      .text("Age");
+      .transition()
+      .duration(800)
+      .text("Age")
+      .style("font-size", "small");
+
 
     svg
       .append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left + 20)
+      .transition()
+      .duration(800)
       .attr("x", -margin.top - height / 2 + 10)
+      .transition()
+      .duration(800)
       .text("Fatality count")
       .style("font-size", "small");
 
