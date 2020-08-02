@@ -2,7 +2,7 @@ var glines;
 var mouseG;
 var tooltip;
 var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
-// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
+
 var yearColors = d3
   .scaleOrdinal()
   .domain(years)
@@ -74,7 +74,6 @@ d3.csv("data/year_state_statecode_count.csv")
         .slice(top, bottom);
     }
 
-    // append the svg object to the body of the page
     var svg = d3
       .select("#second_dataViz")
       .append("svg")
@@ -91,7 +90,7 @@ d3.csv("data/year_state_statecode_count.csv")
       .append("option")
       .text(function (d) {
         return d;
-      }) // text showed in the menu
+      })
       .attr("value", function (d) {
         return d;
       });
@@ -135,14 +134,12 @@ d3.csv("data/year_state_statecode_count.csv")
     svg.append("g").call(d3.axisLeft(y));
 
     function update(selectedYear, selectedColor, top, bottom) {
-      // Create new data with the selection?
       topData = getTop(
         sortDataByCount(filterData(data, selectedYear)),
         top,
         bottom
       );
 
-      // Give these new data to update line
       x.domain(
         topData.map(function (d) {
           return d.statecode;
@@ -159,7 +156,6 @@ d3.csv("data/year_state_statecode_count.csv")
 
       d3.selectAll(".bar").remove();
 
-      // Bars
       svg
         .selectAll("rect")
         .data(topData)
@@ -177,7 +173,6 @@ d3.csv("data/year_state_statecode_count.csv")
           return y(0);
         });
 
-      // Animation
       svg
         .selectAll("rect")
         .attr("fill", selectedColor)
@@ -212,7 +207,7 @@ d3.csv("data/year_state_statecode_count.csv")
         .attr("y", height)
         .transition("label")
         .delay(function (d, i) {
-          return i * 50; // gives it a smoother effect
+          return i * 50;
         })
         .transition()
         .duration(1000)

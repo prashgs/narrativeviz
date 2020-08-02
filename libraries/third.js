@@ -2,7 +2,7 @@ var glines;
 var mouseG;
 var tooltip;
 var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
-// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
+
 var yearColors = d3
   .scaleOrdinal()
   .domain(years)
@@ -177,7 +177,6 @@ d3.csv("data/year_race_age_count_binned.csv")
       })
       .style("opacity", 0.7);
 
-    // Create Event Handlers for mouse
     function handleMouseOver(d, i) {
       d3.select(this).attr("r", Number(r) * 2);
       tooltip.style("visibility", "visible");
@@ -198,15 +197,9 @@ d3.csv("data/year_race_age_count_binned.csv")
     }
 
     function handleMouseOut(d, i) {
-      // Use D3 to select element, change color back to normal
       d3.select(this).attr("r", Number(r));
       return tooltip.style("visibility", "hidden");
-
-      //   // Select text by id and then remove
-      //   d3.select("#t" + d.x + "-" + d.y + "-" + i).remove(); // Remove text location
     }
-
-    // scatter.append("g").attr("class", "brush").call(brush);
 
     var idleTimeout;
     function idled() {
@@ -219,9 +212,6 @@ d3.csv("data/year_race_age_count_binned.csv")
       if (!extent) {
         if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350));
         x.domain([0, maxAge + 10]);
-        // console.log("If Not extent");
-        // d3.selectAll("#third_dataViz .annotation-line").remove();
-        // d3.selectAll("#third_dataViz .annotation-text").remove();
         drawAnnotations();
       } else {
         x.domain([x.invert(extent[0]), x.invert(extent[1])]);

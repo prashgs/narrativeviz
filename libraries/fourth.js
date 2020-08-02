@@ -2,7 +2,7 @@ var glines;
 var mouseG;
 var tooltip;
 var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
-// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
+
 var yearColors = d3
   .scaleOrdinal()
   .domain(years)
@@ -67,20 +67,17 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
     .style("visibility", "hidden")
     .attr("class", "tooltip");
 
-  // List of subgroups = header of the csv files = soil condition here
   var deathPercentage = data.columns.slice(2, 3);
   var populationPercentage = data.columns.slice(5);
 
   var subgroups = [deathPercentage, populationPercentage];
 
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
   var groups = d3
     .map(data, function (d) {
       return d.race;
     })
     .keys();
 
-  // Add X axis
   var x = d3.scaleBand().domain(groups).range([0, width]).padding([0.2]);
   svg
     .append("g")
@@ -231,16 +228,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .style('stroke-width', '2px')
       .style('stroke-dasharray', '5,3');
 
-    // svg
-    //   .append("circle")
-    //   .attr("class", "annotation-circle")
-    //   .attr("cx", hXCoord)
-    //   .attr("cy", hYCoord)
-    //   .attr("r", 40)
-    //   .style("stroke", "grey")
-    //   .style("fill", "none")
-    //   .text("Test");
-
     var bElement = svg.selectAll(".bar-Black");
     var bString = bElement.first().attr("transform");
     var bTranslate = bString
@@ -266,16 +253,6 @@ d3.csv("data/race_count_population_ratio.csv", function (data) {
       .style('stroke-width', '2px')
       .style('stroke-dasharray', '5,3');
 
-    // svg
-    //   .append("circle")
-    //   .attr("class", "annotation-circle")
-    //   .attr("cx", bXCoord)
-    //   .attr("cy", bYCoord)
-    //   .attr("r", 40)
-    //   .style("stroke", "grey")
-    //   .style("fill", "none");
-
-    // console.log(bElement.first().data()[0]);
     svg
       .append("text")
       .attr("class", "annotation-text")

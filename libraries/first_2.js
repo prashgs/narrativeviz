@@ -2,6 +2,7 @@ var glines;
 var mouseG;
 var tooltip;
 var years = ["2015", "2016", "2017", "2018", "2019", "2020"];
+// var myColor = d3.scaleOrdinal().domain([0, 4]).range(d3.schemeSet1);
 var yearColors = d3
   .scaleOrdinal()
   .domain(years)
@@ -80,6 +81,19 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     )
     .attr("class", "x-axis");
 
+  // var x = d3
+  //   .scalePoint()
+  //   .domain(monthNames)
+  //   .range([0, width - margin.right - 50]);
+  // var xAxis = d3.axisBottom(x).tickSizeOuter(0);
+  // svg
+  //   .append("g")
+  //   .attr("class", "x-axis")
+  //   .attr("transform", "translate(0," + height + ")")
+  //   .attr("class", "x-axis")
+  //   .call(xAxis);
+
+  // Add Y axis
   var y = d3.scaleLinear().domain([0, 1100]).range([height, margin.top]);
   var yAxis = d3.axisLeft(y);
   svg.append("g").attr("class", "y-axis").call(yAxis);
@@ -164,8 +178,7 @@ d3.csv("data/year_month_count_3.csv", (d) => {
     .attr("stroke", (d) => yearColors(d.key))
     .attr("stroke-width", 2)
     .datum((d) => d.values)
-    .attr("d", line)
-    .transition();
+    .attr("d", line);
 
   svg
     .selectAll("myDots")
